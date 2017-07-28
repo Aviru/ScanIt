@@ -1,0 +1,31 @@
+//
+//  ScanIt-Prefix.pch
+//  ScanIt
+//
+//  Created by Aviru bhattacharjee on 24/02/16.
+//  Copyright © 2016 Aviru bhattacharjee. All rights reserved.
+//
+
+#ifndef ScanIt_Prefix_pch
+#define ScanIt_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "AppDelegate.h"
+#import "SWRevealViewController.h"
+#import "superViewController.h"
+#import "ScanIt-Constant.h"
+#import "AFNetworking.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <CloudSight.h>
+#import <STTweetLabel.h>
+#import <CoreData/CoreData.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+#import "ALAssetsLibrary+CustomPhotoAlbum.h"
+#import <UIView+Toast.h>
+#import "RWMAmazonProductAdvertisingManager.h"
+#import "SVWebViewController.h"
+
+#endif /* ScanIt_Prefix_pch */

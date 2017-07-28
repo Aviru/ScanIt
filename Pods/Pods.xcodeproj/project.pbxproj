@@ -1,0 +1,1261 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		015BF0419A34E9A40697E54D29ACDDC1 /* SVWebViewControllerActivity.h in Headers */ = {isa = PBXBuildFile; fileRef = 243C47041A11CF9D1CE40B0F35398843 /* SVWebViewControllerActivity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F022EB0516E95F9D2C02397AE07946A /* CloudSightDelete.h in Headers */ = {isa = PBXBuildFile; fileRef = 412A681F62D02C2F60C97C36614C726D /* CloudSightDelete.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F63CE2459F933D1A5AACE0EF6FFDA1E /* CloudSightDelete.m in Sources */ = {isa = PBXBuildFile; fileRef = C3495EAE399AD37AE8F3BFA92BA8C449 /* CloudSightDelete.m */; };
+		23E4D23D8F97023BA5423C224FF6574F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B90C44E40D930F1353240DF7D33D9F5 /* Foundation.framework */; };
+		25FC8587BC8D070E1ACD72F53558D531 /* RequestUtils-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 767D2F6C15ABABEDE22E035803195659 /* RequestUtils-dummy.m */; };
+		36128594D0415DB30430A9723933E128 /* CloudSightConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C02AE3E32687B037D0373661DB9458AA /* CloudSightConnection.m */; };
+		40B15EA983E4E01BC34E9601C612BD26 /* CloudSight-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 97452E4C93D87918F28009A9F241ED06 /* CloudSight-dummy.m */; };
+		41C8DB19F81CB97D69674BAE8F777F4B /* Pods-ScanIt-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 411A2DC1C071479E54E9A5E4E4A53B53 /* Pods-ScanIt-dummy.m */; };
+		43D5CD2A75B0DAEC799D4B733162229D /* BFOAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F901A919F5A7780BA1B310EFFF94FAE /* BFOAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		479F78E16A3FEC07A9D6BF4F4158E963 /* SVWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93158F68E42ECD4AB4E391B6FF2330A8 /* SVWebViewController.m */; };
+		4C34358F037C456A426D1232DF95A577 /* UIView+Toast.h in Headers */ = {isa = PBXBuildFile; fileRef = 9628A6E2C0AE689E03601B27086B9714 /* UIView+Toast.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4EDAEB3A0187CC86D07955132C181378 /* CloudSightUploadProgressDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = F096C3BD8EF5B8569E58AE0FA885B092 /* CloudSightUploadProgressDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64142171F546741F6BE11EFB80EFAF84 /* STTweetLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD0B913D6F151F6727491AEA4F9C5AC /* STTweetLabel.m */; };
+		642633C63D62ADB03D1B828DFD091E90 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBEEB5DC3D6704857E6911B20FAA294A /* CoreGraphics.framework */; };
+		662E03B9F2C5712CEBF958E9F402CB7E /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B24A21599574B8A3F1F2E232DC0100D /* UIView+Toast.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		69308B1289868845EB3783DCB49F5BE3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0AAE397A9EA8CF0D07D057E6E75832E /* QuartzCore.framework */; };
+		6D1C900E1464F44A282883609CB70D3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B90C44E40D930F1353240DF7D33D9F5 /* Foundation.framework */; };
+		7E1E99148707B6D002845D5816C9C396 /* RequestUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D3AB2C7693010AC0B22477CA06A33AA /* RequestUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E8306BB255E098D3836AC1EF626062B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B90C44E40D930F1353240DF7D33D9F5 /* Foundation.framework */; };
+		85D8774124DEB6F6E567B16862CE84BA /* CloudSightImageResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0641F0857002FEFCFE69AEE75FCF53F8 /* CloudSightImageResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8769C21D32F96E6521A6E25F4381C993 /* SVWebViewControllerActivityChrome.h in Headers */ = {isa = PBXBuildFile; fileRef = BC986ECB6DA283F0824A1EC1BA75D2EC /* SVWebViewControllerActivityChrome.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		91E048D8031162169A0364B010267CB7 /* CloudSight.h in Headers */ = {isa = PBXBuildFile; fileRef = AFA79CA45CCD5088B151B95459D61BA7 /* CloudSight.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94F154969F5A9057C2D9178E77045961 /* CloudSightImageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 456B88D5947FC944127EAD6C2399F8A7 /* CloudSightImageRequest.m */; };
+		9647145EBF66658433B6C3B2799C6107 /* RequestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 30624C91636C8F54049A048136245B69 /* RequestUtils.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		9878796DCDB1DF06577240CF4AA3BC4A /* SVModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 753809578B2404FC19706FA8E8456026 /* SVModalWebViewController.m */; };
+		9D0E3CD46D4697B10D61F02E046649BF /* CloudSightQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = E450BD48BAD057ABF870E0CEF7AB1D37 /* CloudSightQuery.m */; };
+		A3E89EC909D758CBE9AAA7E7CA5F111D /* Toast-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 559444863A33A1F696CF870D8F678859 /* Toast-dummy.m */; };
+		A69DC69E1EE814F9C1A49CA34DFD1C6D /* CloudSightImageResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F21F91BA7694E910485957B67256903F /* CloudSightImageResponse.m */; };
+		B1AFAF32F627CF85444BA849296E6DF1 /* SVWebViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F41BD32E9A358F103CD839B98C913E8F /* SVWebViewController-dummy.m */; };
+		BF02C73D78B893A8CB9B987841CA9344 /* CloudSightImageRequestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = BA55C6A6BC3CE4CBBC0CBEEBBCD27671 /* CloudSightImageRequestDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C149ED0921AEBCCCFD78E543D7F91BDF /* SVWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 8ED818C9D3FEA12B384240CD71A8C785 /* SVWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C19C8546B353E01A53B6F2C1FD74110B /* BFOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = A867F4FB4D4445C9A70A37736B61BA2A /* BFOAuth.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		C2900FC993CDB6A5FDC3A86E83D91A34 /* BFOAuth-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 606D41BC61AA6E9690840E9C24CF0985 /* BFOAuth-dummy.m */; };
+		C29BF379AA945CD185545222D314B5A6 /* CloudSightConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = F6681FF1F2C100C91CBF6451DEDE0097 /* CloudSightConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA768488103F86851FCF1B219F713B49 /* SVWebViewControllerActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 63900B0123D506B5731AD66160CA7BA8 /* SVWebViewControllerActivity.m */; };
+		CE61DA5610FC95B9098298C259827F24 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B90C44E40D930F1353240DF7D33D9F5 /* Foundation.framework */; };
+		CE93C51C168D2E7DBFFE9549BBA74C97 /* SVWebViewControllerActivitySafari.h in Headers */ = {isa = PBXBuildFile; fileRef = 59D9074E284B970EF0F2BBB2256F626B /* SVWebViewControllerActivitySafari.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3D506A9EA84E2B74C7DCE839F8F574A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B90C44E40D930F1353240DF7D33D9F5 /* Foundation.framework */; };
+		DB3EA61136E3E320A342AB2B17418B04 /* SVWebViewControllerActivitySafari.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B73A2D449378445E1423580487BC76 /* SVWebViewControllerActivitySafari.m */; };
+		DF7E14382A8322ACCE09B1ECF09ED467 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1186448D90ACE87E3396FA06E9541B3 /* CoreLocation.framework */; };
+		DFD9F981B3972BAD371FC5D4D8C7DADC /* CloudSightImageRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = BC49DA812D3DA197FC5D0382FD336E3C /* CloudSightImageRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E14BEB30865260F5B7E5EA7CD44C0DF3 /* SVWebViewControllerActivityChrome.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DFB5B2ED46BA38B4B2716CC279E7268 /* SVWebViewControllerActivityChrome.m */; };
+		EBE042199CB4AB3155DD1FE49FF61DED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B90C44E40D930F1353240DF7D33D9F5 /* Foundation.framework */; };
+		F01F749458DFF1E6A60BDEFE32BFBE75 /* STTweetLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = B24A33096C087F77AE577BF1CDC22318 /* STTweetLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F3FEF720B71BED3F8BD750BBC54DBCD6 /* SVModalWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3251CC9D5D6C3603A91BE43B91247BB5 /* SVModalWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F459A06527982217051CAACEF4B49B90 /* CloudSightQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AFB0EF5567276017A4E1C896111BD20 /* CloudSightQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F96CDC47F9AEB24E2B8485B20DB76FDA /* STTweetLabel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F45038C78EFF8F62AE05AC8E75C4FB82 /* STTweetLabel-dummy.m */; };
+		FB0E66F9E8A9C91D33B3937ACFE1FCB9 /* CloudSightQueryDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 58535575FB02C680FD889EABB4627E90 /* CloudSightQueryDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD2CF90FF787F16596C008DAAD301E6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B90C44E40D930F1353240DF7D33D9F5 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		05DAEBFC45CE2FBE84E0384E3E0E4713 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A566C2756E1E35D0005B58C31E75327;
+			remoteInfo = Toast;
+		};
+		42BCCF3664FCE99EF50427E49BAC563A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF941962E5DDC3BE50822536113FCB5F;
+			remoteInfo = BFOAuth;
+		};
+		4F49CF7083FABDAA54A037454FD5FCDB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FC133B12170877E6FBF6934073A66D6A;
+			remoteInfo = RequestUtils;
+		};
+		7BBC750DE067ADCE17B48ABE61CE25E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FC133B12170877E6FBF6934073A66D6A;
+			remoteInfo = RequestUtils;
+		};
+		7E4A9BE30F66EAEA26B0ABC6B4906A23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF941962E5DDC3BE50822536113FCB5F;
+			remoteInfo = BFOAuth;
+		};
+		B58517FF5CE131817DD3E97B864F1E07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16A9500B0C179DA4F371BC4AC064E738;
+			remoteInfo = CloudSight;
+		};
+		CEB8209C226FFDC23B0CD82DBA1E319C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39987CCE937892A4A2D96D9C5ADFD094;
+			remoteInfo = SVWebViewController;
+		};
+		F31A11A06627B55E7862B00317907A94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2E0B51BC487F252B6C2686A57147069;
+			remoteInfo = STTweetLabel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0189DD57F5758B7C4B0D6707157D6C8E /* RequestUtils.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RequestUtils.xcconfig; sourceTree = "<group>"; };
+		024C492D268A5ED4375464E5721C0779 /* libSVWebViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSVWebViewController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		043714F385D192868D6DD3BF3AC2DF0D /* RequestUtils-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RequestUtils-prefix.pch"; sourceTree = "<group>"; };
+		0641F0857002FEFCFE69AEE75FCF53F8 /* CloudSightImageResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CloudSightImageResponse.h; path = CloudSight/CloudSightImageResponse.h; sourceTree = "<group>"; };
+		0B14CA91FB41B6BBD00FC1ED70BED5B4 /* libRequestUtils.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRequestUtils.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B24A21599574B8A3F1F2E232DC0100D /* UIView+Toast.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+Toast.m"; path = "Toast/Toast/UIView+Toast.m"; sourceTree = "<group>"; };
+		0B90C44E40D930F1353240DF7D33D9F5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		123EB494AA1DAEBA5D3A1C920CF94960 /* CloudSight-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CloudSight-prefix.pch"; sourceTree = "<group>"; };
+		1AFB0EF5567276017A4E1C896111BD20 /* CloudSightQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CloudSightQuery.h; path = CloudSight/CloudSightQuery.h; sourceTree = "<group>"; };
+		1C2D5F2FEA76C1167746AE674EBD309E /* Pods-ScanIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ScanIt.release.xcconfig"; sourceTree = "<group>"; };
+		1DFB5B2ED46BA38B4B2716CC279E7268 /* SVWebViewControllerActivityChrome.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVWebViewControllerActivityChrome.m; path = SVWebViewController/UIActivities/Chrome/SVWebViewControllerActivityChrome.m; sourceTree = "<group>"; };
+		1F8A313B4B18A350A984A1FD4666ABB3 /* SVWebViewControllerActivitySafari-iPad@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "SVWebViewControllerActivitySafari-iPad@2x.png"; path = "SVWebViewController/UIActivities/Safari/SVWebViewControllerActivitySafari-iPad@2x.png"; sourceTree = "<group>"; };
+		243C47041A11CF9D1CE40B0F35398843 /* SVWebViewControllerActivity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVWebViewControllerActivity.h; path = SVWebViewController/UIActivities/SVWebViewControllerActivity.h; sourceTree = "<group>"; };
+		24DF53482478C858C2A236844D9B0985 /* libCloudSight.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCloudSight.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		267B24360BD2BA3750DF0D44993CE328 /* SVWebViewControllerBack@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "SVWebViewControllerBack@2x.png"; path = "SVWebViewController/SVWebViewController.bundle/SVWebViewControllerBack@2x.png"; sourceTree = "<group>"; };
+		30624C91636C8F54049A048136245B69 /* RequestUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RequestUtils.m; path = RequestUtils/RequestUtils.m; sourceTree = "<group>"; };
+		3251CC9D5D6C3603A91BE43B91247BB5 /* SVModalWebViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVModalWebViewController.h; path = SVWebViewController/SVModalWebViewController.h; sourceTree = "<group>"; };
+		3763AD4464A5D9A1A67AEA358034A368 /* STTweetLabel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "STTweetLabel-prefix.pch"; sourceTree = "<group>"; };
+		411A2DC1C071479E54E9A5E4E4A53B53 /* Pods-ScanIt-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ScanIt-dummy.m"; sourceTree = "<group>"; };
+		412A681F62D02C2F60C97C36614C726D /* CloudSightDelete.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CloudSightDelete.h; path = CloudSight/CloudSightDelete.h; sourceTree = "<group>"; };
+		456B88D5947FC944127EAD6C2399F8A7 /* CloudSightImageRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CloudSightImageRequest.m; path = CloudSight/CloudSightImageRequest.m; sourceTree = "<group>"; };
+		47B73A2D449378445E1423580487BC76 /* SVWebViewControllerActivitySafari.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVWebViewControllerActivitySafari.m; path = SVWebViewController/UIActivities/Safari/SVWebViewControllerActivitySafari.m; sourceTree = "<group>"; };
+		47E8E29A581F7FBA6F0893EA801FB7E5 /* SVWebViewController.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SVWebViewController.bundle; path = SVWebViewController/SVWebViewController.bundle; sourceTree = "<group>"; };
+		4D3AB2C7693010AC0B22477CA06A33AA /* RequestUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RequestUtils.h; path = RequestUtils/RequestUtils.h; sourceTree = "<group>"; };
+		52BD45989406B3F2C26E85378E84C3A3 /* SVWebViewControllerActivityChrome-iPad.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "SVWebViewControllerActivityChrome-iPad.png"; path = "SVWebViewController/UIActivities/Chrome/SVWebViewControllerActivityChrome-iPad.png"; sourceTree = "<group>"; };
+		540DB7CDEA2ED16B7D36D4EAA48C5DB6 /* BFOAuth-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BFOAuth-prefix.pch"; sourceTree = "<group>"; };
+		559444863A33A1F696CF870D8F678859 /* Toast-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Toast-dummy.m"; sourceTree = "<group>"; };
+		58535575FB02C680FD889EABB4627E90 /* CloudSightQueryDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CloudSightQueryDelegate.h; path = CloudSight/CloudSightQueryDelegate.h; sourceTree = "<group>"; };
+		591D7EA2EA60C5A858F21563244CDC78 /* Pods-ScanIt-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ScanIt-acknowledgements.markdown"; sourceTree = "<group>"; };
+		59D9074E284B970EF0F2BBB2256F626B /* SVWebViewControllerActivitySafari.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVWebViewControllerActivitySafari.h; path = SVWebViewController/UIActivities/Safari/SVWebViewControllerActivitySafari.h; sourceTree = "<group>"; };
+		5D65ACCC790A6BE04C2AD5DACB240FF1 /* SVWebViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVWebViewController-prefix.pch"; sourceTree = "<group>"; };
+		606D41BC61AA6E9690840E9C24CF0985 /* BFOAuth-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BFOAuth-dummy.m"; sourceTree = "<group>"; };
+		63900B0123D506B5731AD66160CA7BA8 /* SVWebViewControllerActivity.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVWebViewControllerActivity.m; path = SVWebViewController/UIActivities/SVWebViewControllerActivity.m; sourceTree = "<group>"; };
+		64E6C2276CFA040083F82DB7111AF2CA /* SVWebViewControllerNext.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = SVWebViewControllerNext.png; path = SVWebViewController/SVWebViewController.bundle/SVWebViewControllerNext.png; sourceTree = "<group>"; };
+		6773EA2CA7B687BFBB669C0BE96E22CE /* SVWebViewControllerBack.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = SVWebViewControllerBack.png; path = SVWebViewController/SVWebViewController.bundle/SVWebViewControllerBack.png; sourceTree = "<group>"; };
+		6E1629FEF63774BA52037FF19EB8F502 /* STTweetLabel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = STTweetLabel.xcconfig; sourceTree = "<group>"; };
+		6F901A919F5A7780BA1B310EFFF94FAE /* BFOAuth.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFOAuth.h; path = BFOAuth/BFOAuth.h; sourceTree = "<group>"; };
+		753809578B2404FC19706FA8E8456026 /* SVModalWebViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVModalWebViewController.m; path = SVWebViewController/SVModalWebViewController.m; sourceTree = "<group>"; };
+		767D2F6C15ABABEDE22E035803195659 /* RequestUtils-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RequestUtils-dummy.m"; sourceTree = "<group>"; };
+		81A29E784DEE15170FF4CD3CE572D29A /* libBFOAuth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBFOAuth.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		822C756975EF80A671EA7741484AEC5A /* SVWebViewControllerNext@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "SVWebViewControllerNext@2x.png"; path = "SVWebViewController/SVWebViewController.bundle/SVWebViewControllerNext@2x.png"; sourceTree = "<group>"; };
+		8CA12679BA8A2528E09B419153F3BDBE /* libToast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libToast.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E824CDBD19436441BD34559B2EC3954 /* SVWebViewControllerActivityChrome-iPad@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "SVWebViewControllerActivityChrome-iPad@2x.png"; path = "SVWebViewController/UIActivities/Chrome/SVWebViewControllerActivityChrome-iPad@2x.png"; sourceTree = "<group>"; };
+		8ED818C9D3FEA12B384240CD71A8C785 /* SVWebViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVWebViewController.h; path = SVWebViewController/SVWebViewController.h; sourceTree = "<group>"; };
+		93158F68E42ECD4AB4E391B6FF2330A8 /* SVWebViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVWebViewController.m; path = SVWebViewController/SVWebViewController.m; sourceTree = "<group>"; };
+		9628A6E2C0AE689E03601B27086B9714 /* UIView+Toast.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+Toast.h"; path = "Toast/Toast/UIView+Toast.h"; sourceTree = "<group>"; };
+		97452E4C93D87918F28009A9F241ED06 /* CloudSight-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CloudSight-dummy.m"; sourceTree = "<group>"; };
+		A42F6384B125E59FA8BBD20C1346DCA7 /* BFOAuth.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BFOAuth.xcconfig; sourceTree = "<group>"; };
+		A867F4FB4D4445C9A70A37736B61BA2A /* BFOAuth.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFOAuth.m; path = BFOAuth/BFOAuth.m; sourceTree = "<group>"; };
+		A8D34E417681AE2B975F91FA9BFE8012 /* CloudSight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CloudSight.xcconfig; sourceTree = "<group>"; };
+		AD537F294323E99A84673A5897CE2837 /* Pods-ScanIt-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ScanIt-resources.sh"; sourceTree = "<group>"; };
+		AD9DA1F6C1A45667E1FBD44D3D7ABEE5 /* libPods-ScanIt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScanIt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEAEFECD839D262BBF7D527A755B49D3 /* SVWebViewControllerActivityChrome@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "SVWebViewControllerActivityChrome@2x.png"; path = "SVWebViewController/UIActivities/Chrome/SVWebViewControllerActivityChrome@2x.png"; sourceTree = "<group>"; };
+		AFA79CA45CCD5088B151B95459D61BA7 /* CloudSight.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CloudSight.h; path = CloudSight/CloudSight.h; sourceTree = "<group>"; };
+		B07A3F75864187F50C4F07368310EBD6 /* SVWebViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SVWebViewController.xcconfig; sourceTree = "<group>"; };
+		B0AAE397A9EA8CF0D07D057E6E75832E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		B24A33096C087F77AE577BF1CDC22318 /* STTweetLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STTweetLabel.h; path = STTweetLabel/STTweetLabel.h; sourceTree = "<group>"; };
+		BA55C6A6BC3CE4CBBC0CBEEBBCD27671 /* CloudSightImageRequestDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CloudSightImageRequestDelegate.h; path = CloudSight/CloudSightImageRequestDelegate.h; sourceTree = "<group>"; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BC49DA812D3DA197FC5D0382FD336E3C /* CloudSightImageRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CloudSightImageRequest.h; path = CloudSight/CloudSightImageRequest.h; sourceTree = "<group>"; };
+		BC986ECB6DA283F0824A1EC1BA75D2EC /* SVWebViewControllerActivityChrome.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVWebViewControllerActivityChrome.h; path = SVWebViewController/UIActivities/Chrome/SVWebViewControllerActivityChrome.h; sourceTree = "<group>"; };
+		BDD0B913D6F151F6727491AEA4F9C5AC /* STTweetLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STTweetLabel.m; path = STTweetLabel/STTweetLabel.m; sourceTree = "<group>"; };
+		C02AE3E32687B037D0373661DB9458AA /* CloudSightConnection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CloudSightConnection.m; path = CloudSight/CloudSightConnection.m; sourceTree = "<group>"; };
+		C1186448D90ACE87E3396FA06E9541B3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
+		C3495EAE399AD37AE8F3BFA92BA8C449 /* CloudSightDelete.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CloudSightDelete.m; path = CloudSight/CloudSightDelete.m; sourceTree = "<group>"; };
+		C71FD77FE4336DCB6811E30F05819DAF /* Pods-ScanIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ScanIt.debug.xcconfig"; sourceTree = "<group>"; };
+		CBEEB5DC3D6704857E6911B20FAA294A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		CCC9757901BEA3028FA60A662DAE5D9F /* Toast-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Toast-prefix.pch"; sourceTree = "<group>"; };
+		CFB21E5F5F3B4DF470694742EA63E427 /* SVWebViewControllerActivitySafari@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "SVWebViewControllerActivitySafari@2x.png"; path = "SVWebViewController/UIActivities/Safari/SVWebViewControllerActivitySafari@2x.png"; sourceTree = "<group>"; };
+		D7F6C402B408475334C1B6DB569045BF /* Pods-ScanIt-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ScanIt-frameworks.sh"; sourceTree = "<group>"; };
+		D950BAB9B389B59B59942A146547247B /* Pods-ScanIt-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ScanIt-acknowledgements.plist"; sourceTree = "<group>"; };
+		DEC709BD97C0BF398595F7FBCB1F176E /* libSTTweetLabel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSTTweetLabel.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF6F86818904990B76936D252850F58F /* Toast.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Toast.xcconfig; sourceTree = "<group>"; };
+		E450BD48BAD057ABF870E0CEF7AB1D37 /* CloudSightQuery.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CloudSightQuery.m; path = CloudSight/CloudSightQuery.m; sourceTree = "<group>"; };
+		F096C3BD8EF5B8569E58AE0FA885B092 /* CloudSightUploadProgressDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CloudSightUploadProgressDelegate.h; path = CloudSight/CloudSightUploadProgressDelegate.h; sourceTree = "<group>"; };
+		F21F91BA7694E910485957B67256903F /* CloudSightImageResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CloudSightImageResponse.m; path = CloudSight/CloudSightImageResponse.m; sourceTree = "<group>"; };
+		F41BD32E9A358F103CD839B98C913E8F /* SVWebViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SVWebViewController-dummy.m"; sourceTree = "<group>"; };
+		F45038C78EFF8F62AE05AC8E75C4FB82 /* STTweetLabel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "STTweetLabel-dummy.m"; sourceTree = "<group>"; };
+		F522AC25C6E043BBA07466C3AF14132F /* SVWebViewControllerActivitySafari-iPad.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "SVWebViewControllerActivitySafari-iPad.png"; path = "SVWebViewController/UIActivities/Safari/SVWebViewControllerActivitySafari-iPad.png"; sourceTree = "<group>"; };
+		F6681FF1F2C100C91CBF6451DEDE0097 /* CloudSightConnection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CloudSightConnection.h; path = CloudSight/CloudSightConnection.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		05F54BC8DF3DFCFCC987236A58644346 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D1C900E1464F44A282883609CB70D3B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31F9F2AF51AAFF456B816FC110064451 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBE042199CB4AB3155DD1FE49FF61DED /* Foundation.framework in Frameworks */,
+				69308B1289868845EB3783DCB49F5BE3 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38849C15E942969AD025085F362CAF57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD2CF90FF787F16596C008DAAD301E6D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78EFF1026DB6F39BDD08F1A125974FEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3D506A9EA84E2B74C7DCE839F8F574A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C18BB58224FEF4F5B0104E8DE15446FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				642633C63D62ADB03D1B828DFD091E90 /* CoreGraphics.framework in Frameworks */,
+				DF7E14382A8322ACCE09B1ECF09ED467 /* CoreLocation.framework in Frameworks */,
+				CE61DA5610FC95B9098298C259827F24 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEB4586ECD279B4A732306830EF0321A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E8306BB255E098D3836AC1EF626062B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3A177B7BB92E9C20851454651C728C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23E4D23D8F97023BA5423C224FF6574F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02AF973846272D83E3EBC1BBBD6617A1 /* Pods-ScanIt */ = {
+			isa = PBXGroup;
+			children = (
+				591D7EA2EA60C5A858F21563244CDC78 /* Pods-ScanIt-acknowledgements.markdown */,
+				D950BAB9B389B59B59942A146547247B /* Pods-ScanIt-acknowledgements.plist */,
+				411A2DC1C071479E54E9A5E4E4A53B53 /* Pods-ScanIt-dummy.m */,
+				D7F6C402B408475334C1B6DB569045BF /* Pods-ScanIt-frameworks.sh */,
+				AD537F294323E99A84673A5897CE2837 /* Pods-ScanIt-resources.sh */,
+				C71FD77FE4336DCB6811E30F05819DAF /* Pods-ScanIt.debug.xcconfig */,
+				1C2D5F2FEA76C1167746AE674EBD309E /* Pods-ScanIt.release.xcconfig */,
+			);
+			name = "Pods-ScanIt";
+			path = "Target Support Files/Pods-ScanIt";
+			sourceTree = "<group>";
+		};
+		05E907DFC2904BB21E79F820159B9EA7 /* SVWebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3251CC9D5D6C3603A91BE43B91247BB5 /* SVModalWebViewController.h */,
+				753809578B2404FC19706FA8E8456026 /* SVModalWebViewController.m */,
+				8ED818C9D3FEA12B384240CD71A8C785 /* SVWebViewController.h */,
+				93158F68E42ECD4AB4E391B6FF2330A8 /* SVWebViewController.m */,
+				243C47041A11CF9D1CE40B0F35398843 /* SVWebViewControllerActivity.h */,
+				63900B0123D506B5731AD66160CA7BA8 /* SVWebViewControllerActivity.m */,
+				BC986ECB6DA283F0824A1EC1BA75D2EC /* SVWebViewControllerActivityChrome.h */,
+				1DFB5B2ED46BA38B4B2716CC279E7268 /* SVWebViewControllerActivityChrome.m */,
+				59D9074E284B970EF0F2BBB2256F626B /* SVWebViewControllerActivitySafari.h */,
+				47B73A2D449378445E1423580487BC76 /* SVWebViewControllerActivitySafari.m */,
+				2646AF8578A85509ADAEE18C82388A17 /* Resources */,
+				15C312FF20A1506CD7E3750C53EE15F6 /* Support Files */,
+			);
+			path = SVWebViewController;
+			sourceTree = "<group>";
+		};
+		0D98DE2E52C8760050B4752D1495BB04 /* STTweetLabel */ = {
+			isa = PBXGroup;
+			children = (
+				B24A33096C087F77AE577BF1CDC22318 /* STTweetLabel.h */,
+				BDD0B913D6F151F6727491AEA4F9C5AC /* STTweetLabel.m */,
+				15E7D2A8324E6FAB4988E78A2ED7FF77 /* Support Files */,
+			);
+			path = STTweetLabel;
+			sourceTree = "<group>";
+		};
+		14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7D7F6D28A8338769FFEF165781DC00C /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		15C312FF20A1506CD7E3750C53EE15F6 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B07A3F75864187F50C4F07368310EBD6 /* SVWebViewController.xcconfig */,
+				F41BD32E9A358F103CD839B98C913E8F /* SVWebViewController-dummy.m */,
+				5D65ACCC790A6BE04C2AD5DACB240FF1 /* SVWebViewController-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SVWebViewController";
+			sourceTree = "<group>";
+		};
+		15E7D2A8324E6FAB4988E78A2ED7FF77 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6E1629FEF63774BA52037FF19EB8F502 /* STTweetLabel.xcconfig */,
+				F45038C78EFF8F62AE05AC8E75C4FB82 /* STTweetLabel-dummy.m */,
+				3763AD4464A5D9A1A67AEA358034A368 /* STTweetLabel-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/STTweetLabel";
+			sourceTree = "<group>";
+		};
+		1D61EED43FFCE911CC2A31C6DE999BD9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D3C6B6AB79A873DD020ED26A22A2CC8F /* BFOAuth */,
+				4BB1FB2D4E80BABF77B1F6031B916E57 /* CloudSight */,
+				3CFE53B1E998A703151A1B0FC671456E /* RequestUtils */,
+				0D98DE2E52C8760050B4752D1495BB04 /* STTweetLabel */,
+				05E907DFC2904BB21E79F820159B9EA7 /* SVWebViewController */,
+				65EF63B7250738036A274134B01C9A90 /* Toast */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2646AF8578A85509ADAEE18C82388A17 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				47E8E29A581F7FBA6F0893EA801FB7E5 /* SVWebViewController.bundle */,
+				52BD45989406B3F2C26E85378E84C3A3 /* SVWebViewControllerActivityChrome-iPad.png */,
+				8E824CDBD19436441BD34559B2EC3954 /* SVWebViewControllerActivityChrome-iPad@2x.png */,
+				AEAEFECD839D262BBF7D527A755B49D3 /* SVWebViewControllerActivityChrome@2x.png */,
+				F522AC25C6E043BBA07466C3AF14132F /* SVWebViewControllerActivitySafari-iPad.png */,
+				1F8A313B4B18A350A984A1FD4666ABB3 /* SVWebViewControllerActivitySafari-iPad@2x.png */,
+				CFB21E5F5F3B4DF470694742EA63E427 /* SVWebViewControllerActivitySafari@2x.png */,
+				6773EA2CA7B687BFBB669C0BE96E22CE /* SVWebViewControllerBack.png */,
+				267B24360BD2BA3750DF0D44993CE328 /* SVWebViewControllerBack@2x.png */,
+				64E6C2276CFA040083F82DB7111AF2CA /* SVWebViewControllerNext.png */,
+				822C756975EF80A671EA7741484AEC5A /* SVWebViewControllerNext@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		383F8018021D4E9EA6A197E1FF2A8DFD /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				DF6F86818904990B76936D252850F58F /* Toast.xcconfig */,
+				559444863A33A1F696CF870D8F678859 /* Toast-dummy.m */,
+				CCC9757901BEA3028FA60A662DAE5D9F /* Toast-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Toast";
+			sourceTree = "<group>";
+		};
+		3CFE53B1E998A703151A1B0FC671456E /* RequestUtils */ = {
+			isa = PBXGroup;
+			children = (
+				4D3AB2C7693010AC0B22477CA06A33AA /* RequestUtils.h */,
+				30624C91636C8F54049A048136245B69 /* RequestUtils.m */,
+				DDF93BA70267DA84358E77EE5247EE96 /* Support Files */,
+			);
+			path = RequestUtils;
+			sourceTree = "<group>";
+		};
+		4BB1FB2D4E80BABF77B1F6031B916E57 /* CloudSight */ = {
+			isa = PBXGroup;
+			children = (
+				AFA79CA45CCD5088B151B95459D61BA7 /* CloudSight.h */,
+				F6681FF1F2C100C91CBF6451DEDE0097 /* CloudSightConnection.h */,
+				C02AE3E32687B037D0373661DB9458AA /* CloudSightConnection.m */,
+				412A681F62D02C2F60C97C36614C726D /* CloudSightDelete.h */,
+				C3495EAE399AD37AE8F3BFA92BA8C449 /* CloudSightDelete.m */,
+				BC49DA812D3DA197FC5D0382FD336E3C /* CloudSightImageRequest.h */,
+				456B88D5947FC944127EAD6C2399F8A7 /* CloudSightImageRequest.m */,
+				BA55C6A6BC3CE4CBBC0CBEEBBCD27671 /* CloudSightImageRequestDelegate.h */,
+				0641F0857002FEFCFE69AEE75FCF53F8 /* CloudSightImageResponse.h */,
+				F21F91BA7694E910485957B67256903F /* CloudSightImageResponse.m */,
+				1AFB0EF5567276017A4E1C896111BD20 /* CloudSightQuery.h */,
+				E450BD48BAD057ABF870E0CEF7AB1D37 /* CloudSightQuery.m */,
+				58535575FB02C680FD889EABB4627E90 /* CloudSightQueryDelegate.h */,
+				F096C3BD8EF5B8569E58AE0FA885B092 /* CloudSightUploadProgressDelegate.h */,
+				4E4BE6DC7DC6455D3FFE072B4889EC65 /* Support Files */,
+			);
+			path = CloudSight;
+			sourceTree = "<group>";
+		};
+		4E4BE6DC7DC6455D3FFE072B4889EC65 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A8D34E417681AE2B975F91FA9BFE8012 /* CloudSight.xcconfig */,
+				97452E4C93D87918F28009A9F241ED06 /* CloudSight-dummy.m */,
+				123EB494AA1DAEBA5D3A1C920CF94960 /* CloudSight-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/CloudSight";
+			sourceTree = "<group>";
+		};
+		65EF63B7250738036A274134B01C9A90 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				9628A6E2C0AE689E03601B27086B9714 /* UIView+Toast.h */,
+				0B24A21599574B8A3F1F2E232DC0100D /* UIView+Toast.m */,
+				383F8018021D4E9EA6A197E1FF2A8DFD /* Support Files */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */,
+				1D61EED43FFCE911CC2A31C6DE999BD9 /* Pods */,
+				DE9BCC786B47ACFD355800A8194B7A1B /* Products */,
+				D67D75BEFDCFBF9A64421AABE587BB32 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		C7D7F6D28A8338769FFEF165781DC00C /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CBEEB5DC3D6704857E6911B20FAA294A /* CoreGraphics.framework */,
+				C1186448D90ACE87E3396FA06E9541B3 /* CoreLocation.framework */,
+				0B90C44E40D930F1353240DF7D33D9F5 /* Foundation.framework */,
+				B0AAE397A9EA8CF0D07D057E6E75832E /* QuartzCore.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		D3C6B6AB79A873DD020ED26A22A2CC8F /* BFOAuth */ = {
+			isa = PBXGroup;
+			children = (
+				6F901A919F5A7780BA1B310EFFF94FAE /* BFOAuth.h */,
+				A867F4FB4D4445C9A70A37736B61BA2A /* BFOAuth.m */,
+				EC9DB2102370150A6375279E73010F18 /* Support Files */,
+			);
+			path = BFOAuth;
+			sourceTree = "<group>";
+		};
+		D67D75BEFDCFBF9A64421AABE587BB32 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				02AF973846272D83E3EBC1BBBD6617A1 /* Pods-ScanIt */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		DDF93BA70267DA84358E77EE5247EE96 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0189DD57F5758B7C4B0D6707157D6C8E /* RequestUtils.xcconfig */,
+				767D2F6C15ABABEDE22E035803195659 /* RequestUtils-dummy.m */,
+				043714F385D192868D6DD3BF3AC2DF0D /* RequestUtils-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/RequestUtils";
+			sourceTree = "<group>";
+		};
+		DE9BCC786B47ACFD355800A8194B7A1B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				81A29E784DEE15170FF4CD3CE572D29A /* libBFOAuth.a */,
+				24DF53482478C858C2A236844D9B0985 /* libCloudSight.a */,
+				AD9DA1F6C1A45667E1FBD44D3D7ABEE5 /* libPods-ScanIt.a */,
+				0B14CA91FB41B6BBD00FC1ED70BED5B4 /* libRequestUtils.a */,
+				DEC709BD97C0BF398595F7FBCB1F176E /* libSTTweetLabel.a */,
+				024C492D268A5ED4375464E5721C0779 /* libSVWebViewController.a */,
+				8CA12679BA8A2528E09B419153F3BDBE /* libToast.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC9DB2102370150A6375279E73010F18 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A42F6384B125E59FA8BBD20C1346DCA7 /* BFOAuth.xcconfig */,
+				606D41BC61AA6E9690840E9C24CF0985 /* BFOAuth-dummy.m */,
+				540DB7CDEA2ED16B7D36D4EAA48C5DB6 /* BFOAuth-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/BFOAuth";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		06D716252E3D5CD4DDA4B62AD641D928 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C34358F037C456A426D1232DF95A577 /* UIView+Toast.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38CCCAEA89260C0DDEA5FCBFF4CDCE25 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91E048D8031162169A0364B010267CB7 /* CloudSight.h in Headers */,
+				C29BF379AA945CD185545222D314B5A6 /* CloudSightConnection.h in Headers */,
+				1F022EB0516E95F9D2C02397AE07946A /* CloudSightDelete.h in Headers */,
+				DFD9F981B3972BAD371FC5D4D8C7DADC /* CloudSightImageRequest.h in Headers */,
+				BF02C73D78B893A8CB9B987841CA9344 /* CloudSightImageRequestDelegate.h in Headers */,
+				85D8774124DEB6F6E567B16862CE84BA /* CloudSightImageResponse.h in Headers */,
+				F459A06527982217051CAACEF4B49B90 /* CloudSightQuery.h in Headers */,
+				FB0E66F9E8A9C91D33B3937ACFE1FCB9 /* CloudSightQueryDelegate.h in Headers */,
+				4EDAEB3A0187CC86D07955132C181378 /* CloudSightUploadProgressDelegate.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68316B73CBEE446B9A73B47E955786BF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F01F749458DFF1E6A60BDEFE32BFBE75 /* STTweetLabel.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		712635BBE8266B047C8DBB012D389F5E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E1E99148707B6D002845D5816C9C396 /* RequestUtils.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAFB3845802402E92921575140D533E0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3FEF720B71BED3F8BD750BBC54DBCD6 /* SVModalWebViewController.h in Headers */,
+				C149ED0921AEBCCCFD78E543D7F91BDF /* SVWebViewController.h in Headers */,
+				015BF0419A34E9A40697E54D29ACDDC1 /* SVWebViewControllerActivity.h in Headers */,
+				8769C21D32F96E6521A6E25F4381C993 /* SVWebViewControllerActivityChrome.h in Headers */,
+				CE93C51C168D2E7DBFFE9549BBA74C97 /* SVWebViewControllerActivitySafari.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0201AA3246A7E72AEBE8F08F1ED96E9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43D5CD2A75B0DAEC799D4B733162229D /* BFOAuth.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		16A9500B0C179DA4F371BC4AC064E738 /* CloudSight */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2320D758C06482F7578C301EA26FC916 /* Build configuration list for PBXNativeTarget "CloudSight" */;
+			buildPhases = (
+				617DD46302EC906577D3868A574D9629 /* Sources */,
+				C18BB58224FEF4F5B0104E8DE15446FA /* Frameworks */,
+				38CCCAEA89260C0DDEA5FCBFF4CDCE25 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD0D265C1E2C60A2D89A9F0C8F273D15 /* PBXTargetDependency */,
+				633BC1968E25DCDCD48CF6DC1E6B7870 /* PBXTargetDependency */,
+			);
+			name = CloudSight;
+			productName = CloudSight;
+			productReference = 24DF53482478C858C2A236844D9B0985 /* libCloudSight.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		39987CCE937892A4A2D96D9C5ADFD094 /* SVWebViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 721C2E44EE1A1AFF0899839FE555ED01 /* Build configuration list for PBXNativeTarget "SVWebViewController" */;
+			buildPhases = (
+				84EF8C14024644F698BAE6E271E73191 /* Sources */,
+				F3A177B7BB92E9C20851454651C728C2 /* Frameworks */,
+				AAFB3845802402E92921575140D533E0 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SVWebViewController;
+			productName = SVWebViewController;
+			productReference = 024C492D268A5ED4375464E5721C0779 /* libSVWebViewController.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		7A566C2756E1E35D0005B58C31E75327 /* Toast */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B8217CCFFF345673912EAEB33FE64F2 /* Build configuration list for PBXNativeTarget "Toast" */;
+			buildPhases = (
+				9315CAF255FA88F88C93C05896233939 /* Sources */,
+				31F9F2AF51AAFF456B816FC110064451 /* Frameworks */,
+				06D716252E3D5CD4DDA4B62AD641D928 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Toast;
+			productName = Toast;
+			productReference = 8CA12679BA8A2528E09B419153F3BDBE /* libToast.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		A713D10DA540506F63D6BDB29D62CE5E /* Pods-ScanIt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F09A7F8A02E01361E26D0E574D15A950 /* Build configuration list for PBXNativeTarget "Pods-ScanIt" */;
+			buildPhases = (
+				352A61539A49DF183ABAB4043F2E067D /* Sources */,
+				CEB4586ECD279B4A732306830EF0321A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AEC7619D0E0040AE5FBAA32525BF7EF1 /* PBXTargetDependency */,
+				D1285629D6433BEA8EC961EB084A30BB /* PBXTargetDependency */,
+				C88254568DCCC1DC48F9560028E3992B /* PBXTargetDependency */,
+				A3C9417E6FD2DB231B479FF192E350FD /* PBXTargetDependency */,
+				AD4A67DFE58AB25E29E6A0FCC728E17A /* PBXTargetDependency */,
+				0D520AAB864851C49C9297D5E09B0AF4 /* PBXTargetDependency */,
+			);
+			name = "Pods-ScanIt";
+			productName = "Pods-ScanIt";
+			productReference = AD9DA1F6C1A45667E1FBD44D3D7ABEE5 /* libPods-ScanIt.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CF941962E5DDC3BE50822536113FCB5F /* BFOAuth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C89F698BF87161E08054A4F4B01D804 /* Build configuration list for PBXNativeTarget "BFOAuth" */;
+			buildPhases = (
+				9319F9451188D802ADFE0D8B4E305452 /* Sources */,
+				78EFF1026DB6F39BDD08F1A125974FEB /* Frameworks */,
+				D0201AA3246A7E72AEBE8F08F1ED96E9 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BFOAuth;
+			productName = BFOAuth;
+			productReference = 81A29E784DEE15170FF4CD3CE572D29A /* libBFOAuth.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D2E0B51BC487F252B6C2686A57147069 /* STTweetLabel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21D6390028D599D97B489197CE328110 /* Build configuration list for PBXNativeTarget "STTweetLabel" */;
+			buildPhases = (
+				E6CF13348B37156EE1C30BA9399BCA2F /* Sources */,
+				38849C15E942969AD025085F362CAF57 /* Frameworks */,
+				68316B73CBEE446B9A73B47E955786BF /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = STTweetLabel;
+			productName = STTweetLabel;
+			productReference = DEC709BD97C0BF398595F7FBCB1F176E /* libSTTweetLabel.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		FC133B12170877E6FBF6934073A66D6A /* RequestUtils */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9480F09D88023784B4252A9587D44F39 /* Build configuration list for PBXNativeTarget "RequestUtils" */;
+			buildPhases = (
+				C36E45109B3C83968F30F6BC4BB24BE4 /* Sources */,
+				05F54BC8DF3DFCFCC987236A58644346 /* Frameworks */,
+				712635BBE8266B047C8DBB012D389F5E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RequestUtils;
+			productName = RequestUtils;
+			productReference = 0B14CA91FB41B6BBD00FC1ED70BED5B4 /* libRequestUtils.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = DE9BCC786B47ACFD355800A8194B7A1B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CF941962E5DDC3BE50822536113FCB5F /* BFOAuth */,
+				16A9500B0C179DA4F371BC4AC064E738 /* CloudSight */,
+				A713D10DA540506F63D6BDB29D62CE5E /* Pods-ScanIt */,
+				FC133B12170877E6FBF6934073A66D6A /* RequestUtils */,
+				D2E0B51BC487F252B6C2686A57147069 /* STTweetLabel */,
+				39987CCE937892A4A2D96D9C5ADFD094 /* SVWebViewController */,
+				7A566C2756E1E35D0005B58C31E75327 /* Toast */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		352A61539A49DF183ABAB4043F2E067D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41C8DB19F81CB97D69674BAE8F777F4B /* Pods-ScanIt-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		617DD46302EC906577D3868A574D9629 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40B15EA983E4E01BC34E9601C612BD26 /* CloudSight-dummy.m in Sources */,
+				36128594D0415DB30430A9723933E128 /* CloudSightConnection.m in Sources */,
+				1F63CE2459F933D1A5AACE0EF6FFDA1E /* CloudSightDelete.m in Sources */,
+				94F154969F5A9057C2D9178E77045961 /* CloudSightImageRequest.m in Sources */,
+				A69DC69E1EE814F9C1A49CA34DFD1C6D /* CloudSightImageResponse.m in Sources */,
+				9D0E3CD46D4697B10D61F02E046649BF /* CloudSightQuery.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84EF8C14024644F698BAE6E271E73191 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9878796DCDB1DF06577240CF4AA3BC4A /* SVModalWebViewController.m in Sources */,
+				B1AFAF32F627CF85444BA849296E6DF1 /* SVWebViewController-dummy.m in Sources */,
+				479F78E16A3FEC07A9D6BF4F4158E963 /* SVWebViewController.m in Sources */,
+				CA768488103F86851FCF1B219F713B49 /* SVWebViewControllerActivity.m in Sources */,
+				E14BEB30865260F5B7E5EA7CD44C0DF3 /* SVWebViewControllerActivityChrome.m in Sources */,
+				DB3EA61136E3E320A342AB2B17418B04 /* SVWebViewControllerActivitySafari.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9315CAF255FA88F88C93C05896233939 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3E89EC909D758CBE9AAA7E7CA5F111D /* Toast-dummy.m in Sources */,
+				662E03B9F2C5712CEBF958E9F402CB7E /* UIView+Toast.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9319F9451188D802ADFE0D8B4E305452 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2900FC993CDB6A5FDC3A86E83D91A34 /* BFOAuth-dummy.m in Sources */,
+				C19C8546B353E01A53B6F2C1FD74110B /* BFOAuth.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C36E45109B3C83968F30F6BC4BB24BE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25FC8587BC8D070E1ACD72F53558D531 /* RequestUtils-dummy.m in Sources */,
+				9647145EBF66658433B6C3B2799C6107 /* RequestUtils.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6CF13348B37156EE1C30BA9399BCA2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F96CDC47F9AEB24E2B8485B20DB76FDA /* STTweetLabel-dummy.m in Sources */,
+				64142171F546741F6BE11EFB80EFAF84 /* STTweetLabel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0D520AAB864851C49C9297D5E09B0AF4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Toast;
+			target = 7A566C2756E1E35D0005B58C31E75327 /* Toast */;
+			targetProxy = 05DAEBFC45CE2FBE84E0384E3E0E4713 /* PBXContainerItemProxy */;
+		};
+		633BC1968E25DCDCD48CF6DC1E6B7870 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RequestUtils;
+			target = FC133B12170877E6FBF6934073A66D6A /* RequestUtils */;
+			targetProxy = 4F49CF7083FABDAA54A037454FD5FCDB /* PBXContainerItemProxy */;
+		};
+		A3C9417E6FD2DB231B479FF192E350FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = STTweetLabel;
+			target = D2E0B51BC487F252B6C2686A57147069 /* STTweetLabel */;
+			targetProxy = F31A11A06627B55E7862B00317907A94 /* PBXContainerItemProxy */;
+		};
+		AD0D265C1E2C60A2D89A9F0C8F273D15 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BFOAuth;
+			target = CF941962E5DDC3BE50822536113FCB5F /* BFOAuth */;
+			targetProxy = 42BCCF3664FCE99EF50427E49BAC563A /* PBXContainerItemProxy */;
+		};
+		AD4A67DFE58AB25E29E6A0FCC728E17A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SVWebViewController;
+			target = 39987CCE937892A4A2D96D9C5ADFD094 /* SVWebViewController */;
+			targetProxy = CEB8209C226FFDC23B0CD82DBA1E319C /* PBXContainerItemProxy */;
+		};
+		AEC7619D0E0040AE5FBAA32525BF7EF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BFOAuth;
+			target = CF941962E5DDC3BE50822536113FCB5F /* BFOAuth */;
+			targetProxy = 7E4A9BE30F66EAEA26B0ABC6B4906A23 /* PBXContainerItemProxy */;
+		};
+		C88254568DCCC1DC48F9560028E3992B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RequestUtils;
+			target = FC133B12170877E6FBF6934073A66D6A /* RequestUtils */;
+			targetProxy = 7BBC750DE067ADCE17B48ABE61CE25E5 /* PBXContainerItemProxy */;
+		};
+		D1285629D6433BEA8EC961EB084A30BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CloudSight;
+			target = 16A9500B0C179DA4F371BC4AC064E738 /* CloudSight */;
+			targetProxy = B58517FF5CE131817DD3E97B864F1E07 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		055BC726BE773A89C10DADC5CC4447D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C71FD77FE4336DCB6811E30F05819DAF /* Pods-ScanIt.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		239EA4410068FD67417D76ABCF7B9EDF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8D34E417681AE2B975F91FA9BFE8012 /* CloudSight.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/CloudSight/CloudSight-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		23EB26C1ABA7E76032B3A8DCE6EEC14D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A42F6384B125E59FA8BBD20C1346DCA7 /* BFOAuth.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/BFOAuth/BFOAuth-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		47D021EAA9DF9D4A42E52F980199A840 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0189DD57F5758B7C4B0D6707157D6C8E /* RequestUtils.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RequestUtils/RequestUtils-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		6A754B459764E1994FEFB31E13CAB593 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E1629FEF63774BA52037FF19EB8F502 /* STTweetLabel.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/STTweetLabel/STTweetLabel-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		7F62AD65D88AA9A0DF65DFCD2F52BDD4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B07A3F75864187F50C4F07368310EBD6 /* SVWebViewController.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SVWebViewController/SVWebViewController-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		9EAB8B55B7362613AE61F60E86E1A861 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8D34E417681AE2B975F91FA9BFE8012 /* CloudSight.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/CloudSight/CloudSight-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A09BAA6349FAE6538E699E6F917EBD87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF6F86818904990B76936D252850F58F /* Toast.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Toast/Toast-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A70CDAD61F90AC503C7D04CC22DA2923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		B4FC5BA121975D801B17D9518FE279D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B07A3F75864187F50C4F07368310EBD6 /* SVWebViewController.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SVWebViewController/SVWebViewController-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B6B08ABDEA4C8C3C2209DB68F439939F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0189DD57F5758B7C4B0D6707157D6C8E /* RequestUtils.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RequestUtils/RequestUtils-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CB803E63447D738C1E3942EB248FAA1E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A42F6384B125E59FA8BBD20C1346DCA7 /* BFOAuth.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/BFOAuth/BFOAuth-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		CD15CF617E30903A6A0399990AB24118 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C2D5F2FEA76C1167746AE674EBD309E /* Pods-ScanIt.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		DDA867842DCAB57D6A91FE5D364E2A29 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF6F86818904990B76936D252850F58F /* Toast.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Toast/Toast-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		FB45FFD90572718D82AB9092B750F0CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FF7E222238C0A5EDA47A8D62EA9570E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E1629FEF63774BA52037FF19EB8F502 /* STTweetLabel.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/STTweetLabel/STTweetLabel-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0B8217CCFFF345673912EAEB33FE64F2 /* Build configuration list for PBXNativeTarget "Toast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDA867842DCAB57D6A91FE5D364E2A29 /* Debug */,
+				A09BAA6349FAE6538E699E6F917EBD87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21D6390028D599D97B489197CE328110 /* Build configuration list for PBXNativeTarget "STTweetLabel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF7E222238C0A5EDA47A8D62EA9570E9 /* Debug */,
+				6A754B459764E1994FEFB31E13CAB593 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2320D758C06482F7578C301EA26FC916 /* Build configuration list for PBXNativeTarget "CloudSight" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				239EA4410068FD67417D76ABCF7B9EDF /* Debug */,
+				9EAB8B55B7362613AE61F60E86E1A861 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A70CDAD61F90AC503C7D04CC22DA2923 /* Debug */,
+				FB45FFD90572718D82AB9092B750F0CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		721C2E44EE1A1AFF0899839FE555ED01 /* Build configuration list for PBXNativeTarget "SVWebViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4FC5BA121975D801B17D9518FE279D3 /* Debug */,
+				7F62AD65D88AA9A0DF65DFCD2F52BDD4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9480F09D88023784B4252A9587D44F39 /* Build configuration list for PBXNativeTarget "RequestUtils" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6B08ABDEA4C8C3C2209DB68F439939F /* Debug */,
+				47D021EAA9DF9D4A42E52F980199A840 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C89F698BF87161E08054A4F4B01D804 /* Build configuration list for PBXNativeTarget "BFOAuth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23EB26C1ABA7E76032B3A8DCE6EEC14D /* Debug */,
+				CB803E63447D738C1E3942EB248FAA1E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F09A7F8A02E01361E26D0E574D15A950 /* Build configuration list for PBXNativeTarget "Pods-ScanIt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				055BC726BE773A89C10DADC5CC4447D3 /* Debug */,
+				CD15CF617E30903A6A0399990AB24118 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

@@ -1,0 +1,25 @@
+PODS:
+  - BFOAuth (1.0.1)
+  - CloudSight (1.0):
+    - BFOAuth (~> 1.0)
+    - RequestUtils (~> 1.1)
+  - RequestUtils (1.1.2)
+  - STTweetLabel (3.1.21)
+  - SVWebViewController (1.0)
+  - Toast (3.0)
+
+DEPENDENCIES:
+  - CloudSight (= 1.0)
+  - STTweetLabel
+  - SVWebViewController
+  - Toast (~> 3.0)
+
+SPEC CHECKSUMS:
+  BFOAuth: e3c2e4eaae862a89bc301ed6f292d3cd0d6a107b
+  CloudSight: 267b8f422575489a49ebc5b77c6621312a9894cb
+  RequestUtils: 0f04f89abca3936c6566e2f4c3ce5d252036bc89
+  STTweetLabel: 842bc86cdf13288414440405757478bd4820e1be
+  SVWebViewController: c36dda7326e81fcae0abf5d02bf7bbf7e41be901
+  Toast: 32c59229abfcf41850162b83bb9259dc84372473
+
+COCOAPODS: 0.39.0
