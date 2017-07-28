@@ -18,7 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    sleep(2);
+    sleep(2);  
     
 //    if([UIDevice currentDevice].systemVersion.floatValue >= 8.0) {
 //        
