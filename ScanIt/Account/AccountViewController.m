@@ -357,7 +357,9 @@
            [EditUserInfoDict setObject:_txtMobileNumber.text forKey:PHONENUMBER];
            [EditUserInfoDict setObject:shippingAddress forKey:ADDRESS];
            
-           [self editUserInfoDetails:EditUserInfoDict];
+           
+               [self editUserInfoDetails:EditUserInfoDict];
+           
        }
   
    }

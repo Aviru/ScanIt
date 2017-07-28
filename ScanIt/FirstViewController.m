@@ -123,6 +123,7 @@
     [loginDict setObject:@"" forKey:PROFILEIMAGE];
     
     [self LoginDetails:loginDict];
+    
 }
 
 #pragma mark - Facebook Observations
@@ -200,11 +201,14 @@
     NSError *error=nil;
     NSData *jsonRequestDict= [NSJSONSerialization dataWithJSONObject:dictLogin options:NSJSONWritingPrettyPrinted error:&error];
     
+    
     NSString *URL=[BASEURL stringByAppendingString:LOGIN];
     NSLog(@"Login_Url:%@",URL);
     
     NSString *jsonCommand=[[NSString alloc] initWithData:jsonRequestDict encoding:NSUTF8StringEncoding];
     NSLog(@"***jsonCommand***%@",jsonCommand);
+    
+    
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:jsonCommand,@"requestParam", nil];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -288,7 +292,6 @@
             }
             
             [self setUserDefaultValue:jsonResponseDict [@"response"][@"user_details"][USERID] ForKey:USERID];//set UserId
-            [self setUserDefaultValue:@"YES" ForKey:ISLOGGEDIN];
             [self setUserDefaultValue:jsonResponseDict [@"response"][@"user_details"][FIRSTNAME] ForKey:FIRSTNAME];
             [self setUserDefaultValue:jsonResponseDict [@"response"][@"user_details"][LASTNAME] ForKey:LASTNAME];
             
@@ -326,7 +329,7 @@
             else
                 [self setUserDefaultValue:@"" ForKey:PROFILEIMAGE];
             
-            [self performSegueWithIdentifier:@"showRevealViewFromFirstView" sender:nil];
+            [self addDeviceToken];
             
         }
         else
@@ -357,6 +360,59 @@
      }];
 }
 
+#pragma mark - Add Device token
 
+-(void)addDeviceToken
+{
+    NSMutableDictionary *devideTokenDict = [[NSMutableDictionary alloc] init];
+    
+    NSLog(@"crash in addDeviceToken in login:%@",USERID);
+    
+    
+    [devideTokenDict setObject:[self getUserDefaultValueForKey:USERID] forKey:USERID];
+    [devideTokenDict setObject:@"Iphone" forKey:@"deviceType"];
+    [devideTokenDict setObject:[self getUserDefaultValueForKey:IMEI] forKey:IMEI]; //2847D1F5-5BEF-4A0C-8274-4CAE75B52B1D
+    
+#if TARGET_IPHONE_SIMULATOR
+    // Simulator
+    [devideTokenDict setObject:@"fe3c1c39fb267847300fd9bd5fb30fc3df6a22c5d00f59743c138bfe15429d48" forKey:DEVICETOKEN];
+#else
+    // iPhones
+    [devideTokenDict setObject:[self getUserDefaultValueForKey:DEVICETOKEN] forKey:DEVICETOKEN];
+#endif
+    
+    NSError *error=nil;
+    NSString *URL=[BASEURL stringByAppendingString:ADD_DEVICE_TOKEN];
+    
+    NSLog(@"Add_Device_Token_URL_Url:%@",URL);
+    NSData *jsonRequestDict= [NSJSONSerialization dataWithJSONObject:devideTokenDict options:NSJSONWritingPrettyPrinted error:&error];
+    NSString *jsonCommand=[[NSString alloc] initWithData:jsonRequestDict encoding:NSUTF8StringEncoding];
+    //NSLog(@"***jsonCommand***%@",jsonCommand);
+    
+    NSDictionary *params =[NSDictionary dictionaryWithObjectsAndKeys:jsonCommand,@"requestParam", nil];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    [manager POST:URL parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error=nil;
+        NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        //NSLog(@"Request Successful, response '%@'", responseStr);
+        NSMutableDictionary *jsonResponseDict= [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+        NSLog(@"Response Dictionary:: %@",jsonResponseDict);
+        
+        [self setUserDefaultValue:@"YES" ForKey:ISLOGGEDIN];
+        
+        [superViewController stopActivity:self.view];
+        
+        [self performSegueWithIdentifier:@"showRevealViewFromFirstView" sender:nil];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Request Error: %@", error);
+        [superViewController stopActivity:self.view];
+    }];
+}
 
 @end

@@ -19,7 +19,7 @@
 #import "AFNetworking.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
-#import <CloudSight.h>
+#import "CloudSight.h"
 #import <STTweetLabel.h>
 #import <CoreData/CoreData.h>
 #import <AssetsLibrary/AssetsLibrary.h>
@@ -27,5 +27,7 @@
 #import <UIView+Toast.h>
 #import "RWMAmazonProductAdvertisingManager.h"
 #import "SVWebViewController.h"
+#import "WebImageOperations.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 #endif /* ScanIt_Prefix_pch */

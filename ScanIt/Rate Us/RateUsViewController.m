@@ -10,6 +10,8 @@
 
 #define YOUR_APP_STORE_ID 1033792462 // App ID
 
+#define SCANIT_APP_STORE_ID @"1033792462" // App ID
+
 
 @interface RateUsViewController ()
 
@@ -24,12 +26,26 @@
     
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
-    static NSString *const iOS7AppStoreURLFormat = @"itms-apps://itunes.apple.com/app/id%d";
-    static NSString *const iOSAppStoreURLFormat = @"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%d";
+    /*
     
-   // [NSURL URLWithString:[NSString stringWithFormat:([[UIDevice currentDevice].systemVersion floatValue] >= 7.0f)? iOS7AppStoreURLFormat: iOSAppStoreURLFormat, YOUR_APP_STORE_ID]]; // Would contain the right link
+    static NSString *const iOS7AppStoreURLFormat = @"itms-apps://itunes.apple.com/app/id%d";
+    static NSString *const iOSAppStoreURLFormat = @"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%d&pageNumber=0&sortOrdering=1&type=Purple+Software&mt=8";  //itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%d
     
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:([[UIDevice currentDevice].systemVersion floatValue] >= 7.0f)? iOS7AppStoreURLFormat: iOSAppStoreURLFormat, YOUR_APP_STORE_ID]]];
+     */
+    
+    
+    NSString *str;
+    float ver = [[[UIDevice currentDevice] systemVersion] floatValue];
+    if (ver >= 7.0 && ver < 7.1) {
+        str = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@",SCANIT_APP_STORE_ID];
+    } else if (ver >= 8.0) {
+        str = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@&pageNumber=0&sortOrdering=1&type=Purple+Software",SCANIT_APP_STORE_ID];
+    } else {
+        str = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@",SCANIT_APP_STORE_ID];
+    }
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+    
 }
 
 - (void)didReceiveMemoryWarning {

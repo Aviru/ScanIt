@@ -14,11 +14,9 @@
 
 @interface HistoryViewController ()
 {
-    NSManagedObject *productDetailsObj;
     NSMutableArray *arrProductDetails;
     HistoryTableViewCell *cell;
     AppDelegate *appDelegate;
-    __block NSMutableArray *imgArr;
     NSUInteger count;
     int i;
 }
@@ -26,15 +24,6 @@
 @end
 
 @implementation HistoryViewController
-
-- (NSManagedObjectContext *)managedObjectContext {
-    NSManagedObjectContext *context = nil;
-    id delegate = [[UIApplication sharedApplication] delegate];
-    if ([delegate performSelector:@selector(managedObjectContext)]) {
-        context = [delegate managedObjectContext];
-    }
-    return context;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,124 +36,87 @@
     
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    imgArr = [[NSMutableArray alloc]init];
-    
-    // Fetch the Product Details from persistent data store
-    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"ProductDetails"];
-    arrProductDetails = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    count = arrProductDetails.count;
-    NSLog(@"arrProductDetails:%@",arrProductDetails);
-    
-//    if (arrProductDetails.count > 0)
-//    {
-//        _lblMessage.hidden = YES;
-//        _historyTableContainingView.hidden = NO;
-//    }
-//    else
-//    {
-//        _lblMessage.hidden = NO;
-//        _historyTableContainingView.hidden = YES;
-//    }
-    
     [superViewController startActivity:self.view];
     
-    i=0;
-    
-    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-    
-    // Load Albums into assetGroups
-    
-    // Group enumerator Block
-    void (^assetGroupEnumerator)(ALAssetsGroup *, BOOL *) = ^(ALAssetsGroup *group, BOOL *stop) //ALAssetsGroup *group
-    {
-        if (group == nil)
-        {
-            return;
-        }
-        
-        if([[group valueForProperty:ALAssetsGroupPropertyName] isEqualToString:kAlbumName])
-        {
-            [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop)
-             {
-                 
-                 while (i<count)
-                 {
-                     
-                     productDetailsObj = [arrProductDetails objectAtIndex:i];
-                     
-                     ALAssetsLibraryAssetForURLResultBlock resultblock = ^(ALAsset *myasset)
-                     {
-                         CGImageRef iref = [myasset thumbnail];
-                         // CGImageRef iref = [rep fullResolutionImage];
-                         
-                         if (iref)
-                         {
-                             UIImage *image = [UIImage imageWithCGImage:iref scale:1.0f orientation:UIImageOrientationUp];
-                             [imgArr addObject:image];
-                             [superViewController stopActivity:self.view];
-                             [self.historyTableVw reloadData];
-                         }
-                         else
-                         {
-                             NSLog(@"NO photo");
-                             UIImage *noImage =[UIImage imageNamed:@"no_image_product.jpg"];
-                             //cell.productImgVw.image =[UIImage imageWithData:UIImageJPEGRepresentation(noImage, .6)];
-                             [imgArr addObject:[UIImage imageWithData:UIImageJPEGRepresentation(noImage, .6)]];
-                             [superViewController stopActivity:self.view];
-                             [self.historyTableVw reloadData];
-                         }
-                         
-                     };
-                     
-                     ALAssetsLibraryAccessFailureBlock failureblock  = ^(NSError *myerror)
-                     {
-                         NSLog(@"Can't get image - %@",[myerror localizedDescription]);
-                         
-                         cell.productImgVw.image =[UIImage imageNamed:@"no_image_product.jpg"];
-                     };
-                     
-                     NSURL *asseturl = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [productDetailsObj valueForKey:@"imageUrl"]]];
-                     
-                     ALAssetsLibrary* assetslibrary = [[ALAssetsLibrary alloc] init];
-                     [assetslibrary assetForURL:asseturl
-                                    resultBlock:resultblock
-                                   failureBlock:failureblock];
-                     
-                     i++;
-                 }
-                 
-                 [superViewController stopActivity:self.view];
-                 
-//                 else
-//                 {
-//                    [superViewController stopActivity:self.view];
-//                    return;
-//                 }
-                 
-                 
-             }];
-            
-            return;
-            
-        }
-    };
-    
-    // Group Enumerator Failure Block
-    void (^assetGroupEnumberatorFailure)(NSError *) = ^(NSError *error) {
-        
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"Album Error: %@ - %@", [error localizedDescription], [error localizedRecoverySuggestion]] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alert show];
-        
-        NSLog(@"A problem occured %@", [error description]);
-    };
-    
-    // Enumerate Albums
-    [library enumerateGroupsWithTypes:ALAssetsGroupAll
-                           usingBlock:assetGroupEnumerator
-                         failureBlock:assetGroupEnumberatorFailure];
+    [self callHistoryList];
    
 }
+
+#pragma mark - History list web service
+-(void)callHistoryList
+{
+    NSError *error=nil;
+    
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
+    [dict setObject:@"no" forKey:@"like"];
+    [dict setObject:[self getUserDefaultValueForKey:USERID] forKey:USERID]; //@"13"
+    
+    NSData *jsonRequestDict= [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&error];
+    
+    NSString *jsonCommand=[[NSString alloc] initWithData:jsonRequestDict encoding:NSUTF8StringEncoding];
+    NSLog(@"***jsonCommand***%@",jsonCommand);
+    
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:jsonCommand,@"requestParam", nil];
+    
+    NSString *URL=[BASEURL_FOR_SUGGESTEDRETAIL_AND_PURCHASELIST stringByAppendingString:GET_HISTORY_OR_LIKE];
+    NSLog(@"GET_HISTORY_Url:%@",URL);
+
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    [manager POST:URL parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error=nil;
+        NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSLog(@"Request Successful, response '%@'", responseStr);
+        NSMutableDictionary *jsonResponseDict= [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+        NSLog(@"Response Dictionary:: %@",jsonResponseDict);
+        
+        [superViewController stopActivity:self.view];
+        if ([[jsonResponseDict objectForKey:@"status"] integerValue]==1)
+        {
+            //arrProductDetails= [[NSMutableArray alloc]init];
+            
+            if ([jsonResponseDict[@"historylist"] count]>0)
+            {
+                NSMutableArray *arr = [jsonResponseDict[@"historylist"]mutableCopy];
+                
+                arrProductDetails =  arr; //[[[arr reverseObjectEnumerator] allObjects] mutableCopy];
+                
+                [_historyTableVw reloadData];
+            }
+            else
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                                message:@"No History Listing Found!"
+                                                               delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+            }
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:jsonResponseDict[@"message"]
+                                                           delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
+        
+    }
+          failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         [superViewController stopActivity:self.view];
+         
+         NSLog(@"Error: %@", error);
+         
+         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network Error" message:@"Please try again"
+                                                        delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+         [alert show];
+         
+     }];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -194,16 +146,21 @@
     
         cell = (HistoryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
-    productDetailsObj = [arrProductDetails objectAtIndex:indexPath.row];
+    cell.lblProductName.text = [[arrProductDetails objectAtIndex:indexPath.row] objectForKey:@"product_keywords"];
     
-    cell.lblProductName.text = [NSString stringWithFormat:@"%@", [productDetailsObj valueForKey:@"productName"]];
-    
-    if (imgArr.count > indexPath.row)
+    if ([[[arrProductDetails objectAtIndex:indexPath.row] objectForKey:@"ProductImage"] isEqualToString:@""])
     {
-        [cell.productImgVw setImage:[imgArr objectAtIndex:indexPath.row]];
+        [cell.productImgVw setImage:[UIImage imageNamed:@"no_image_product.jpg"]];
     }
     else
-      [cell.productImgVw setImage:[UIImage imageNamed:@"no_image_product.jpg"]];
+    {
+        [cell.productImgVw setImage:[UIImage imageNamed:@"no_image_product.jpg"]];
+        
+        NSURL *url = [NSURL URLWithString:[[arrProductDetails objectAtIndex:indexPath.row] objectForKey:@"ProductImage"]];
+        [cell.productImgVw sd_setImageWithURL:url
+                     placeholderImage:[UIImage imageNamed:@"no_image_product.jpg"]
+                              options:SDWebImageRefreshCached];
+    }
 
     return cell;
     
@@ -217,11 +174,10 @@
     //Calling storyboard scene programmatically (without needing segue)
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ProductOptionsViewController *productVC = (ProductOptionsViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ProductOptionsViewController"];
-    
-    productDetailsObj = [arrProductDetails objectAtIndex:indexPath.row];
-    productVC.productImageUrl = [productDetailsObj valueForKey:@"imageUrl"];
-    productVC.productName = [productDetailsObj valueForKey:@"productName"];
-    productVC.queryTokenForSelectedProduct = [productDetailsObj valueForKey:@"queryToken"];
+    productVC.productImageUrl = [[arrProductDetails objectAtIndex:indexPath.row] objectForKey:@"ProductImage"];
+    productVC.productName = [[arrProductDetails objectAtIndex:indexPath.row] objectForKey:@"product_keywords"];
+    //productVC.queryTokenForSelectedProduct = [productDetailsObj valueForKey:@"queryToken"];
+    productVC.isProductLiked = NO;
     
     [self.navigationController pushViewController:productVC animated:YES];
 }
@@ -241,39 +197,7 @@
 
 - (IBAction)clearAllAction:(id)sender
 {
-    NSFetchRequest *allProductsFetchRequest = [[NSFetchRequest alloc] init];
-    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
-    [allProductsFetchRequest setEntity:[NSEntityDescription entityForName:@"ProductDetails" inManagedObjectContext:managedObjectContext]];
-    [allProductsFetchRequest setIncludesPropertyValues:NO]; //only fetch the managedObjectID
-    
-    NSError *error = nil;
-    NSArray *products;
-    
-    if (![managedObjectContext executeFetchRequest:allProductsFetchRequest error:&error]) {
-        NSLog(@"Can't Fetch! %@ %@", error, [error localizedDescription]);
-    }
-    else
-    {
-        products = [managedObjectContext executeFetchRequest:allProductsFetchRequest error:&error];
-    }
-    
-    //error handling goes here
-    for (NSManagedObject *product in products) {
-        [managedObjectContext deleteObject:product];
-    }
-    
-    NSError *saveError = nil;
-    // Save the object to persistent store
-    if (![managedObjectContext save:&saveError]) {
-        NSLog(@"Can't delete object! %@ %@", saveError, [saveError localizedDescription]);
-    }
-    else
-    {
-        NSLog(@"deleted object from database  successfully");
-        
-        [arrProductDetails removeAllObjects];
-        [_historyTableVw reloadData];
-    }
-    
+    [arrProductDetails removeAllObjects];
+    [_historyTableVw reloadData];
 }
 @end

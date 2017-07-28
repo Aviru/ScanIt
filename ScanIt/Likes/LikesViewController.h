@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LikesViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface LikesViewController : superViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *likeView;
 

@@ -4,9 +4,10 @@
 # use_frameworks!
 
 target 'ScanIt' do
-pod 'CloudSight', '1.0'
+#pod 'CloudSight', '1.0'
 pod 'STTweetLabel'
 pod 'Toast', '~> 3.0'
 pod 'SVWebViewController'
+pod 'SDWebImage', '~>3.8'
 end
 

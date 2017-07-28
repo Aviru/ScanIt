@@ -8,8 +8,14 @@
 
 #import "HomeViewController.h"
 #import "ProductOptionsViewController.h"
+#import "AviSpinner.h"
 
-@interface HomeViewController ()
+NSString *const kUIActivityIndicatorView = @"UIActivityIndicatorView";
+NSString *const kAviActivityIndicator = @"AviActivityIndicator";
+NSString *const kAviCircularSpinner = @"AviCircularSpinner";
+NSString *const kAviBeachBallSpinner = @"AviBeachBallSpinner";
+
+@interface HomeViewController ()<UITextFieldDelegate>
 {
    UIImage *editedImage;
     CGPoint myPoint;
@@ -18,6 +24,19 @@
     NSString *queryToken;
     NSString *imageURL;
     UIImagePickerController *cameraUI;
+    BOOL isOpenCameraBtnTapped;
+    UIActionSheet *actionSheetPopup;
+    
+    AviSpinner *circularSpinner;
+    
+    IBOutlet UIView *searchContainerView;
+    
+    IBOutlet UIView *searchView;
+    
+    IBOutlet UIView *activityIndicatorView;
+    
+    IBOutlet UITextField *txtSearch;
+    
 }
 
 @end
@@ -37,6 +56,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.hidesBackButton = YES;
+    
+    searchView.layer.cornerRadius = 4.0f;
+    searchView.layer.borderWidth = 1.0f;
+    searchView.layer.borderColor = [UIColor colorWithRed:193.0/255.0 green:53.0/255.0 blue:30.0/255.0 alpha:1.0].CGColor;
+    searchView.layer.masksToBounds = YES;
+    
+    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 7, 20)];
+    txtSearch.leftView = paddingView;
+    txtSearch.leftViewMode = UITextFieldViewModeAlways;
     
 //    self.locationManager = [CLLocationManager new];
 //    self.locationManager.delegate = self;
@@ -65,7 +93,24 @@
         _capturedImgVw.hidden = NO;
         _lblProcessingImage.hidden = NO;
         
+        searchContainerView.hidden = YES;
+        
+        circularSpinner = [[AviSpinner alloc] initWithSpinnerType:kAviCircularSpinner];
+        circularSpinner.hidesWhenStopped = YES;
+        circularSpinner.radius = 20;
+        circularSpinner.pathColor = [UIColor whiteColor];
+        circularSpinner.fillColor = [UIColor darkGrayColor];
+        circularSpinner.thickness = 3;
+        
+        [circularSpinner setBounds:CGRectMake(0, 0, 50, 50)]; //
+        [circularSpinner setCenter:CGPointMake(self.view.center.x, activityIndicatorView.center.y+10)];
+        
+        [circularSpinner startAnimating];
+        
+        [self.view addSubview:circularSpinner];
+        
         [self searchWithImage:editedImage];
+        
     }
     
     else
@@ -75,9 +120,18 @@
         _capturedImgVw.hidden =YES;
         _lblProcessingImage.hidden = YES;
         
+        searchContainerView.hidden = NO;
+        
         //[self.locationManager startUpdatingLocation];
     }
     
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self.view endEditing:YES];
+    
+    [txtSearch resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -112,6 +166,66 @@
 }
 */
 
+#pragma mark - Text Field Delegate
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if (IS_IPHONE_4)
+    {
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDuration:0.4];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y - 160), self.view.frame.size.width, self.view.frame.size.height);
+        [UIView commitAnimations];
+    }
+    else
+    {
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDuration:0.4];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y - 140), self.view.frame.size.width, self.view.frame.size.height);
+        [UIView commitAnimations];
+    }
+    
+    
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if (IS_IPHONE_4)
+    {
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDuration:0.4];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y + 160), self.view.frame.size.width, self.view.frame.size.height);
+        [UIView commitAnimations];
+    }
+    else
+    {
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDuration:0.4];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y + 140), self.view.frame.size.width, self.view.frame.size.height);
+        [UIView commitAnimations];
+    }
+
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+   
+    [textField resignFirstResponder];
+    
+    return  YES;
+}
+
+
+#pragma mark - Button Action
+
 - (IBAction)leftPannelAction:(id)sender
 {
     
@@ -119,6 +233,11 @@
 
 - (IBAction)openCameraAction:(id)sender
 {
+    [self.view endEditing:YES];
+    
+    [txtSearch resignFirstResponder];
+    
+    isOpenCameraBtnTapped = YES;
     
     cameraUI = [[UIImagePickerController alloc] init];
     cameraUI.delegate = self;
@@ -126,12 +245,12 @@
     
     if (IS_OS_8_OR_LATER)
     {
-        UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Select an option:" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
+        actionSheetPopup = [[UIActionSheet alloc] initWithTitle:@"Select an option:" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
                                 @"Take Photo",
                                 @"Choose From Album",
                                 nil];
-        popup.tag = 1;
-        [popup showInView:self.view];
+        actionSheetPopup.tag = 1;
+        [actionSheetPopup showInView:self.view];
     }
     else if (IS_OS_9_OR_LATER)
     {
@@ -140,6 +259,8 @@
         [AlertControllerActionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){
             
             // Cancel button tappped do nothing.
+            
+            isOpenCameraBtnTapped = NO;
             
         }]];
         
@@ -160,6 +281,21 @@
     
 }
 
+- (IBAction)searchBtnAction:(id)sender {
+    
+    if ([[txtSearch text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length == 0)
+    {
+       showToastOnBottomPosition(@"Enter what you want to search")
+    }
+    else
+    {
+        isOpenCameraBtnTapped = NO;
+        [self performSegueWithIdentifier:@"showProductOptionsFromHome" sender:nil];
+    }
+    
+}
+
+
 #pragma mark - Actionsheet Delegate
 
 - (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -167,6 +303,10 @@
     if(buttonIndex==0)
     {
         [self captureImageFromCamera];
+    }
+    else if (buttonIndex == popup.cancelButtonIndex)
+    {
+        isOpenCameraBtnTapped = NO;
     }
     else if(buttonIndex==1)
     {
@@ -218,9 +358,7 @@
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    
     [picker dismissViewControllerAnimated:YES completion:NULL];
-    
 }
 
 #pragma mark - UIImagePickerDelegate
@@ -268,9 +406,11 @@
 #pragma mark CloudSightQueryDelegate
 
 - (void)cloudSightQueryDidFinishIdentifying:(CloudSightQuery *)query {
+    
     if (query.skipReason != nil) {
         NSLog(@"Skipped: %@", query.skipReason);
-    } else {
+    }
+    else {
         //NSLog(@"Identified title: %@", query.title);
          NSLog(@"Identified name: %@", query.name);
          NSLog(@"Query token: %@", query.token);
@@ -307,7 +447,6 @@
     if (buttonIndex == 0)
     {
         _isImageAvailable = NO;
-        
         _openCameraBtnOutlet.hidden = NO;
         _lblOpenCamera.hidden = NO;
         _capturedImgVw.hidden =YES;
@@ -322,83 +461,34 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [circularSpinner stopAnimating];
+        
+    });
+    
     if ([[segue identifier] isEqualToString:@"showProductOptionsFromHome"])
     {
         AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
         appDelegate.isFromLikePage = NO;
         appDelegate.isFromHistoryPage = NO;
-        
         ProductOptionsViewController* productOptionsVC = [segue destinationViewController];
-        productOptionsVC.productImage = editedImage;
-        productOptionsVC.productImageUrl = imageURL;
-        productOptionsVC.queryTokenForSelectedProduct = queryToken;
-        productOptionsVC.productName = Name;
+        
+        if (isOpenCameraBtnTapped)
+        {
+            productOptionsVC.productImage = editedImage;
+            productOptionsVC.productImageUrl = imageURL;
+            productOptionsVC.queryTokenForSelectedProduct = queryToken;
+            productOptionsVC.productName = Name;
+            productOptionsVC.isTextSearch = NO;
+        }
+        
+       else
+       {
+           productOptionsVC.productName = txtSearch.text;
+           productOptionsVC.isTextSearch = YES;
+       }
     }
-}
-
-#pragma mark - Save Image to Asset Library And To Database
-
--(void)saveImage
-{
-    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-    
-    [library addAssetsGroupAlbumWithName:@"ScanIt" resultBlock:^(ALAssetsGroup *group)
-     {
-         
-         NSLog(@"Adding Folder:'ScanIt', success: %s", group.editable ? "Success" : "Already created: Not Success");
-         
-         //        Handler(group,nil);
-         
-     } failureBlock:^(NSError *error)
-     {
-         
-         NSLog(@"Error: Adding on Folder");
-         
-     }];
-    
-    NSData *imgData = UIImageJPEGRepresentation(_capturedImgVw.image, 0.4);
-    
-    UIImage *img = [UIImage imageWithData:imgData];
-    
-    [library saveImage:img toAlbum:@"ScanIt" completion:^(NSURL *assetURL, NSError *error)
-     {
-         NSLog(@"image saved to Album");
-         
-         imageURL = [assetURL absoluteString];
-         
-         NSManagedObjectContext *context = [self managedObjectContext];
-         
-         NSManagedObject *prodDetails = [NSEntityDescription insertNewObjectForEntityForName:@"ProductDetails" inManagedObjectContext:context];
-         
-         [prodDetails setValue:Name forKey:@"productName"];
-         [prodDetails setValue:[assetURL absoluteString]  forKey:@"imageUrl"];
-         [prodDetails setValue:[self getUserDefaultValueForKey:USERID] forKey:@"userId"];
-         [prodDetails setValue:queryToken forKey:@"queryToken"];
-         [prodDetails setValue:@"NO" forKey:@"likeProduct"];
-         
-         NSError *DBerror = nil;
-         // Save the object to persistent store
-         if (![context save:&DBerror]) {
-             NSLog(@"Can't Save! %@ %@", DBerror, [DBerror localizedDescription]);
-         }
-         else
-         {
-             NSLog(@"Data added to database successfully");
-             
-             [self performSegueWithIdentifier:@"showProductOptionsFromHome" sender:nil];
-         }
-         
-     }
-     
-     
-    failure:^(NSError *error)
-     {
-         UIAlertView *alertMsg = [[UIAlertView alloc] initWithTitle:@"Saving Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-         
-         [alertMsg show];
-     }];
-    
-    
 }
 
 @end

@@ -33,7 +33,7 @@
     
     self.navigationItem.hidesBackButton = YES;
     
-    menuItems = @[@"HomeCell", @"AccountCell", @"HistoryCell", @"LikeCell", @"PurchaseCell", @"RateUsCell", @"LogOutCell"];
+    menuItems = @[@"HomeCell", @"AccountCell", @"HistoryCell", @"LikeCell", @"PurchaseCell",@"whatsNewCell", @"RateUsCell",@"ReferralCodeCell", @"LogOutCell"];
 
     [_leftPannelTableVw selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:0];
 }
@@ -68,7 +68,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 7;
+    return menuItems.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -82,7 +82,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 6)
+    if (indexPath.row == 8)
     {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"Do you want to logout?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
         

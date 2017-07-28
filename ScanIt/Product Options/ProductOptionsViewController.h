@@ -14,13 +14,11 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *lblProductDesc;
 
-@property (weak, nonatomic) IBOutlet UIButton *likeBtnOutlet;
-
-@property (weak, nonatomic) IBOutlet UIButton *showRetailersListBtnOutlet;
-
-@property (weak, nonatomic) IBOutlet UILabel *lblLikeProduct;
-
-@property(strong,nonatomic)UIImage *productImage;
+//@property (weak, nonatomic) IBOutlet UIButton *likeBtnOutlet;
+//
+//@property (weak, nonatomic) IBOutlet UIButton *showRetailersListBtnOutlet;
+//
+//@property (weak, nonatomic) IBOutlet UILabel *lblLikeProduct;
 
 
 
@@ -35,6 +33,10 @@
 - (IBAction)amazonAffiliatesAction:(id)sender;
 
 
+@property(strong,nonatomic)UIImage *productImage;
+@property BOOL isTextSearch;
+@property BOOL isFromWhatsNewPage;
+@property BOOL isProductLiked;
 @property(nonatomic,strong)NSString *productName;
 @property(nonatomic,strong)NSString *productImageUrl;
 @property(nonatomic,strong)NSString *queryTokenForSelectedProduct;

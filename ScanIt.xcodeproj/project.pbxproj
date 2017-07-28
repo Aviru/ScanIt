@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		000772201C88A3A80062C8DE /* ProductOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0007721F1C88A3A80062C8DE /* ProductOptionsViewController.m */; };
+		000AAADF1DD7712700EFCFA4 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 000AAADE1DD7712700EFCFA4 /* arrow.png */; };
 		000E210F1C93ED6D009FDD00 /* ProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 000E210E1C93ED6D009FDD00 /* ProductListViewController.m */; };
 		000E21121C93EE2D009FDD00 /* ProductListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 000E21111C93EE2D009FDD00 /* ProductListCollectionViewCell.m */; };
 		000E21161C941BDE009FDD00 /* ProductDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 000E21151C941BDE009FDD00 /* ProductDetailsViewController.m */; };
@@ -20,25 +21,50 @@
 		002AC01C1C8621C900871857 /* LeftPannelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002AC01B1C8621C900871857 /* LeftPannelTableViewCell.m */; };
 		002AC01F1C86257900871857 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002AC01E1C86257900871857 /* HomeViewController.m */; };
 		002AC0241C862DB000871857 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002AC0231C862DB000871857 /* AccountViewController.m */; };
+		004A6ADA1DBBA45100A43BCB /* home_txture_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 004A6AD91DBBA45100A43BCB /* home_txture_bg.jpg */; };
+		004A6AE21DBBB1C700A43BCB /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 004A6AE11DBBB1C700A43BCB /* search.png */; };
 		004E493B1C8F4DBF0034531D /* SuggestedRetailersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 004E493A1C8F4DBF0034531D /* SuggestedRetailersListViewController.m */; };
 		004E493E1C8F540D0034531D /* SuggestedRetailersTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 004E493D1C8F540D0034531D /* SuggestedRetailersTableViewCell.m */; };
 		004E49401C8F55C90034531D /* contact_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 004E493F1C8F55C90034531D /* contact_button.png */; };
 		004F655F1CA5A1D10026BE39 /* AmazonProductListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 004F655E1CA5A1D10026BE39 /* AmazonProductListingViewController.m */; };
 		004F73F91C84C80F00986AA6 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 004F73F81C84C80F00986AA6 /* SWRevealViewController.m */; };
+		005153621DA0573A0018B266 /* AviSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 005153611DA0573A0018B266 /* AviSpinner.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		005541561C9B21A50093CE25 /* cloudsight.png in Resources */ = {isa = PBXBuildFile; fileRef = 005541551C9B21A50093CE25 /* cloudsight.png */; };
 		005712821C87DABF00B1E5CF /* LikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 005712811C87DABF00B1E5CF /* LikesViewController.m */; };
 		005712851C87DACD00B1E5CF /* PurchasesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 005712841C87DACD00B1E5CF /* PurchasesViewController.m */; };
 		005712891C87DB7A00B1E5CF /* RateUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 005712881C87DB7A00B1E5CF /* RateUsViewController.m */; };
+		0058650A1DBD1155000BDB9D /* offers_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 005865091DBD1155000BDB9D /* offers_icon.png */; };
+		0058650D1DBD1805000BDB9D /* CurrentOfferCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0058650C1DBD1805000BDB9D /* CurrentOfferCollectionViewCell.m */; };
+		005865111DBD2691000BDB9D /* WebImageOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 005865101DBD2691000BDB9D /* WebImageOperations.m */; };
+		005CF4D01DBBBCF100AE8CA9 /* cloudsight_transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 005CF4CE1DBBBCF100AE8CA9 /* cloudsight_transparent.png */; };
+		005CF4D11DBBBCF100AE8CA9 /* scanit_transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 005CF4CF1DBBBCF100AE8CA9 /* scanit_transparent.png */; };
 		005DEA421CA65BEE00C19188 /* RWMAmazonProductAdvertisingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 005DEA3F1CA65BEE00C19188 /* RWMAmazonProductAdvertisingManager.m */; };
 		005DEA431CA65BEE00C19188 /* RWMAmazonProductAdvertisingRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 005DEA411CA65BEE00C19188 /* RWMAmazonProductAdvertisingRequestSerializer.m */; };
+		008CEE331DC624CB0095978F /* ReferralCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008CEE321DC624CB0095978F /* ReferralCodeViewController.m */; };
 		009C54941C9D36F70039B462 /* scanit_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 009C54931C9D36F70039B462 /* scanit_big.png */; };
 		00AB847A1C9DE40500C7EE70 /* PurchaseDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AB84791C9DE40500C7EE70 /* PurchaseDetailsViewController.m */; };
 		00B6A61A1C9523CA008441BD /* SuggestedRetailerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B6A6191C9523CA008441BD /* SuggestedRetailerDetailsViewController.m */; };
 		00BB5F431C9EEC2F00E9867C /* SuggestedRetailerWebSiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BB5F421C9EEC2F00E9867C /* SuggestedRetailerWebSiteViewController.m */; };
 		00BB5F471C9EEF4200E9867C /* PurchaseInvoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BB5F461C9EEF4200E9867C /* PurchaseInvoiceViewController.m */; };
+		00C0227D1E06D1B700E183AD /* CloudSightConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C0226F1E06D1B700E183AD /* CloudSightConnection.m */; };
+		00C0227E1E06D1B700E183AD /* CloudSightDelete.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C022711E06D1B700E183AD /* CloudSightDelete.m */; };
+		00C0227F1E06D1B700E183AD /* CloudSightImageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C022731E06D1B700E183AD /* CloudSightImageRequest.m */; };
+		00C022801E06D1B700E183AD /* CloudSightImageResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C022761E06D1B700E183AD /* CloudSightImageResponse.m */; };
+		00C022811E06D1B700E183AD /* CloudSightQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C022781E06D1B700E183AD /* CloudSightQuery.m */; };
+		00C022821E06D1B700E183AD /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 00C0227B1E06D1B700E183AD /* LICENSE */; };
+		00C022831E06D1B700E183AD /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 00C0227C1E06D1B700E183AD /* README.md */; };
+		00C022871E06D1C000E183AD /* BFOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C022861E06D1C000E183AD /* BFOAuth.m */; };
+		00C0228B1E06D26700E183AD /* RequestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C0228A1E06D26700E183AD /* RequestUtils.m */; };
 		00C63B3B1C959FED00D5553B /* ScanIt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 00C63B391C959FED00D5553B /* ScanIt.xcdatamodeld */; };
 		00C63B3E1C95CAF500D5553B /* LikesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C63B3D1C95CAF500D5553B /* LikesTableViewCell.m */; };
 		00CAC9281C9476E800F63C23 /* test_img.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00CAC9271C9476E800F63C23 /* test_img.jpg */; };
+		00CB24E61DCF848000381F78 /* amazon_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CB24E31DCF848000381F78 /* amazon_icon.png */; };
+		00CB24E71DCF848000381F78 /* flipkart.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CB24E41DCF848000381F78 /* flipkart.png */; };
+		00CB24E81DCF848000381F78 /* social-google-box-blue-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CB24E51DCF848000381F78 /* social-google-box-blue-icon.png */; };
+		00CB24EA1DCF85AA00381F78 /* amazonlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 00CB24E91DCF85AA00381F78 /* amazonlogo.png */; };
+		00D3AD311DE9E2CB00B667F1 /* WhatsNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D3AD301DE9E2CB00B667F1 /* WhatsNewViewController.m */; };
+		00D3AD341DE9E8BA00B667F1 /* WhatsNewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D3AD331DE9E8BA00B667F1 /* WhatsNewTableViewCell.m */; };
+		00DA6A551DC918A0005E2283 /* googlelog_transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 00DA6A541DC918A0005E2283 /* googlelog_transparent.png */; };
 		00E250E71CA08CE100DB994F /* 58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 00E250E01CA08CE100DB994F /* 58x58.png */; };
 		00E250E81CA08CE100DB994F /* 60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 00E250E11CA08CE100DB994F /* 60x60.png */; };
 		00E250E91CA08CE100DB994F /* 76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 00E250E21CA08CE100DB994F /* 76x76.png */; };
@@ -71,6 +97,7 @@
 		00F9D7FD1C7CE42400D44059 /* superViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F9D7FC1C7CE42400D44059 /* superViewController.m */; };
 		00F9D8011C7CE4CD00D44059 /* scan_it_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 00F9D8001C7CE4CD00D44059 /* scan_it_logo.png */; };
 		00F9D8031C7CE99500D44059 /* f_logo_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 00F9D8021C7CE99500D44059 /* f_logo_white.png */; };
+		723FDD42EDC73496951FD97E /* libPods-ScanIt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3328F7877A35A54BECBA666 /* libPods-ScanIt.a */; };
 		CE672ECB1C86C17400A66783 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CE672EA81C86C17400A66783 /* AFHTTPRequestOperation.m */; };
 		CE672ECC1C86C17400A66783 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE672EAA1C86C17400A66783 /* AFHTTPRequestOperationManager.m */; };
 		CE672ECD1C86C17400A66783 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE672EAC1C86C17400A66783 /* AFHTTPSessionManager.m */; };
@@ -92,12 +119,12 @@
 		CE672EE11C86D60400A66783 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE672EDE1C86D60400A66783 /* FBSDKLoginKit.framework */; };
 		CE672EE21C86D60400A66783 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE672EDF1C86D60400A66783 /* FBSDKShareKit.framework */; };
 		CEE3D6F71C7EC55C005D9B1E /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE3D6F61C7EC55C005D9B1E /* Launch Screen.xib */; };
-		DC1FBDF4FD1FBD8763DC764D /* libPods-ScanIt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B5038E8B8E4D8DDCE449C53 /* libPods-ScanIt.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0007721E1C88A3A80062C8DE /* ProductOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductOptionsViewController.h; sourceTree = "<group>"; };
 		0007721F1C88A3A80062C8DE /* ProductOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductOptionsViewController.m; sourceTree = "<group>"; };
+		000AAADE1DD7712700EFCFA4 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		000E210D1C93ED6D009FDD00 /* ProductListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductListViewController.h; sourceTree = "<group>"; };
 		000E210E1C93ED6D009FDD00 /* ProductListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductListViewController.m; sourceTree = "<group>"; };
 		000E21101C93EE2D009FDD00 /* ProductListCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductListCollectionViewCell.h; sourceTree = "<group>"; };
@@ -122,6 +149,8 @@
 		002AC01E1C86257900871857 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		002AC0221C862DB000871857 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		002AC0231C862DB000871857 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
+		004A6AD91DBBA45100A43BCB /* home_txture_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home_txture_bg.jpg; sourceTree = "<group>"; };
+		004A6AE11DBBB1C700A43BCB /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
 		004E49391C8F4DBF0034531D /* SuggestedRetailersListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestedRetailersListViewController.h; sourceTree = "<group>"; };
 		004E493A1C8F4DBF0034531D /* SuggestedRetailersListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestedRetailersListViewController.m; sourceTree = "<group>"; };
 		004E493C1C8F540D0034531D /* SuggestedRetailersTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestedRetailersTableViewCell.h; sourceTree = "<group>"; };
@@ -131,6 +160,8 @@
 		004F655E1CA5A1D10026BE39 /* AmazonProductListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonProductListingViewController.m; sourceTree = "<group>"; };
 		004F73F71C84C80F00986AA6 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		004F73F81C84C80F00986AA6 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		005153601DA0573A0018B266 /* AviSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AviSpinner.h; sourceTree = "<group>"; };
+		005153611DA0573A0018B266 /* AviSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AviSpinner.m; sourceTree = "<group>"; };
 		005541551C9B21A50093CE25 /* cloudsight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloudsight.png; sourceTree = "<group>"; };
 		005712801C87DABF00B1E5CF /* LikesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikesViewController.h; sourceTree = "<group>"; };
 		005712811C87DABF00B1E5CF /* LikesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikesViewController.m; sourceTree = "<group>"; };
@@ -138,10 +169,19 @@
 		005712841C87DACD00B1E5CF /* PurchasesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchasesViewController.m; sourceTree = "<group>"; };
 		005712871C87DB7A00B1E5CF /* RateUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RateUsViewController.h; sourceTree = "<group>"; };
 		005712881C87DB7A00B1E5CF /* RateUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RateUsViewController.m; sourceTree = "<group>"; };
+		005865091DBD1155000BDB9D /* offers_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = offers_icon.png; sourceTree = "<group>"; };
+		0058650B1DBD1805000BDB9D /* CurrentOfferCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentOfferCollectionViewCell.h; sourceTree = "<group>"; };
+		0058650C1DBD1805000BDB9D /* CurrentOfferCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentOfferCollectionViewCell.m; sourceTree = "<group>"; };
+		0058650F1DBD2691000BDB9D /* WebImageOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebImageOperations.h; sourceTree = "<group>"; };
+		005865101DBD2691000BDB9D /* WebImageOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebImageOperations.m; sourceTree = "<group>"; };
+		005CF4CE1DBBBCF100AE8CA9 /* cloudsight_transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloudsight_transparent.png; sourceTree = "<group>"; };
+		005CF4CF1DBBBCF100AE8CA9 /* scanit_transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scanit_transparent.png; sourceTree = "<group>"; };
 		005DEA3E1CA65BEE00C19188 /* RWMAmazonProductAdvertisingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWMAmazonProductAdvertisingManager.h; sourceTree = "<group>"; };
 		005DEA3F1CA65BEE00C19188 /* RWMAmazonProductAdvertisingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWMAmazonProductAdvertisingManager.m; sourceTree = "<group>"; };
 		005DEA401CA65BEE00C19188 /* RWMAmazonProductAdvertisingRequestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWMAmazonProductAdvertisingRequestSerializer.h; sourceTree = "<group>"; };
 		005DEA411CA65BEE00C19188 /* RWMAmazonProductAdvertisingRequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWMAmazonProductAdvertisingRequestSerializer.m; sourceTree = "<group>"; };
+		008CEE311DC624CB0095978F /* ReferralCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReferralCodeViewController.h; sourceTree = "<group>"; };
+		008CEE321DC624CB0095978F /* ReferralCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferralCodeViewController.m; sourceTree = "<group>"; };
 		009C54931C9D36F70039B462 /* scanit_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scanit_big.png; sourceTree = "<group>"; };
 		00AB84781C9DE40500C7EE70 /* PurchaseDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseDetailsViewController.h; sourceTree = "<group>"; };
 		00AB84791C9DE40500C7EE70 /* PurchaseDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseDetailsViewController.m; sourceTree = "<group>"; };
@@ -151,10 +191,39 @@
 		00BB5F421C9EEC2F00E9867C /* SuggestedRetailerWebSiteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestedRetailerWebSiteViewController.m; sourceTree = "<group>"; };
 		00BB5F451C9EEF4200E9867C /* PurchaseInvoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseInvoiceViewController.h; sourceTree = "<group>"; };
 		00BB5F461C9EEF4200E9867C /* PurchaseInvoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseInvoiceViewController.m; sourceTree = "<group>"; };
+		00C0226D1E06D1B700E183AD /* CloudSight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudSight.h; sourceTree = "<group>"; };
+		00C0226E1E06D1B700E183AD /* CloudSightConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudSightConnection.h; sourceTree = "<group>"; };
+		00C0226F1E06D1B700E183AD /* CloudSightConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudSightConnection.m; sourceTree = "<group>"; };
+		00C022701E06D1B700E183AD /* CloudSightDelete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudSightDelete.h; sourceTree = "<group>"; };
+		00C022711E06D1B700E183AD /* CloudSightDelete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudSightDelete.m; sourceTree = "<group>"; };
+		00C022721E06D1B700E183AD /* CloudSightImageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudSightImageRequest.h; sourceTree = "<group>"; };
+		00C022731E06D1B700E183AD /* CloudSightImageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudSightImageRequest.m; sourceTree = "<group>"; };
+		00C022741E06D1B700E183AD /* CloudSightImageRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudSightImageRequestDelegate.h; sourceTree = "<group>"; };
+		00C022751E06D1B700E183AD /* CloudSightImageResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudSightImageResponse.h; sourceTree = "<group>"; };
+		00C022761E06D1B700E183AD /* CloudSightImageResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudSightImageResponse.m; sourceTree = "<group>"; };
+		00C022771E06D1B700E183AD /* CloudSightQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudSightQuery.h; sourceTree = "<group>"; };
+		00C022781E06D1B700E183AD /* CloudSightQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudSightQuery.m; sourceTree = "<group>"; };
+		00C022791E06D1B700E183AD /* CloudSightQueryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudSightQueryDelegate.h; sourceTree = "<group>"; };
+		00C0227A1E06D1B700E183AD /* CloudSightUploadProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudSightUploadProgressDelegate.h; sourceTree = "<group>"; };
+		00C0227B1E06D1B700E183AD /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		00C0227C1E06D1B700E183AD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		00C022851E06D1C000E183AD /* BFOAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFOAuth.h; sourceTree = "<group>"; };
+		00C022861E06D1C000E183AD /* BFOAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFOAuth.m; sourceTree = "<group>"; };
+		00C022891E06D26700E183AD /* RequestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestUtils.h; sourceTree = "<group>"; };
+		00C0228A1E06D26700E183AD /* RequestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestUtils.m; sourceTree = "<group>"; };
 		00C63B3A1C959FED00D5553B /* ScanIt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ScanIt.xcdatamodel; sourceTree = "<group>"; };
 		00C63B3C1C95CAF500D5553B /* LikesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikesTableViewCell.h; sourceTree = "<group>"; };
 		00C63B3D1C95CAF500D5553B /* LikesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikesTableViewCell.m; sourceTree = "<group>"; };
 		00CAC9271C9476E800F63C23 /* test_img.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test_img.jpg; sourceTree = "<group>"; };
+		00CB24E31DCF848000381F78 /* amazon_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amazon_icon.png; sourceTree = "<group>"; };
+		00CB24E41DCF848000381F78 /* flipkart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flipkart.png; sourceTree = "<group>"; };
+		00CB24E51DCF848000381F78 /* social-google-box-blue-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "social-google-box-blue-icon.png"; sourceTree = "<group>"; };
+		00CB24E91DCF85AA00381F78 /* amazonlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amazonlogo.png; sourceTree = "<group>"; };
+		00D3AD2F1DE9E2CB00B667F1 /* WhatsNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhatsNewViewController.h; sourceTree = "<group>"; };
+		00D3AD301DE9E2CB00B667F1 /* WhatsNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhatsNewViewController.m; sourceTree = "<group>"; };
+		00D3AD321DE9E8BA00B667F1 /* WhatsNewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhatsNewTableViewCell.h; sourceTree = "<group>"; };
+		00D3AD331DE9E8BA00B667F1 /* WhatsNewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhatsNewTableViewCell.m; sourceTree = "<group>"; };
+		00DA6A541DC918A0005E2283 /* googlelog_transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = googlelog_transparent.png; sourceTree = "<group>"; };
 		00E250E01CA08CE100DB994F /* 58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 58x58.png; sourceTree = "<group>"; };
 		00E250E11CA08CE100DB994F /* 60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 60x60.png; sourceTree = "<group>"; };
 		00E250E21CA08CE100DB994F /* 76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 76x76.png; sourceTree = "<group>"; };
@@ -196,7 +265,7 @@
 		00F9D7FF1C7CE45200D44059 /* ScanIt-Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ScanIt-Constant.h"; sourceTree = "<group>"; };
 		00F9D8001C7CE4CD00D44059 /* scan_it_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scan_it_logo.png; sourceTree = "<group>"; };
 		00F9D8021C7CE99500D44059 /* f_logo_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = f_logo_white.png; sourceTree = "<group>"; };
-		0B5038E8B8E4D8DDCE449C53 /* libPods-ScanIt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScanIt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C6C9FEC93CB4C7400618B20 /* Pods-ScanIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScanIt/Pods-ScanIt.release.xcconfig"; sourceTree = "<group>"; };
 		CE672EA71C86C17400A66783 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		CE672EA81C86C17400A66783 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		CE672EA91C86C17400A66783 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -237,8 +306,8 @@
 		CE672EDE1C86D60400A66783 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		CE672EDF1C86D60400A66783 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		CEE3D6F61C7EC55C005D9B1E /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "Launch Screen.xib"; path = "../Launch Screen.xib"; sourceTree = "<group>"; };
-		E98C6498D8E7033F7C4CEC2A /* Pods-ScanIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScanIt/Pods-ScanIt.release.xcconfig"; sourceTree = "<group>"; };
-		EC9FE3E11097A8F45C54CF49 /* Pods-ScanIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScanIt/Pods-ScanIt.debug.xcconfig"; sourceTree = "<group>"; };
+		CF01A88A33724D299A215A43 /* Pods-ScanIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScanIt/Pods-ScanIt.debug.xcconfig"; sourceTree = "<group>"; };
+		D3328F7877A35A54BECBA666 /* libPods-ScanIt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScanIt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,7 +318,7 @@
 				CE672EE11C86D60400A66783 /* FBSDKLoginKit.framework in Frameworks */,
 				CE672EE01C86D60400A66783 /* FBSDKCoreKit.framework in Frameworks */,
 				CE672EE21C86D60400A66783 /* FBSDKShareKit.framework in Frameworks */,
-				DC1FBDF4FD1FBD8763DC764D /* libPods-ScanIt.a in Frameworks */,
+				723FDD42EDC73496951FD97E /* libPods-ScanIt.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +424,9 @@
 		004F73F11C84C60000986AA6 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				00C022881E06D26700E183AD /* RequestUtils */,
+				00C022841E06D1C000E183AD /* BFOAuth */,
+				00C0226B1E06D1B700E183AD /* CloudSight */,
 				005DEA3D1CA65BEE00C19188 /* RWMAmazonProductAdvertisingManager */,
 				001248BF1C974B3A00D32853 /* ALAssetLibrary+CustomAlbum */,
 				CE672EA61C86C17400A66783 /* AFNetworking */,
@@ -370,6 +442,24 @@
 				004F73F81C84C80F00986AA6 /* SWRevealViewController.m */,
 			);
 			path = SWRevealViewController;
+			sourceTree = "<group>";
+		};
+		0051535E1DA057300018B266 /* Custom Class */ = {
+			isa = PBXGroup;
+			children = (
+				0058650E1DBD2671000BDB9D /* AsyncImageDownloader */,
+				0051535F1DA0573A0018B266 /* Avi Spinner */,
+			);
+			path = "Custom Class";
+			sourceTree = "<group>";
+		};
+		0051535F1DA0573A0018B266 /* Avi Spinner */ = {
+			isa = PBXGroup;
+			children = (
+				005153601DA0573A0018B266 /* AviSpinner.h */,
+				005153611DA0573A0018B266 /* AviSpinner.m */,
+			);
+			path = "Avi Spinner";
 			sourceTree = "<group>";
 		};
 		0057127A1C87D77000B1E5CF /* History */ = {
@@ -414,6 +504,15 @@
 			path = "Rate Us";
 			sourceTree = "<group>";
 		};
+		0058650E1DBD2671000BDB9D /* AsyncImageDownloader */ = {
+			isa = PBXGroup;
+			children = (
+				0058650F1DBD2691000BDB9D /* WebImageOperations.h */,
+				005865101DBD2691000BDB9D /* WebImageOperations.m */,
+			);
+			path = AsyncImageDownloader;
+			sourceTree = "<group>";
+		};
 		005DEA3D1CA65BEE00C19188 /* RWMAmazonProductAdvertisingManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +522,15 @@
 				005DEA411CA65BEE00C19188 /* RWMAmazonProductAdvertisingRequestSerializer.m */,
 			);
 			path = RWMAmazonProductAdvertisingManager;
+			sourceTree = "<group>";
+		};
+		008CEE301DC6249D0095978F /* Referral Code */ = {
+			isa = PBXGroup;
+			children = (
+				008CEE311DC624CB0095978F /* ReferralCodeViewController.h */,
+				008CEE321DC624CB0095978F /* ReferralCodeViewController.m */,
+			);
+			path = "Referral Code";
 			sourceTree = "<group>";
 		};
 		00AB84771C9DE3E800C7EE70 /* Purchase Details */ = {
@@ -440,6 +548,8 @@
 			children = (
 				00B6A6181C9523CA008441BD /* SuggestedRetailerDetailsViewController.h */,
 				00B6A6191C9523CA008441BD /* SuggestedRetailerDetailsViewController.m */,
+				0058650B1DBD1805000BDB9D /* CurrentOfferCollectionViewCell.h */,
+				0058650C1DBD1805000BDB9D /* CurrentOfferCollectionViewCell.m */,
 				00BB5F401C9EEC0F00E9867C /* Suggested Retailer Website */,
 			);
 			path = "Suggested Retailer Details";
@@ -463,6 +573,55 @@
 			path = "Purchase Invoice";
 			sourceTree = "<group>";
 		};
+		00C0226B1E06D1B700E183AD /* CloudSight */ = {
+			isa = PBXGroup;
+			children = (
+				00C0226C1E06D1B700E183AD /* CloudSight */,
+				00C0227B1E06D1B700E183AD /* LICENSE */,
+				00C0227C1E06D1B700E183AD /* README.md */,
+			);
+			path = CloudSight;
+			sourceTree = "<group>";
+		};
+		00C0226C1E06D1B700E183AD /* CloudSight */ = {
+			isa = PBXGroup;
+			children = (
+				00C0226D1E06D1B700E183AD /* CloudSight.h */,
+				00C0226E1E06D1B700E183AD /* CloudSightConnection.h */,
+				00C0226F1E06D1B700E183AD /* CloudSightConnection.m */,
+				00C022701E06D1B700E183AD /* CloudSightDelete.h */,
+				00C022711E06D1B700E183AD /* CloudSightDelete.m */,
+				00C022721E06D1B700E183AD /* CloudSightImageRequest.h */,
+				00C022731E06D1B700E183AD /* CloudSightImageRequest.m */,
+				00C022741E06D1B700E183AD /* CloudSightImageRequestDelegate.h */,
+				00C022751E06D1B700E183AD /* CloudSightImageResponse.h */,
+				00C022761E06D1B700E183AD /* CloudSightImageResponse.m */,
+				00C022771E06D1B700E183AD /* CloudSightQuery.h */,
+				00C022781E06D1B700E183AD /* CloudSightQuery.m */,
+				00C022791E06D1B700E183AD /* CloudSightQueryDelegate.h */,
+				00C0227A1E06D1B700E183AD /* CloudSightUploadProgressDelegate.h */,
+			);
+			path = CloudSight;
+			sourceTree = "<group>";
+		};
+		00C022841E06D1C000E183AD /* BFOAuth */ = {
+			isa = PBXGroup;
+			children = (
+				00C022851E06D1C000E183AD /* BFOAuth.h */,
+				00C022861E06D1C000E183AD /* BFOAuth.m */,
+			);
+			path = BFOAuth;
+			sourceTree = "<group>";
+		};
+		00C022881E06D26700E183AD /* RequestUtils */ = {
+			isa = PBXGroup;
+			children = (
+				00C022891E06D26700E183AD /* RequestUtils.h */,
+				00C0228A1E06D26700E183AD /* RequestUtils.m */,
+			);
+			path = RequestUtils;
+			sourceTree = "<group>";
+		};
 		00C63B381C959F8100D5553B /* Database */ = {
 			isa = PBXGroup;
 			children = (
@@ -470,6 +629,17 @@
 			);
 			name = Database;
 			path = ../Database;
+			sourceTree = "<group>";
+		};
+		00D3AD2E1DE9E29800B667F1 /* Whats New */ = {
+			isa = PBXGroup;
+			children = (
+				00D3AD2F1DE9E2CB00B667F1 /* WhatsNewViewController.h */,
+				00D3AD301DE9E2CB00B667F1 /* WhatsNewViewController.m */,
+				00D3AD321DE9E8BA00B667F1 /* WhatsNewTableViewCell.h */,
+				00D3AD331DE9E8BA00B667F1 /* WhatsNewTableViewCell.m */,
+			);
+			path = "Whats New";
 			sourceTree = "<group>";
 		};
 		00E250DF1CA08CD200DB994F /* Icon files */ = {
@@ -492,8 +662,8 @@
 				CE672EDC1C86D5D000A66783 /* FrameWorks */,
 				00F9D7B51C7CDAEA00D44059 /* ScanIt */,
 				00F9D7B41C7CDAEA00D44059 /* Products */,
-				1436C40BA6CCFF914BAC02F7 /* Pods */,
-				DC29E5A6EC93DEBE99F96F74 /* Frameworks */,
+				1123AF0A389A90C49307A3CD /* Pods */,
+				5644FD41F2E0B8E97582C7B4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -510,6 +680,7 @@
 			children = (
 				00C63B381C959F8100D5553B /* Database */,
 				004F73F11C84C60000986AA6 /* Third Party */,
+				0051535E1DA057300018B266 /* Custom Class */,
 				00F9D7CD1C7CE08600D44059 /* App images */,
 				00F9D7B91C7CDAEA00D44059 /* AppDelegate.h */,
 				00F9D7BA1C7CDAEA00D44059 /* AppDelegate.m */,
@@ -531,6 +702,8 @@
 				004F655C1CA5A19D0026BE39 /* Amazon Product Listing */,
 				000E210C1C93ECF3009FDD00 /* Product List */,
 				000E21131C941BBE009FDD00 /* Product Details */,
+				008CEE301DC6249D0095978F /* Referral Code */,
+				00D3AD2E1DE9E29800B667F1 /* Whats New */,
 				004E49381C8F4D970034531D /* Suggested Retailers List */,
 				00B6A6171C9523AD008441BD /* Suggested Retailer Details */,
 				00F9D7BF1C7CDAEA00D44059 /* Main.storyboard */,
@@ -554,6 +727,17 @@
 		00F9D7CD1C7CE08600D44059 /* App images */ = {
 			isa = PBXGroup;
 			children = (
+				000AAADE1DD7712700EFCFA4 /* arrow.png */,
+				00CB24E91DCF85AA00381F78 /* amazonlogo.png */,
+				00CB24E31DCF848000381F78 /* amazon_icon.png */,
+				00CB24E41DCF848000381F78 /* flipkart.png */,
+				00CB24E51DCF848000381F78 /* social-google-box-blue-icon.png */,
+				005865091DBD1155000BDB9D /* offers_icon.png */,
+				005CF4CE1DBBBCF100AE8CA9 /* cloudsight_transparent.png */,
+				005CF4CF1DBBBCF100AE8CA9 /* scanit_transparent.png */,
+				004A6AE11DBBB1C700A43BCB /* search.png */,
+				00DA6A541DC918A0005E2283 /* googlelog_transparent.png */,
+				004A6AD91DBBA45100A43BCB /* home_txture_bg.jpg */,
 				00E250DF1CA08CD200DB994F /* Icon files */,
 				009C54931C9D36F70039B462 /* scanit_big.png */,
 				005541551C9B21A50093CE25 /* cloudsight.png */,
@@ -616,13 +800,21 @@
 			name = SuperView;
 			sourceTree = "<group>";
 		};
-		1436C40BA6CCFF914BAC02F7 /* Pods */ = {
+		1123AF0A389A90C49307A3CD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EC9FE3E11097A8F45C54CF49 /* Pods-ScanIt.debug.xcconfig */,
-				E98C6498D8E7033F7C4CEC2A /* Pods-ScanIt.release.xcconfig */,
+				CF01A88A33724D299A215A43 /* Pods-ScanIt.debug.xcconfig */,
+				6C6C9FEC93CB4C7400618B20 /* Pods-ScanIt.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		5644FD41F2E0B8E97582C7B4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D3328F7877A35A54BECBA666 /* libPods-ScanIt.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		CE672EA61C86C17400A66783 /* AFNetworking */ = {
@@ -678,14 +870,6 @@
 			path = FrameWorks;
 			sourceTree = "<group>";
 		};
-		DC29E5A6EC93DEBE99F96F74 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0B5038E8B8E4D8DDCE449C53 /* libPods-ScanIt.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -693,12 +877,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00F9D7CA1C7CDAEA00D44059 /* Build configuration list for PBXNativeTarget "ScanIt" */;
 			buildPhases = (
-				C9F9768CFF2A23ADC1205B5F /* Check Pods Manifest.lock */,
+				338ACD53964CDE6AE5EDE9FB /* [CP] Check Pods Manifest.lock */,
 				00F9D7AF1C7CDAEA00D44059 /* Sources */,
 				00F9D7B01C7CDAEA00D44059 /* Frameworks */,
 				00F9D7B11C7CDAEA00D44059 /* Resources */,
-				DBBDD204E0EE065D8DBC32EE /* Embed Pods Frameworks */,
-				7889CC6F373185F1D5BDADE9 /* Copy Pods Resources */,
+				A919DCC7C4C5BE38D9912BD3 /* [CP] Embed Pods Frameworks */,
+				260732D8D28F3A7266601B3F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -723,7 +907,10 @@
 						DevelopmentTeam = 87X5LZZ779;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 0;
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
 							};
 						};
 					};
@@ -752,12 +939,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00C022821E06D1B700E183AD /* LICENSE in Resources */,
 				00F9D7D31C7CE0A800D44059 /* amazon_btn.png in Resources */,
+				0058650A1DBD1155000BDB9D /* offers_icon.png in Resources */,
+				005CF4D01DBBBCF100AE8CA9 /* cloudsight_transparent.png in Resources */,
 				00F9D7E21C7CE14100D44059 /* like_blank.png in Resources */,
 				00F9D7ED1C7CE1B400D44059 /* scan_it_logo_small.png in Resources */,
 				00E250ED1CA08CE100DB994F /* 180x180.png in Resources */,
+				00CB24E61DCF848000381F78 /* amazon_icon.png in Resources */,
 				00F9D7E71C7CE14100D44059 /* phone.png in Resources */,
+				005CF4D11DBBBCF100AE8CA9 /* scanit_transparent.png in Resources */,
 				009C54941C9D36F70039B462 /* scanit_big.png in Resources */,
+				004A6AE21DBBB1C700A43BCB /* search.png in Resources */,
+				00DA6A551DC918A0005E2283 /* googlelog_transparent.png in Resources */,
 				00E250E91CA08CE100DB994F /* 76x76.png in Resources */,
 				00E250EA1CA08CE100DB994F /* 116x116.png in Resources */,
 				00E250EB1CA08CE100DB994F /* 152x152.png in Resources */,
@@ -765,17 +959,22 @@
 				004E49401C8F55C90034531D /* contact_button.png in Resources */,
 				00F9D8031C7CE99500D44059 /* f_logo_white.png in Resources */,
 				00F9D8011C7CE4CD00D44059 /* scan_it_logo.png in Resources */,
+				000AAADF1DD7712700EFCFA4 /* arrow.png in Resources */,
 				00F9D7E61C7CE14100D44059 /* password_icon_red.png in Resources */,
 				005541561C9B21A50093CE25 /* cloudsight.png in Resources */,
 				00F9D7E51C7CE14100D44059 /* no_image_product.jpg in Resources */,
+				00CB24E71DCF848000381F78 /* flipkart.png in Resources */,
 				CEE3D6F71C7EC55C005D9B1E /* Launch Screen.xib in Resources */,
+				00CB24EA1DCF85AA00381F78 /* amazonlogo.png in Resources */,
 				00CAC9281C9476E800F63C23 /* test_img.jpg in Resources */,
 				00F9D7C31C7CDAEA00D44059 /* Assets.xcassets in Resources */,
 				00F9D7D11C7CE0A800D44059 /* app_logo_250.png in Resources */,
+				004A6ADA1DBBA45100A43BCB /* home_txture_bg.jpg in Resources */,
 				00F9D7DF1C7CE14100D44059 /* call_us.png in Resources */,
 				00E250E71CA08CE100DB994F /* 58x58.png in Resources */,
 				00E250E81CA08CE100DB994F /* 60x60.png in Resources */,
 				00F9D7E91C7CE14100D44059 /* right_arrow_red.png in Resources */,
+				00CB24E81DCF848000381F78 /* social-google-box-blue-icon.png in Resources */,
 				00F9D7E11C7CE14100D44059 /* left_arrow.png in Resources */,
 				00F9D7E41C7CE14100D44059 /* menu.png in Resources */,
 				00E250EC1CA08CE100DB994F /* 120x120.png in Resources */,
@@ -789,14 +988,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7889CC6F373185F1D5BDADE9 /* Copy Pods Resources */ = {
+		260732D8D28F3A7266601B3F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -804,29 +1003,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ScanIt/Pods-ScanIt-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C9F9768CFF2A23ADC1205B5F /* Check Pods Manifest.lock */ = {
+		338ACD53964CDE6AE5EDE9FB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		DBBDD204E0EE065D8DBC32EE /* Embed Pods Frameworks */ = {
+		A919DCC7C4C5BE38D9912BD3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -845,25 +1044,35 @@
 				005DEA431CA65BEE00C19188 /* RWMAmazonProductAdvertisingRequestSerializer.m in Sources */,
 				CE672ECB1C86C17400A66783 /* AFHTTPRequestOperation.m in Sources */,
 				004F73F91C84C80F00986AA6 /* SWRevealViewController.m in Sources */,
+				005865111DBD2691000BDB9D /* WebImageOperations.m in Sources */,
 				00F9D7BE1C7CDAEA00D44059 /* logInViewController.m in Sources */,
 				CE672ED41C86C17400A66783 /* AFURLSessionManager.m in Sources */,
 				005712891C87DB7A00B1E5CF /* RateUsViewController.m in Sources */,
 				00C63B3B1C959FED00D5553B /* ScanIt.xcdatamodeld in Sources */,
 				00F9D7BB1C7CDAEA00D44059 /* AppDelegate.m in Sources */,
 				000E210F1C93ED6D009FDD00 /* ProductListViewController.m in Sources */,
+				008CEE331DC624CB0095978F /* ReferralCodeViewController.m in Sources */,
 				00B6A61A1C9523CA008441BD /* SuggestedRetailerDetailsViewController.m in Sources */,
+				00C022871E06D1C000E183AD /* BFOAuth.m in Sources */,
 				005712821C87DABF00B1E5CF /* LikesViewController.m in Sources */,
 				00BB5F431C9EEC2F00E9867C /* SuggestedRetailerWebSiteViewController.m in Sources */,
+				00D3AD341DE9E8BA00B667F1 /* WhatsNewTableViewCell.m in Sources */,
 				CE672ED11C86C17400A66783 /* AFURLConnectionOperation.m in Sources */,
+				005153621DA0573A0018B266 /* AviSpinner.m in Sources */,
 				002AC01F1C86257900871857 /* HomeViewController.m in Sources */,
+				0058650D1DBD1805000BDB9D /* CurrentOfferCollectionViewCell.m in Sources */,
+				00D3AD311DE9E2CB00B667F1 /* WhatsNewViewController.m in Sources */,
 				CE672ECD1C86C17400A66783 /* AFHTTPSessionManager.m in Sources */,
 				CE672ECF1C86C17400A66783 /* AFNetworkReachabilityManager.m in Sources */,
 				00F9D7F31C7CE39300D44059 /* signUpViewController.m in Sources */,
+				00C022831E06D1B700E183AD /* README.md in Sources */,
 				002AC0241C862DB000871857 /* AccountViewController.m in Sources */,
 				CE672ED81C86C17400A66783 /* UIImageView+AFNetworking.m in Sources */,
 				CE672ED91C86C17400A66783 /* UIProgressView+AFNetworking.m in Sources */,
 				000772201C88A3A80062C8DE /* ProductOptionsViewController.m in Sources */,
 				00AB847A1C9DE40500C7EE70 /* PurchaseDetailsViewController.m in Sources */,
+				00C0227E1E06D1B700E183AD /* CloudSightDelete.m in Sources */,
+				00C0227D1E06D1B700E183AD /* CloudSightConnection.m in Sources */,
 				CE672ED01C86C17400A66783 /* AFSecurityPolicy.m in Sources */,
 				001248BA1C973AB400D32853 /* PurchaseTableViewCell.m in Sources */,
 				CE672EDA1C86C17400A66783 /* UIRefreshControl+AFNetworking.m in Sources */,
@@ -871,8 +1080,10 @@
 				CE672ED21C86C17400A66783 /* AFURLRequestSerialization.m in Sources */,
 				004E493B1C8F4DBF0034531D /* SuggestedRetailersListViewController.m in Sources */,
 				005712851C87DACD00B1E5CF /* PurchasesViewController.m in Sources */,
+				00C022811E06D1B700E183AD /* CloudSightQuery.m in Sources */,
 				CE672ED71C86C17400A66783 /* UIButton+AFNetworking.m in Sources */,
 				001248B41C9732D300D32853 /* HistoryViewController.m in Sources */,
+				00C0228B1E06D26700E183AD /* RequestUtils.m in Sources */,
 				CE672ED51C86C17400A66783 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				002AC01C1C8621C900871857 /* LeftPannelTableViewCell.m in Sources */,
 				005DEA421CA65BEE00C19188 /* RWMAmazonProductAdvertisingManager.m in Sources */,
@@ -887,9 +1098,11 @@
 				00F9D7FD1C7CE42400D44059 /* superViewController.m in Sources */,
 				CE672EDB1C86C17400A66783 /* UIWebView+AFNetworking.m in Sources */,
 				00F9D7B81C7CDAEA00D44059 /* main.m in Sources */,
+				00C022801E06D1B700E183AD /* CloudSightImageResponse.m in Sources */,
 				004F655F1CA5A1D10026BE39 /* AmazonProductListingViewController.m in Sources */,
 				004E493E1C8F540D0034531D /* SuggestedRetailersTableViewCell.m in Sources */,
 				CE672ECE1C86C17400A66783 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				00C0227F1E06D1B700E183AD /* CloudSightImageRequest.m in Sources */,
 				CE672ED61C86C17400A66783 /* UIAlertView+AFNetworking.m in Sources */,
 				000E21161C941BDE009FDD00 /* ProductDetailsViewController.m in Sources */,
 			);
@@ -926,8 +1139,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vishrut Jhawar (TXW46GXS4T)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vishrut Jhawar (TXW46GXS4T)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Vishrut Jhawar (87X5LZZ779)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vishrut Jhawar (87X5LZZ779)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -951,7 +1164,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "f4e10e99-fe25-4bdc-9a30-096856ee7182";
+				PROVISIONING_PROFILE = "ee27b181-0542-4fb5-96c2-e4eb311d0e4c";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -974,8 +1187,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vishrut Jhawar (TXW46GXS4T)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vishrut Jhawar (TXW46GXS4T)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Vishrut Jhawar (87X5LZZ779)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vishrut Jhawar (87X5LZZ779)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -992,7 +1205,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "f4e10e99-fe25-4bdc-9a30-096856ee7182";
+				PROVISIONING_PROFILE = "ee27b181-0542-4fb5-96c2-e4eb311d0e4c";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1001,11 +1214,11 @@
 		};
 		00F9D7CB1C7CDAEA00D44059 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC9FE3E11097A8F45C54CF49 /* Pods-ScanIt.debug.xcconfig */;
+			baseConfigurationReference = CF01A88A33724D299A215A43 /* Pods-ScanIt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vishrut Jhawar (TXW46GXS4T)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vishrut Jhawar (TXW46GXS4T)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Vishrut Jhawar (87X5LZZ779)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vishrut Jhawar (87X5LZZ779)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1018,19 +1231,19 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ScanItApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f4e10e99-fe25-4bdc-9a30-096856ee7182";
+				PROVISIONING_PROFILE = "ee27b181-0542-4fb5-96c2-e4eb311d0e4c";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		00F9D7CC1C7CDAEA00D44059 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E98C6498D8E7033F7C4CEC2A /* Pods-ScanIt.release.xcconfig */;
+			baseConfigurationReference = 6C6C9FEC93CB4C7400618B20 /* Pods-ScanIt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Vishrut Jhawar (TXW46GXS4T)";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Vishrut Jhawar (TXW46GXS4T)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vishrut Jhawar (TXW46GXS4T)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Vishrut Jhawar (87X5LZZ779)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Vishrut Jhawar (87X5LZZ779)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vishrut Jhawar (87X5LZZ779)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1043,7 +1256,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ScanItApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f4e10e99-fe25-4bdc-9a30-096856ee7182";
+				PROVISIONING_PROFILE = "ee27b181-0542-4fb5-96c2-e4eb311d0e4c";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

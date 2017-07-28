@@ -51,6 +51,13 @@
 ////*********************************////
 
 
+////******ADD DEVICE TOKEN*****////
+
+#define ADD_DEVICE_TOKEN @"AddDevicetoken"
+
+////*********************************////
+
+
 ////******FORGOT PASSWORD****////
 
 #define FORGOTPASSWORD @"passForgot"
@@ -62,6 +69,21 @@
 #define LOGOUT @"Logout"
 
 ////*********************////
+
+
+////*******ADD HISTORY OR LIKE DETAILS TO SERVER********////
+
+#define POST_HISTORY_OR_LIKE @"addhistory"
+
+////*********************////
+
+
+////*******GET HISTORY OR LIKE DETAILS FROM SERVER********////
+
+#define GET_HISTORY_OR_LIKE @"historylist"
+
+////*********************////
+
 
 ////*******SUGGESTED RETAILERS LIST********////
 
@@ -82,6 +104,72 @@
 #define EDITPROFILE @"EditProfile"
 
 ////*********************////
+
+
+////*******REFERRAL CODE********////
+
+#define REFERRALCODE @"addreferrel"
+
+////*********************////
+
+
+////*******WHATS NEW********////
+
+#define WHATSNEW @"newproductlist"
+
+////*********************////
+
+
+
+#pragma mark- Screen And Version ➡️ ➡️
+
+#define hRatio [UIScreen mainScreen].bounds.size.height / 568
+#define wRatio [UIScreen mainScreen].bounds.size.width / 320
+
+#define iOSSystemVersionStr [[UIDevice currentDevice] systemVersion];
+
+#pragma mark - ▶︎▶︎▶︎▶︎
+
+#define showToast(toastMessage); \
+\
+[self.view makeToast:toastMessage duration:1.5 position:CSToastPositionCenter]; \
+
+#pragma mark - showToastOnTopPosition 😄 ▶︎
+#define showToastOnTopPosition(strMessage) \
+UIViewController * currentVc = (UINavigationController *)[UIApplication sharedApplication].delegate.window.rootViewController; \
+[currentVc.view makeToast:strMessage duration:1.5 position:CSToastPositionTop]; \
+
+#pragma mark - showToastOnBottomPosition 😄 ▶︎
+#define showToastOnBottomPosition(strMessage) \
+UIViewController * currentVc = (UINavigationController *)[UIApplication sharedApplication].delegate.window.rootViewController; \
+[currentVc.view makeToast:strMessage duration:1.5 position:CSToastPositionBottom]; \
+
+#pragma mark showToastOnCenter
+#define showToastOnCenter(strMessage,time) \
+UIViewController *currentVc = [(UINavigationController *)[UIApplication sharedApplication].delegate.window.rootViewController topViewController]; \
+[currentVc.view makeToast:strMessage duration:time position:CSToastPositionCenter]; \
+
+
+#pragma mark-
+
+#define is_Reachable [[AFNetworkReachabilityManager sharedManager] isReachable]
+
+
+#pragma mark - Device Information ▶︎▶︎▶︎▶︎
+
+#define isLandScape UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)
+
+#define isiPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+#define isRetina ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
+#define isPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define isSimulator (NSNotFound != [[[UIDevice currentDevice] model] rangeOfString:@"Simulator"].location)
+#define NavigationBar_HEIGHT 44
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+
+#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
+
 
 #define IS_OS_5_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 5.0)
 #define IS_OS_6_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0)

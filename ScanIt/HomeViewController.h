@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeViewController : superViewController<UIImagePickerControllerDelegate,CLLocationManagerDelegate,UIAlertViewDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,CloudSightQueryDelegate,CloudSightImageRequestDelegate>
+@interface HomeViewController : superViewController<UIImagePickerControllerDelegate,UIAlertViewDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,CloudSightQueryDelegate,CloudSightImageRequestDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *lblOpenCamera;
 
@@ -25,8 +25,6 @@
 
 - (IBAction)openCameraAction:(id)sender;
 
-///****LOCATION
-@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @property BOOL isImageAvailable;
 

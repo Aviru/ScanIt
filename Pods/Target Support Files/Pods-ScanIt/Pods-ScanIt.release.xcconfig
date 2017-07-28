@@ -1,5 +1,9 @@
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/BFOAuth" "${PODS_ROOT}/Headers/Public/CloudSight" "${PODS_ROOT}/Headers/Public/RequestUtils" "${PODS_ROOT}/Headers/Public/STTweetLabel" "${PODS_ROOT}/Headers/Public/SVWebViewController" "${PODS_ROOT}/Headers/Public/Toast"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/BFOAuth" -isystem "${PODS_ROOT}/Headers/Public/CloudSight" -isystem "${PODS_ROOT}/Headers/Public/RequestUtils" -isystem "${PODS_ROOT}/Headers/Public/STTweetLabel" -isystem "${PODS_ROOT}/Headers/Public/SVWebViewController" -isystem "${PODS_ROOT}/Headers/Public/Toast"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"BFOAuth" -l"CloudSight" -l"RequestUtils" -l"STTweetLabel" -l"SVWebViewController" -l"Toast" -framework "CoreGraphics" -framework "CoreLocation" -framework "QuartzCore"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/SDWebImage" "${PODS_ROOT}/Headers/Public/STTweetLabel" "${PODS_ROOT}/Headers/Public/SVWebViewController" "${PODS_ROOT}/Headers/Public/Toast"
+LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/SDWebImage" "$PODS_CONFIGURATION_BUILD_DIR/STTweetLabel" "$PODS_CONFIGURATION_BUILD_DIR/SVWebViewController" "$PODS_CONFIGURATION_BUILD_DIR/Toast"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/SDWebImage" -isystem "${PODS_ROOT}/Headers/Public/STTweetLabel" -isystem "${PODS_ROOT}/Headers/Public/SVWebViewController" -isystem "${PODS_ROOT}/Headers/Public/Toast"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"SDWebImage" -l"STTweetLabel" -l"SVWebViewController" -l"Toast" -framework "ImageIO" -framework "QuartzCore"
+PODS_BUILD_DIR = $BUILD_DIR
+PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_ROOT = ${SRCROOT}/Pods

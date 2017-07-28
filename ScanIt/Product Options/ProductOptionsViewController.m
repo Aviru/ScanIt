@@ -25,15 +25,36 @@
 
 #define SearchIndex @"All"
 
-@interface ProductOptionsViewController ()
+@interface ProductOptionsViewController ()<UITextFieldDelegate>
 {
     NSMutableData * responseData;
     NSMutableArray *arrProductInfoList;
     BOOL isLike;
+    BOOL isViewUp;
     AppDelegate *appDelegate;
     NSXMLParser *xmlParser;
     BOOL isElementPresent;
     NSMutableString *amazonAssociatesURL;
+    UIButton *likeBtnOutlet;
+    UIButton *doneBtnOutlet;
+    UIButton *showRetailersListBtnOutlet;
+    UILabel *lblLikeProduct;
+    UITextField *txtSearchField;
+    
+    
+    IBOutlet UIView *txtSearchContainerView;
+    
+    IBOutlet UIView *imageSearchContainerView;
+    
+    IBOutletCollection(UITextField) NSArray *txtSerachFieldCollections;
+    
+    IBOutletCollection(UIButton)NSArray *doneBtnOutletCollections;
+    
+    IBOutletCollection(UILabel)NSArray *lblLikeProductCollections;
+    
+    IBOutletCollection(UIButton)NSArray *likeBtnOutletCollections;
+    
+    IBOutletCollection(UIButton)NSArray *showRetailersListBtnOutletCollections;
 }
 
 @end
@@ -55,300 +76,388 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.showRetailersListBtnOutlet.layer.cornerRadius = 3.0f;
-    
     isLike = NO;
+    
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    amazonAssociatesURL = [[NSMutableString alloc]init];
+    
+    NSCharacterSet *doNotWant = [NSCharacterSet characterSetWithCharactersInString:@"/:.'"];
+    _productName = [[_productName componentsSeparatedByCharactersInSet: doNotWant] componentsJoinedByString: @""];
+    NSLog(@"%@", _productName);
+    
+    if (appDelegate.isFromLikePage)
+    {
+        
+        if (_isTextSearch == NO)
+        {
+            imageSearchContainerView.hidden = NO;
+            txtSearchContainerView.hidden = YES;
+            
+            //appDelegate.isFromLikePage = NO;
+            // _lblProductDesc.text = _productName;
+            
+            NSURL *url = [NSURL URLWithString:_productImageUrl];
+            [_productImgVw sd_setImageWithURL:url
+                             placeholderImage:[UIImage imageNamed:@"no_image_product.jpg"]
+                                      options:SDWebImageRefreshCached];
+           
+        }
+        else
+        {
+            imageSearchContainerView.hidden = NO; //YES;
+            //txtSearchContainerView.hidden = NO;
+        }
+        
+        
+        for (likeBtnOutlet in likeBtnOutletCollections) {
+            
+            if (likeBtnOutlet.superview.hidden == NO) {
+                likeBtnOutlet.hidden = NO;
+                lblLikeProduct.hidden = NO;
+                likeBtnOutlet.userInteractionEnabled = NO;
+                [likeBtnOutlet setBackgroundImage:[UIImage imageNamed:@"like.png"] forState:UIControlStateNormal];
+            }
+            
+        }
+        
+        for (doneBtnOutlet in doneBtnOutletCollections) {
+            
+            if (doneBtnOutlet.superview.superview.hidden == NO) {
+                doneBtnOutlet.layer.cornerRadius = 4.0f;
+                doneBtnOutlet.layer.masksToBounds = YES;
+            }
+        }
+        
+    }
+    else if (appDelegate.isFromHistoryPage)
+    {
+        // appDelegate.isFromHistoryPage = NO;
+        
+        //  _lblProductDesc.text = _productName;
+        
+        if (_isTextSearch == NO)
+        {
+            imageSearchContainerView.hidden = NO;
+           // txtSearchContainerView.hidden = YES;
+            
+            NSURL *url = [NSURL URLWithString:_productImageUrl];
+            [_productImgVw sd_setImageWithURL:url
+                                 placeholderImage:[UIImage imageNamed:@"no_image_product.jpg"]
+                                          options:SDWebImageRefreshCached];
+        }
+        
+        else
+        {
+            imageSearchContainerView.hidden = NO; //YES;
+            //txtSearchContainerView.hidden = NO;
+        }
+        
+        /*
+        if (_isProductLiked == NO)
+        {
+            for (likeBtnOutlet in likeBtnOutletCollections) {
+                
+                if (likeBtnOutlet.superview.hidden == NO) {
+                    likeBtnOutlet.hidden = NO;
+                    likeBtnOutlet.userInteractionEnabled = YES;
+                }
+            }
+            
+            for (lblLikeProduct in lblLikeProductCollections) {
+                
+                if (lblLikeProduct.superview.hidden == NO) {
+                    lblLikeProduct.hidden = NO;
+                }
+            }
+            
+        }
+         */
+//        else
+//        {
+            for (likeBtnOutlet in likeBtnOutletCollections) {
+                
+                if (likeBtnOutlet.superview.hidden == NO) {
+                    likeBtnOutlet.hidden = YES;
+                }
+            }
+            
+            for (lblLikeProduct in lblLikeProductCollections) {
+                
+                if (lblLikeProduct.superview.hidden == NO) {
+                    lblLikeProduct.hidden = YES;
+                }
+            }
+    //    }
+        
+        for (doneBtnOutlet in doneBtnOutletCollections) {
+            
+            if (doneBtnOutlet.superview.superview.hidden == NO) {
+                doneBtnOutlet.layer.cornerRadius = 4.0f;
+                doneBtnOutlet.layer.masksToBounds = YES;
+            }
+        }
+    }
+    else if (self.isFromWhatsNewPage)
+    {
+        self.isFromWhatsNewPage = NO;
+        imageSearchContainerView.hidden = NO;
+        txtSearchContainerView.hidden = YES;
+        _productImgVw.image = [UIImage imageNamed:@"no_image_product.jpg"];
+        
+        NSURL *url = [NSURL URLWithString:self.productImageUrl];
+        NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            if (data) {
+                UIImage *image = [UIImage imageWithData:data scale:0.5];
+                if (image) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        _productImgVw.image = image;
+                    });
+                }
+            }
+        }];
+        [task resume];
+        
+        _lblProductDesc.text = _productName;
+        
+        for (likeBtnOutlet in likeBtnOutletCollections) {
+            
+            if (likeBtnOutlet.superview.hidden == NO) {
+                likeBtnOutlet.hidden = YES;
+            }
+        }
+        
+        for (lblLikeProduct in lblLikeProductCollections) {
+            
+            if (lblLikeProduct.superview.hidden == NO) {
+                lblLikeProduct.hidden = YES;
+            }
+        }
+        for (doneBtnOutlet in doneBtnOutletCollections) {
+            
+            if (doneBtnOutlet.superview.superview.hidden == NO) {
+                doneBtnOutlet.layer.cornerRadius = 4.0f;
+                doneBtnOutlet.layer.masksToBounds = YES;
+            }
+        }
+    }
+    
+    
+    else
+    {
+        if (_isTextSearch == NO)
+        {
+            imageSearchContainerView.hidden = NO;
+           // txtSearchContainerView.hidden = YES;
+             _productImgVw.image = self.productImage;
+            
+            _lblProductDesc.text = _productName;
+            
+            if (![[NSUserDefaults standardUserDefaults]objectForKey:@"IsFirstTime"])
+            {
+                [[NSUserDefaults standardUserDefaults]setObject:@"YES" forKey:@"IsFirstTime"];
+                [[NSUserDefaults standardUserDefaults]synchronize];
+               
+            }
+            
+        }
+        else
+        {
+            imageSearchContainerView.hidden = NO; //YES;
+           // txtSearchContainerView.hidden = NO;
+            
+        }
+        [self callInformServerForHistoryOrLikeListing:NO];
+        
+        
+        for (likeBtnOutlet in likeBtnOutletCollections) {
+            
+            if (likeBtnOutlet.superview.hidden == NO) {
+                likeBtnOutlet.hidden = NO;
+                likeBtnOutlet.userInteractionEnabled = YES;
+            }
+        }
+        
+        for (doneBtnOutlet in doneBtnOutletCollections) {
+            
+            if (doneBtnOutlet.superview.superview.hidden == NO) {
+                doneBtnOutlet.layer.cornerRadius = 4.0f;
+                doneBtnOutlet.layer.masksToBounds = YES;
+            }
+        }
+        
+        for (lblLikeProduct in lblLikeProductCollections) {
+            
+            if (lblLikeProduct.superview.hidden == NO) {
+                lblLikeProduct.hidden = NO;
+            }
+        }
+        
+    }
+    
+    for (showRetailersListBtnOutlet in showRetailersListBtnOutletCollections) {
+        
+        if (showRetailersListBtnOutlet.superview.hidden == NO) {
+            showRetailersListBtnOutlet.layer.cornerRadius = 3.0f;
+        }
+    }
+    
+    for (txtSearchField in txtSerachFieldCollections) {
+        
+        if (txtSearchField.superview.superview.hidden == NO) {
+            UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 7, 20)];
+            txtSearchField.leftView = paddingView;
+            txtSearchField.leftViewMode = UITextFieldViewModeAlways;
+            txtSearchField.layer.borderWidth = 1.0f;
+            txtSearchField.layer.borderColor = [UIColor colorWithRed:193.0/255.0 green:53.0/255.0 blue:30.0/255.0 alpha:1.0].CGColor;
+            txtSearchField.text = _productName;
+        }
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    amazonAssociatesURL = [[NSMutableString alloc]init];
-    
-    if (appDelegate.isFromLikePage)
-    {
-//         appDelegate.isFromLikePage = NO;
-        _likeBtnOutlet.hidden = NO;
-        _lblLikeProduct.hidden = NO;
-        _likeBtnOutlet.userInteractionEnabled = NO;
-        [_likeBtnOutlet setBackgroundImage:[UIImage imageNamed:@"like.png"] forState:UIControlStateNormal];
-        
-        _lblProductDesc.text = _productName;
-        
-        ALAssetsLibraryAssetForURLResultBlock resultblock = ^(ALAsset *myasset)
-        {
-            //ALAssetRepresentation *rep = [myasset defaultRepresentation];
-            CGImageRef iref = [myasset aspectRatioThumbnail];   //[rep fullResolutionImage];
-            if (iref)
-            {
-                UIImage *largeimage = [UIImage imageWithCGImage:iref];
-                _productImgVw.image = largeimage;
-            }
-        };
-        
-        ALAssetsLibraryAccessFailureBlock failureblock  = ^(NSError *myerror)
-        {
-            NSLog(@"Can't get image - %@",[myerror localizedDescription]);
-        };
-        
-        NSURL *asseturl = [NSURL URLWithString:_productImageUrl];
-        
-        ALAssetsLibrary* assetslibrary = [[ALAssetsLibrary alloc] init];
-        [assetslibrary assetForURL:asseturl
-                       resultBlock:resultblock
-                      failureBlock:failureblock];
-
-       
-    }
-    else if (appDelegate.isFromHistoryPage)
-    {
-       // appDelegate.isFromHistoryPage = NO;
-        
-        _lblProductDesc.text = _productName;
-        
-        ALAssetsLibraryAssetForURLResultBlock resultblock = ^(ALAsset *myasset)
-        {
-            //ALAssetRepresentation *rep = [myasset defaultRepresentation];
-            CGImageRef iref = [myasset aspectRatioThumbnail];  //[rep fullResolutionImage];
-            if (iref)
-            {
-                UIImage *largeimage = [UIImage imageWithCGImage:iref];
-                _productImgVw.image = largeimage;
-            }
-        };
-        
-        ALAssetsLibraryAccessFailureBlock failureblock  = ^(NSError *myerror)
-        {
-            NSLog(@"Can't get image - %@",[myerror localizedDescription]);
-        };
-        
-        NSURL *asseturl = [NSURL URLWithString:_productImageUrl];
-        
-        ALAssetsLibrary* assetslibrary = [[ALAssetsLibrary alloc] init];
-        [assetslibrary assetForURL:asseturl
-                       resultBlock:resultblock
-                      failureBlock:failureblock];
-        
-        NSManagedObjectContext *context = [self managedObjectContext];
-        NSFetchRequest *request = [[NSFetchRequest alloc] init];
-        [request setEntity:[NSEntityDescription entityForName:@"ProductDetails" inManagedObjectContext:context]];
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"queryToken == %@",_queryTokenForSelectedProduct];
-        [request setPredicate:predicate];
-        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"queryToken" ascending:YES]];
-        
-        NSArray *results = [context executeFetchRequest:request error:nil];
-        
-        NSManagedObject *product = (NSManagedObject *)[results objectAtIndex:0];
-        if ([[product valueForKey:@"likeProduct"] isEqualToString:@"NO"])
-        {
-            _likeBtnOutlet.hidden = NO;
-            _lblLikeProduct.hidden = NO;
-            _likeBtnOutlet.userInteractionEnabled = YES;
-        }
-        else
-        {
-            _likeBtnOutlet.hidden = YES;
-            _lblLikeProduct.hidden = YES;
- 
-        }
-    }
-    else
-    {
-        _likeBtnOutlet.hidden = NO;
-        _lblLikeProduct.hidden = NO;
-        _likeBtnOutlet.userInteractionEnabled = YES;
-        _lblProductDesc.text = _productName;
-        if (![[NSUserDefaults standardUserDefaults]objectForKey:@"IsFirstTime"])
-        {
-            [[NSUserDefaults standardUserDefaults]setObject:@"YES" forKey:@"IsFirstTime"];
-            [[NSUserDefaults standardUserDefaults]synchronize];
-            //[self background_thread_call];
-            
-            [NSThread detachNewThreadSelector:@selector(SaveImageThread:) toTarget:self withObject:nil];
-        }
-    }
-}
-
-
--(void) SaveImageThread:(id) obj
-{
-   __block UIImage *img;
-   
-    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
-        
-        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-        
-        [library addAssetsGroupAlbumWithName:@"ScanIt" resultBlock:^(ALAssetsGroup *group)
-         {
-             
-             NSLog(@"Adding Folder:'ScanIt', success: %s", group.editable ? "Success" : "Already created: Not Success");
-             
-             //        Handler(group,nil);
-             
-         } failureBlock:^(NSError *error)
-         {
-             
-             NSLog(@"Error: Adding on Folder");
-             
-         }];
-        
-        NSData *imgData = UIImageJPEGRepresentation(_productImage, 0.4);
-        
-        img = [UIImage imageWithData:imgData];
-        
-        [library saveImage:img toAlbum:@"ScanIt" completion:^(NSURL *assetURL, NSError *error)
-         {
-             NSLog(@"image saved to Album");
-             
-             NSManagedObjectContext *context = [self managedObjectContext];
-             
-             NSManagedObject *prodDetails = [NSEntityDescription insertNewObjectForEntityForName:@"ProductDetails" inManagedObjectContext:context];
-             
-             [prodDetails setValue:_productName forKey:@"productName"];
-             [prodDetails setValue:[assetURL absoluteString]  forKey:@"imageUrl"];
-             [prodDetails setValue:[self getUserDefaultValueForKey:USERID] forKey:@"userId"];
-             [prodDetails setValue:_queryTokenForSelectedProduct forKey:@"queryToken"];
-             [prodDetails setValue:@"NO" forKey:@"likeProduct"];
-             
-             NSError *DBerror = nil;
-             // Save the object to persistent store
-             if (![context save:&DBerror]) {
-                 NSLog(@"Can't Save! %@ %@", DBerror, [DBerror localizedDescription]);
-             }
-             else
-             {
-                 NSLog(@"Data added to database successfully");
-                // _productImgVw.image = img;
-                  [self performSelectorOnMainThread:@selector(ImageDoneLoading:) withObject:img waitUntilDone:NO];
-                 
-                 // [superViewController stopActivity:self.view];
-                 
-                 // [self performSegueWithIdentifier:@"showProductOptionsFromHome" sender:nil];
-             }
-             
-         }
-         
-         
-                   failure:^(NSError *error)
-         {
-             [superViewController stopActivity:self.view];
-             UIAlertView *alertMsg = [[UIAlertView alloc] initWithTitle:@"Saving Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-             
-             [alertMsg show];
-         }];
-        
-    });
-    
-}
-
--(void) ImageDoneLoading:(id) obj
-{
-    _productImgVw.image = obj;
-    // update your UI
-    NSLog(@"done");
-}
-
--(void)background_thread_call
-{
-    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
-        
-        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-        
-        [library addAssetsGroupAlbumWithName:@"ScanIt" resultBlock:^(ALAssetsGroup *group)
-         {
-             
-             NSLog(@"Adding Folder:'ScanIt', success: %s", group.editable ? "Success" : "Already created: Not Success");
-             
-             //        Handler(group,nil);
-             
-         } failureBlock:^(NSError *error)
-         {
-             
-             NSLog(@"Error: Adding on Folder");
-             
-         }];
-        
-        NSData *imgData = UIImageJPEGRepresentation(_productImage, 0.4);
-        
-        UIImage *img = [UIImage imageWithData:imgData];
-        
-        [library saveImage:img toAlbum:@"ScanIt" completion:^(NSURL *assetURL, NSError *error)
-         {
-             NSLog(@"image saved to Album");
-             
-             NSManagedObjectContext *context = [self managedObjectContext];
-             
-             NSManagedObject *prodDetails = [NSEntityDescription insertNewObjectForEntityForName:@"ProductDetails" inManagedObjectContext:context];
-             
-             [prodDetails setValue:_productName forKey:@"productName"];
-             [prodDetails setValue:[assetURL absoluteString]  forKey:@"imageUrl"];
-             [prodDetails setValue:[self getUserDefaultValueForKey:USERID] forKey:@"userId"];
-             [prodDetails setValue:_queryTokenForSelectedProduct forKey:@"queryToken"];
-             [prodDetails setValue:@"NO" forKey:@"likeProduct"];
-             
-             NSError *DBerror = nil;
-             // Save the object to persistent store
-             if (![context save:&DBerror]) {
-                 NSLog(@"Can't Save! %@ %@", DBerror, [DBerror localizedDescription]);
-             }
-             else
-             {
-                 NSLog(@"Data added to database successfully");
-                 _productImgVw.image = img;
-                 
-                 // [superViewController stopActivity:self.view];
-                 
-                 // [self performSegueWithIdentifier:@"showProductOptionsFromHome" sender:nil];
-             }
-             
-         }
-         
-         
-                   failure:^(NSError *error)
-         {
-             [superViewController stopActivity:self.view];
-             UIAlertView *alertMsg = [[UIAlertView alloc] initWithTitle:@"Saving Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-             
-             [alertMsg show];
-         }];
-        
-    });
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
+    if (isViewUp)
+    {
+        isViewUp = NO;
+        
+        if (IS_IPHONE_4) {
+            
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDelegate:self];
+            [UIView setAnimationDuration:0.4];
+            [UIView setAnimationBeginsFromCurrentState:YES];
+            self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y + 160), self.view.frame.size.width, self.view.frame.size.height);
+            [UIView commitAnimations];
+        }
+        
+        else if (IS_IPHONE_5)
+        {
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDelegate:self];
+            [UIView setAnimationDuration:0.4];
+            [UIView setAnimationBeginsFromCurrentState:YES];
+            self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y + 140), self.view.frame.size.width, self.view.frame.size.height);
+            [UIView commitAnimations];
+        }
+        
+        else
+        {
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDelegate:self];
+            [UIView setAnimationDuration:0.4];
+            [UIView setAnimationBeginsFromCurrentState:YES];
+            self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y + 110), self.view.frame.size.width, self.view.frame.size.height);
+            [UIView commitAnimations];
+        }
+    }
+    
+    [self.view endEditing:YES];
     if (isLike)
     {
-        NSManagedObjectContext *context = [self managedObjectContext];
-        NSFetchRequest *request = [[NSFetchRequest alloc] init];
-        [request setEntity:[NSEntityDescription entityForName:@"ProductDetails" inManagedObjectContext:context]];
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(likeProduct == 'NO') AND (queryToken == %@)",_queryTokenForSelectedProduct];
-        [request setPredicate:predicate];
-        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"queryToken" ascending:YES]];
+        isLike = NO;
         
-        NSArray *results = [context executeFetchRequest:request error:nil];
+        [superViewController startActivity:self.view];
         
-        NSManagedObject *product = (NSManagedObject *)[results objectAtIndex:0];
+        [self callInformServerForHistoryOrLikeListing:YES];
+    }
+    
+}
+
+#pragma mark - Imform Sever for History Or Like
+
+-(void)callInformServerForHistoryOrLikeListing:(BOOL)isLikeOrHistory
+{
+    NSError *error=nil;
+    
+    NSString * booleanString = (isLikeOrHistory) ? @"yes" : @"no";
+    
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
+
+    [dict setObject:booleanString forKey:@"islike"];
+    [dict setObject:_productName forKey:@"product_keywords"];
+    [dict setObject:[self getUserDefaultValueForKey:USERID] forKey:USERID];
+    
+    NSData *jsonRequestDict= [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&error];
+    
+    NSString *URL=[BASEURL_FOR_SUGGESTEDRETAIL_AND_PURCHASELIST stringByAppendingString:POST_HISTORY_OR_LIKE];
+    NSLog(@"POST_HISTORY_OR_LIKE_Url:%@",URL);
+    
+    NSString *jsonCommand=[[NSString alloc] initWithData:jsonRequestDict encoding:NSUTF8StringEncoding];
+    NSLog(@"***jsonCommand***%@",jsonCommand);
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:jsonCommand,@"requestParam", nil];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    //[manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    [manager POST:URL parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
-        [product setValue:@"YES" forKey:@"likeProduct"];
+        NSData *postPicData =UIImageJPEGRepresentation(_productImgVw.image, 0.4) ;
         
-        NSError *saveError = nil;
+        [formData appendPartWithFileData:postPicData
+                                    name:@"ProductImage"
+                                fileName:@"ProductImage.jpg"
+                                mimeType:@"image/*"];
         
-        if (![product.managedObjectContext save:&saveError])
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error=nil;
+        NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSLog(@"Request Successful, response '%@'", responseStr);
+        NSMutableDictionary *jsonResponseDict= [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+        NSLog(@"Response Dictionary:: %@",jsonResponseDict);
+        
+        /*
+         Response Dictionary:: {
+         ProductImage = "http://thelolstories.com/scanit/uploads/ProductImage/ProductImage_1481306164.jpg";
+         UserID = 137;
+         "history_id" = 2374;
+         islike = no;
+         message = "History saved successfully.";
+         "product_keywords" = "tp link white wireless router";
+         status = 1;
+         }
+         */
+        
+        [superViewController stopActivity:self.view];
+        if ([[jsonResponseDict objectForKey:@"status"] integerValue]==1)
         {
-            NSLog(@"Unable save managed object");
-            NSLog(@"%@, %@", saveError, saveError.localizedDescription);
         }
         else
-            NSLog(@"saved object to database  successfully");
+        {
+            /*
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:jsonResponseDict[@"message"]
+                                                           delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+             */
+        }
         
-        isLike = NO;
     }
-        
+          failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         [superViewController stopActivity:self.view];
+         
+         NSLog(@"Error: %@", error);
+         
+         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network Error" message:@"Please try again"
+                                                        delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+         [alert show];
+         
+     }];
 }
+
+
+#pragma mark
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -365,7 +474,150 @@
 }
 */
 
+
+#pragma mark - Text Field Delegate
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    isViewUp = YES;
+    
+    if (IS_IPHONE_4) {
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDuration:0.4];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y - 160), self.view.frame.size.width, self.view.frame.size.height);
+        [UIView commitAnimations];
+    }
+    
+    else if (IS_IPHONE_5)
+    {
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDuration:0.4];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y - 140), self.view.frame.size.width, self.view.frame.size.height);
+        [UIView commitAnimations];
+    }
+    
+    else
+    {
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDuration:0.4];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y - 110), self.view.frame.size.width, self.view.frame.size.height);
+        [UIView commitAnimations];
+    }
+    
+   
+}
+
+- (IBAction)txtSearchEditChange:(id)sender {
+    
+    for (txtSearchField in txtSerachFieldCollections) {
+        
+        if (txtSearchField.superview.superview.hidden == NO) {
+            
+            if ([[txtSearchField text] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length > 0){
+                
+                _productName = txtSearchField.text;
+            }
+            else
+                _productName = @"";
+        }
+    }
+    
+}
+
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    isViewUp = NO;
+    
+    if (IS_IPHONE_4) {
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDuration:0.4];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y + 160), self.view.frame.size.width, self.view.frame.size.height);
+        [UIView commitAnimations];
+    }
+    
+    else if (IS_IPHONE_5)
+    {
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDuration:0.4];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y + 140), self.view.frame.size.width, self.view.frame.size.height);
+        [UIView commitAnimations];
+    }
+    
+    else
+    {
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDuration:0.4];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y + 110), self.view.frame.size.width, self.view.frame.size.height);
+        [UIView commitAnimations];
+    }
+    [textField resignFirstResponder];
+    
+    return  YES;
+}
+
+
 #pragma mark - Button Action
+
+- (IBAction)doneBtnAction:(id)sender {
+    
+    if (isViewUp)
+    {
+        isViewUp = NO;
+        
+        if (IS_IPHONE_4) {
+            
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDelegate:self];
+            [UIView setAnimationDuration:0.4];
+            [UIView setAnimationBeginsFromCurrentState:YES];
+            self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y + 160), self.view.frame.size.width, self.view.frame.size.height);
+            [UIView commitAnimations];
+        }
+        
+        else if (IS_IPHONE_5)
+        {
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDelegate:self];
+            [UIView setAnimationDuration:0.4];
+            [UIView setAnimationBeginsFromCurrentState:YES];
+            self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y + 140), self.view.frame.size.width, self.view.frame.size.height);
+            [UIView commitAnimations];
+        }
+        
+        else
+        {
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDelegate:self];
+            [UIView setAnimationDuration:0.4];
+            [UIView setAnimationBeginsFromCurrentState:YES];
+            self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y + 110), self.view.frame.size.width, self.view.frame.size.height);
+            [UIView commitAnimations];
+        }
+    }
+    
+    [self.view endEditing:YES];
+}
+
 
 - (IBAction)backToHomeAction:(id)sender
 {
@@ -378,80 +630,141 @@
 {
     if (isLike)
     {
-      [_likeBtnOutlet setBackgroundImage:[UIImage imageNamed:@"like_blank.png"] forState:UIControlStateNormal];
+        for (likeBtnOutlet in likeBtnOutletCollections) {
+            
+            if (likeBtnOutlet.superview.hidden == NO) {
+                [likeBtnOutlet setBackgroundImage:[UIImage imageNamed:@"like_blank.png"] forState:UIControlStateNormal];
+            }
+        }
+        
         isLike = NO;
     }
     else
     {
-       [_likeBtnOutlet setBackgroundImage:[UIImage imageNamed:@"like.png"] forState:UIControlStateNormal];
+        for (likeBtnOutlet in likeBtnOutletCollections) {
+            
+            if (likeBtnOutlet.superview.hidden == NO) {
+                [likeBtnOutlet setBackgroundImage:[UIImage imageNamed:@"like.png"] forState:UIControlStateNormal];
+            }
+        }
+        
         isLike = YES;
     }
 }
 
 - (IBAction)showRetailersListAction:(id)sender
 {
-    [self performSegueWithIdentifier:@"showSuggestedRetailersFromProductOptionsPage" sender:nil];
+    if ([_productName isEqualToString:@""]) {
+        
+         showToastOnBottomPosition(@"Enter search text to find Sellers")
+    }
+    else
+     [self performSegueWithIdentifier:@"showSuggestedRetailersFromProductOptionsPage" sender:nil];
 }
+
+- (IBAction)googleSearchBtnAction:(id)sender
+{
+    
+    NSString *strGoogleSearch;
+    
+    if (_productName.length == 0) {
+        
+        showToastOnBottomPosition(@"Enter what you want to search")
+    }
+    else
+    {
+#if TARGET_OS_SIMULATOR
+  strGoogleSearch = [NSString stringWithFormat:@"http://www.google.co.in/search?q=%@",_productName]; //www.google.com
+#else
+  strGoogleSearch = [NSString stringWithFormat:@"http://www.google.co.in/search?q=%@&hl=%@", _productName, [[NSLocale preferredLanguages] objectAtIndex:0]];
+#endif
+        
+        
+        SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:[strGoogleSearch stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        [self.navigationController pushViewController:webViewController animated:YES];
+    }
+    
+}
+
 
 - (IBAction)flipKartAffiliatesAction:(id)sender
 {
-    [self getFlipkartAffiliatesDetailst];
+    if (_productName.length == 0) {
+        
+        showToastOnBottomPosition(@"Enter what you want to search")
+    }
+    else
+    {
+        [self getFlipkartAffiliatesDetailst];
+        
+    }
 }
 
 - (IBAction)amazonAffiliatesAction:(id)sender
 {
-    [superViewController startActivity:self.view];
     
-    RWMAmazonProductAdvertisingManager *manager = [[RWMAmazonProductAdvertisingManager alloc] initWithAccessKeyID:AWSAccessKeyId secret:AWSSecretKey];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    
-    NSMutableDictionary *parameters = [@{
-                                         @"Service" : Service,
-                                         @"Operation" : Operation,
-                                         @"SearchIndex" : SearchIndex,
-                                         @"Keywords" : _productName,   //@"men's black polo shirt"
-                                         @"AssociateTag" : AssociateTag
-                                         } mutableCopy];
-    
-    
-    [manager enqueueRequestOperationWithMethod:@"GET" parameters:[parameters copy] success:^(id responseObject)
-     {
-         NSError *error=nil;
-         NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-         NSLog(@"Request Successful, response '%@'", responseStr);
-         NSMutableDictionary *jsonResponseDict= [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
-         NSLog(@"Response Dictionary:: %@",jsonResponseDict);
-         
-         [superViewController stopActivity:self.view];
-         
-         xmlParser=[[NSXMLParser alloc]initWithData:responseObject];
-         [xmlParser setDelegate:self];
-         [xmlParser setShouldResolveExternalEntities:YES];
-         
-         if([xmlParser parse])
+    if (_productName.length == 0) {
+        
+        showToastOnBottomPosition(@"Enter what you want to search")
+    }
+    else
+    {
+        [superViewController startActivity:self.view];
+        
+        amazonAssociatesURL = [[NSMutableString alloc]init];
+        
+        RWMAmazonProductAdvertisingManager *manager = [[RWMAmazonProductAdvertisingManager alloc] initWithAccessKeyID:AWSAccessKeyId secret:AWSSecretKey];
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        
+        NSMutableDictionary *parameters = [@{
+                                             @"Service" : Service,
+                                             @"Operation" : Operation,
+                                             @"SearchIndex" : SearchIndex,
+                                             @"Keywords" : _productName,   //@"men's black polo shirt"
+                                             @"AssociateTag" : AssociateTag
+                                             } mutableCopy];
+        
+        
+        [manager enqueueRequestOperationWithMethod:@"GET" parameters:[parameters copy] success:^(id responseObject)
          {
-             NSLog(@"Parsing Finished");
-             NSLog(@"amazonAssociatesURL: %@",amazonAssociatesURL);
+             NSError *error=nil;
+             NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+             NSLog(@"Request Successful, response '%@'", responseStr);
+             NSMutableDictionary *jsonResponseDict= [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+             NSLog(@"Response Dictionary:: %@",jsonResponseDict);
              
-             SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:amazonAssociatesURL];
-             [self.navigationController pushViewController:webViewController animated:YES];
+             [superViewController stopActivity:self.view];
              
-            // [self performSegueWithIdentifier:@"showAmazonProductListFromProductOptions" sender:nil];
+             xmlParser=[[NSXMLParser alloc]initWithData:responseObject];
+             [xmlParser setDelegate:self];
+             [xmlParser setShouldResolveExternalEntities:YES];
+             
+             if([xmlParser parse])
+             {
+                 NSLog(@"Parsing Finished");
+                 NSLog(@"amazonAssociatesURL: %@",amazonAssociatesURL);
+                 
+                 SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:amazonAssociatesURL];
+                 [self.navigationController pushViewController:webViewController animated:YES];
+                 
+                 // [self performSegueWithIdentifier:@"showAmazonProductListFromProductOptions" sender:nil];
+             }
+             else
+             {
+                 NSLog(@"Parsing Failed");
+             }
+             
          }
-         else
+        failure:^(NSError *error)
          {
-             NSLog(@"Parsing Failed");
-         }
-         
-     }
-    failure:^(NSError *error)
-     {
-         [superViewController stopActivity:self.view];
-         NSLog(@"Error: %@", error);
-         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network Error" message:@"Please try again"
-                                                        delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-         [alert show];
-     }];
+             [superViewController stopActivity:self.view];
+             NSLog(@"Error: %@", error);
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network Error" message:@"Please try again"
+                                                            delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+             [alert show];
+         }];
+        
+    }
     
 }
 
@@ -473,6 +786,7 @@
     if (isElementPresent)
     {
         NSLog(@"foundCharacters: %@",string);
+        
         [amazonAssociatesURL appendString:string];
     }
     

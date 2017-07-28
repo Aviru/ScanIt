@@ -101,7 +101,9 @@
         
         [forgotPassDict setObject:_txtEmail.text forKey:EMAIL];
         
+        
         [self getPassword:forgotPassDict];
+        
     }
    
 

@@ -4,22 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>BFOAuth.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>CloudSight.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-ScanIt.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>RequestUtils.xcscheme</key>
+		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,37 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>16A9500B0C179DA4F371BC4AC064E738</key>
+		<key>9E3E638D4582D85CC674F1958DF9E8B2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>39987CCE937892A4A2D96D9C5ADFD094</key>
+		<key>A2A7AB4C8FC7847630EE6050B7DDA721</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7A566C2756E1E35D0005B58C31E75327</key>
+		<key>D24190953A8BB96A29A61C67815E1576</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A713D10DA540506F63D6BDB29D62CE5E</key>
+		<key>D9ED18165B7AF4BE1F8FC5F8CB411ADD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CF941962E5DDC3BE50822536113FCB5F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D2E0B51BC487F252B6C2686A57147069</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FC133B12170877E6FBF6934073A66D6A</key>
+		<key>E1DA7C7CA3F4C4D5CF0E718D3B4E4803</key>
 		<dict>
 			<key>primary</key>
 			<true/>

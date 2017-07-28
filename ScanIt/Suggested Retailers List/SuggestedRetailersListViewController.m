@@ -10,12 +10,16 @@
 #import "SuggestedRetailersTableViewCell.h"
 #import "SuggestedRetailerDetailsViewController.h"
 
-@interface SuggestedRetailersListViewController ()
+@interface SuggestedRetailersListViewController ()<CLLocationManagerDelegate>
 {
     SuggestedRetailersTableViewCell *cell;
     NSMutableArray *arrRetailersList;
     int selectedRow;
+    BOOL didFindLocation;
 }
+
+///****LOCATION
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 
@@ -25,17 +29,103 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [superViewController startActivity:self.view];
     
-    NSMutableDictionary *retailerDict = [[NSMutableDictionary alloc]init];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.locationManager = [CLLocationManager new];
+    self.locationManager.delegate = self;
+    self.locationManager.distanceFilter = kCLLocationAccuracyHundredMeters;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
+    {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    
+    [self.locationManager startUpdatingLocation];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self.locationManager stopUpdatingLocation];
+}
+
+#pragma mark -  CLLocation AuthorizationStatus Delegate
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+       
+        NSLog(@"status:%d",status);
+        
+        [manager startUpdatingLocation];
+    }
+    else if (status == kCLAuthorizationStatusDenied)
+    {
+        UIAlertController * alert=   [UIAlertController
+                                      alertControllerWithTitle:@"This app needs you to authorize locations services to work."
+                                      message:@"You can enable access in Settings->Privacy->Location->Location Services"
+                                      preferredStyle:UIAlertControllerStyleAlert];
+        
+        
+        UIAlertAction* yesButton = [UIAlertAction
+                                    actionWithTitle:@"OK"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action)
+                                    {
+                                        
+                                        [[UIApplication sharedApplication] openURL:[NSURL  URLWithString:UIApplicationOpenSettingsURLString]];
+                                    }];
+        
+        
+        [alert addAction:yesButton];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        
+        
+    }
+    else
+        NSLog(@"Wrong location status");
+}
+
+#pragma mark
+
+#pragma mark - CLLocation Delegate
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    CLLocation * currentLocation = [locations lastObject];
+    NSString * latitude = [NSString stringWithFormat:@"%.6f", currentLocation.coordinate.latitude];
+    NSString * longitude = [NSString stringWithFormat:@"%.6f", currentLocation.coordinate.longitude];
+    
+    NSLog(@"**latitude***:%@\n****longitude****:%@",latitude,longitude);
+    
+     NSMutableDictionary *retailerDict = [[NSMutableDictionary alloc]init];
     
     [retailerDict setObject:_productName forKey:@"keywords"];
+    [retailerDict setObject:latitude forKey:@"latitude"];
+    [retailerDict setObject:longitude forKey:@"longitude"];
     
-    [self getSuggestedRetailersList:retailerDict];
+    if (!didFindLocation)
+    {
+        didFindLocation = YES;
+        [self.locationManager stopUpdatingLocation];
+        
+        [self getSuggestedRetailersList:retailerDict];
+    }
+
+    
 }
+
+#pragma mark
 
 -(void)getSuggestedRetailersList:(NSMutableDictionary *)retailDict
 {
+    [superViewController startActivity:self.view];
+    
     NSError *error=nil;
     NSData *jsonRequestDict= [NSJSONSerialization dataWithJSONObject:retailDict options:NSJSONWritingPrettyPrinted error:&error];
     NSString *URL=[BASEURL_FOR_SUGGESTEDRETAIL_AND_PURCHASELIST stringByAppendingString:SUGGESTEDRETAILERS];
@@ -137,15 +227,32 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"retailersCell";
-    cell = (SuggestedRetailersTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
-    cell.lblShopName.text = [[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_name"];
-    cell.lblShopAddress.text = [[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_address"];
-    cell.lblPhoneNumber.text = [@"Call: " stringByAppendingString:[[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_phone_number"]];
-    
-    [cell.callUsBtnOutlet addTarget:self action:@selector(callUsBtnTap:)  forControlEvents:UIControlEventTouchUpInside];
-    
-    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        cell = (SuggestedRetailersTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        
+        cell.lblShopName.text = [[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_name"];
+        cell.lblShopAddress.text = [[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_address"];
+        
+        if ([[[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_type"] isEqualToString:@"Premium"] || [[[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_type"] isEqualToString:@"Classic"]) {
+            
+            cell.lblShopType.text = [[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_type"];
+        }
+        else
+            cell.lblShopType.text = @"";
+        
+        if ([[[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_offer"]length] > 0) {
+            
+            cell.offersImgVwIcon.hidden = NO;
+        }
+        else
+            cell.offersImgVwIcon.hidden = YES;
+        
+        cell.lblPhoneNumber.text = [@"Call: " stringByAppendingString:[[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_phone_number"]];
+        
+        [cell.callUsBtnOutlet addTarget:self action:@selector(callUsBtnTap:)  forControlEvents:UIControlEventTouchUpInside];
+        
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+  
     
     return cell;
 }

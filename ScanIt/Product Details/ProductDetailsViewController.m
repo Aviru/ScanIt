@@ -8,7 +8,7 @@
 
 #import "ProductDetailsViewController.h"
 
-@interface ProductDetailsViewController ()
+@interface ProductDetailsViewController ()<UITextFieldDelegate>
 
 @end
 

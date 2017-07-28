@@ -44,7 +44,7 @@
 
 - (void)dealloc {
     [self.webView stopLoading];
- 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     self.webView.delegate = nil;
 }
 
@@ -73,9 +73,9 @@
 }
 
 - (void)viewDidLoad {
-	[super viewDidLoad];
+    [super viewDidLoad];
     self.navigationController.navigationBar.hidden = NO;
-     [self.navigationController setToolbarHidden:NO animated:YES];
+    [self.navigationController setToolbarHidden:NO animated:YES];
     [self updateToolbarItems];
 }
 
@@ -92,10 +92,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     NSAssert(self.navigationController, @"SVWebViewController needs to be contained in a UINavigationController. If you are presenting SVWebViewController modally, use SVModalWebViewController instead.");
     
-	[super viewWillAppear:animated];
+    [super viewWillAppear:animated];
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-       
+        
         // Set the custom back button
         UIImage *buttonImage = [UIImage imageNamed:@"SVWebViewController.bundle/cross_icon"];
         
@@ -180,10 +180,10 @@
 - (UIBarButtonItem *)backBarButtonItem {
     if (!_backBarButtonItem) {
         _backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"SVWebViewController.bundle/SVWebViewControllerBack"]
-                                                             style:UIBarButtonItemStylePlain
-                                                            target:self
-                                                            action:@selector(goBackClicked:)];
-		_backBarButtonItem.width = 18.0f;
+                                                              style:UIBarButtonItemStylePlain
+                                                             target:self
+                                                             action:@selector(goBackClicked:)];
+        _backBarButtonItem.width = 18.0f;
     }
     return _backBarButtonItem;
 }
@@ -191,10 +191,10 @@
 - (UIBarButtonItem *)forwardBarButtonItem {
     if (!_forwardBarButtonItem) {
         _forwardBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"SVWebViewController.bundle/SVWebViewControllerNext"]
-                                                                style:UIBarButtonItemStylePlain
-                                                               target:self
-                                                               action:@selector(goForwardClicked:)];
-		_forwardBarButtonItem.width = 18.0f;
+                                                                 style:UIBarButtonItemStylePlain
+                                                                target:self
+                                                                action:@selector(goForwardClicked:)];
+        _forwardBarButtonItem.width = 18.0f;
     }
     return _forwardBarButtonItem;
 }
@@ -235,7 +235,7 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         CGFloat toolbarWidth = 250.0f;
         fixedSpace.width = 35.0f;
-
+        
         NSArray *items = [NSArray arrayWithObjects:
                           fixedSpace,
                           refreshStopBarButtonItem,
@@ -266,33 +266,33 @@
                           self.actionBarButtonItem,
                           fixedSpace,
                           nil];
-
+        
         [self.navigationController setNavigationBarHidden:NO];
-       
+        
         self.navigationController.toolbar.barStyle = self.navigationController.navigationBar.barStyle;
         self.navigationController.toolbar.tintColor = self.navigationController.navigationBar.tintColor;
         self.toolbarItems = items;
-
+        
     }
 }
 
 #pragma mark - UIWebViewDelegate
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
-	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [self updateToolbarItems];
 }
 
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
     self.navigationItem.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     [self updateToolbarItems];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     [self updateToolbarItems];
 }
 
@@ -312,7 +312,7 @@
 
 - (void)stopClicked:(UIBarButtonItem *)sender {
     [self.webView stopLoading];
-	[self updateToolbarItems];
+    [self updateToolbarItems];
 }
 
 - (void)actionButtonClicked:(id)sender {

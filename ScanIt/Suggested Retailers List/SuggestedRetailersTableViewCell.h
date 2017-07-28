@@ -18,5 +18,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *callUsBtnOutlet;
 
+@property (strong, nonatomic) IBOutlet UILabel *lblShopType;
+
+@property (strong, nonatomic) IBOutlet UIImageView *offersImgVwIcon;
 
 @end

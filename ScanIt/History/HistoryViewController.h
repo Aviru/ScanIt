@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HistoryViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface HistoryViewController : superViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *historyTableContainingView;
 
