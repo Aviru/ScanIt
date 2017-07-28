@@ -16,5 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *scanItImgVw;
 
+@property (strong, nonatomic) IBOutlet UIView *containerVw;
+
 @end
 

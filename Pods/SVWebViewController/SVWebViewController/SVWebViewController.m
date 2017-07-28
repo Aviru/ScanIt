@@ -147,6 +147,9 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    self.webView.delegate = nil;
+    self.webView = nil;
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         [self.navigationController setToolbarHidden:YES animated:animated];

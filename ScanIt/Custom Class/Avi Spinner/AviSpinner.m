@@ -139,7 +139,7 @@ NSString *const kAviSpinnerTypeBeachBall = @"AviBeachBallSpinner";
 - (void) drawPetalsWithAngle:(CGFloat)angle startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint context:(CGContextRef)context
 {
     CGPoint centerPoint = CGPointMake(self.frame.size.width/2.00, self.frame.size.height/2.00);
-    NSLog(@"Draw the petals with width %d",self.strokeWidth);
+    NSLog(@"Draw the petals with width %lu",(unsigned long)self.strokeWidth);
     CGFloat curveLeftAngle = angle - (((self.strokeWidth*2)- (self.strokeWidth/2.00)) * M_PI / 180);
     CGFloat cpx1 = (self.innerRadius+self.outerRadius)/2.00 * cos(curveLeftAngle) + centerPoint.x+(endPoint.x-startPoint.x)/2.00;
     CGFloat cpy1 = (self.innerRadius+self.outerRadius)/2.00 * sin(curveLeftAngle) + centerPoint.y+(endPoint.y-startPoint.y)/2.00;

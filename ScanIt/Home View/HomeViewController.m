@@ -28,6 +28,11 @@ NSString *const kAviBeachBallSpinner = @"AviBeachBallSpinner";
     UIActionSheet *actionSheetPopup;
     
     AviSpinner *circularSpinner;
+    CloudSightQuery *query;
+    
+    IBOutlet UIImageView *imgViewCamera;
+    
+    IBOutlet UIView *VwImageCaptureContainer;
     
     IBOutlet UIView *searchContainerView;
     
@@ -36,6 +41,9 @@ NSString *const kAviBeachBallSpinner = @"AviBeachBallSpinner";
     IBOutlet UIView *activityIndicatorView;
     
     IBOutlet UITextField *txtSearch;
+    
+    IBOutlet UIButton *btnCancelOutlet;
+    
     
 }
 
@@ -57,10 +65,13 @@ NSString *const kAviBeachBallSpinner = @"AviBeachBallSpinner";
     // Do any additional setup after loading the view.
     self.navigationItem.hidesBackButton = YES;
     
+    VwImageCaptureContainer.layer.cornerRadius = 10.0f;
+    /*
     searchView.layer.cornerRadius = 4.0f;
     searchView.layer.borderWidth = 1.0f;
     searchView.layer.borderColor = [UIColor colorWithRed:193.0/255.0 green:53.0/255.0 blue:30.0/255.0 alpha:1.0].CGColor;
     searchView.layer.masksToBounds = YES;
+     */
     
     UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 7, 20)];
     txtSearch.leftView = paddingView;
@@ -89,21 +100,24 @@ NSString *const kAviBeachBallSpinner = @"AviBeachBallSpinner";
     {
         _capturedImgVw.image = editedImage;
         _openCameraBtnOutlet.hidden = YES;
+        VwImageCaptureContainer.hidden = YES;
+        imgViewCamera.hidden = YES;
         _lblOpenCamera.hidden = YES;
-        _capturedImgVw.hidden = NO;
+        _capturedImgVw.hidden = YES;
         _lblProcessingImage.hidden = NO;
+        btnCancelOutlet.hidden = NO;
         
         searchContainerView.hidden = YES;
         
         circularSpinner = [[AviSpinner alloc] initWithSpinnerType:kAviCircularSpinner];
         circularSpinner.hidesWhenStopped = YES;
-        circularSpinner.radius = 20;
-        circularSpinner.pathColor = [UIColor whiteColor];
-        circularSpinner.fillColor = [UIColor darkGrayColor];
-        circularSpinner.thickness = 3;
+        circularSpinner.radius = 40;
+        circularSpinner.pathColor = [UIColor lightGrayColor];
+        circularSpinner.fillColor = [UIColor whiteColor];
+        circularSpinner.thickness = 20;
         
-        [circularSpinner setBounds:CGRectMake(0, 0, 50, 50)]; //
-        [circularSpinner setCenter:CGPointMake(self.view.center.x, activityIndicatorView.center.y+10)];
+        [circularSpinner setBounds:CGRectMake(0, 0, 120, 120)]; //
+        [circularSpinner setCenter:CGPointMake(self.view.center.x, activityIndicatorView.center.y)];
         
         [circularSpinner startAnimating];
         
@@ -117,11 +131,14 @@ NSString *const kAviBeachBallSpinner = @"AviBeachBallSpinner";
     {
         _openCameraBtnOutlet.hidden = NO;
         _lblOpenCamera.hidden =NO;
+         VwImageCaptureContainer.hidden = NO;
+         imgViewCamera.hidden = NO;
         _capturedImgVw.hidden =YES;
         _lblProcessingImage.hidden = YES;
+        btnCancelOutlet.hidden = YES;
         
         searchContainerView.hidden = NO;
-        
+
         //[self.locationManager startUpdatingLocation];
     }
     
@@ -231,6 +248,27 @@ NSString *const kAviBeachBallSpinner = @"AviBeachBallSpinner";
     
 }
 
+- (IBAction)btnCancelAction:(id)sender
+{
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [circularSpinner stopAnimating];
+        [query stop];
+         _isImageAvailable = NO;
+        _openCameraBtnOutlet.hidden = NO;
+        _lblOpenCamera.hidden =NO;
+        VwImageCaptureContainer.hidden = NO;
+        imgViewCamera.hidden = NO;
+        _capturedImgVw.hidden =YES;
+        _lblProcessingImage.hidden = YES;
+        btnCancelOutlet.hidden = YES;
+        searchContainerView.hidden = NO;
+        
+    });
+}
+
+
 - (IBAction)openCameraAction:(id)sender
 {
     [self.view endEditing:YES];
@@ -330,6 +368,8 @@ NSString *const kAviBeachBallSpinner = @"AviBeachBallSpinner";
             
         {
             cameraUI.sourceType=UIImagePickerControllerSourceTypeCamera;
+            [cameraUI setAllowsEditing:NO];
+            [cameraUI setDelegate:self];
         }
         [self presentViewController:cameraUI animated:YES completion:NULL];
         
@@ -351,7 +391,10 @@ NSString *const kAviBeachBallSpinner = @"AviBeachBallSpinner";
 
 -(void)chooseImageFromAlbum
 {
-    cameraUI.sourceType = UIImagePickerControllerSourceTypePhotoLibrary|UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    cameraUI.sourceType = UIImagePickerControllerSourceTypePhotoLibrary; //|UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    [cameraUI setAllowsEditing:NO];
+    [cameraUI setDelegate:self];
+
     [self presentViewController:cameraUI animated:YES completion:NULL];
 }
 
@@ -370,7 +413,6 @@ NSString *const kAviBeachBallSpinner = @"AviBeachBallSpinner";
     {
         image = info[UIImagePickerControllerOriginalImage];
     }
-    else
         _isImageAvailable = YES;
     
     editedImage = image;
@@ -393,7 +435,7 @@ NSString *const kAviBeachBallSpinner = @"AviBeachBallSpinner";
     editedImage = [UIImage imageWithData:compressImgData];
     
     // Create the actual query object
-    CloudSightQuery *query = [[CloudSightQuery alloc] initWithImage:imageData
+    query = [[CloudSightQuery alloc] initWithImage:imageData
                                                          atLocation:CGPointMake(0.0, 0.0)
                                                        withDelegate:self
                                                         atPlacemark:nil
@@ -405,22 +447,25 @@ NSString *const kAviBeachBallSpinner = @"AviBeachBallSpinner";
 
 #pragma mark CloudSightQueryDelegate
 
-- (void)cloudSightQueryDidFinishIdentifying:(CloudSightQuery *)query {
+- (void)cloudSightQueryDidFinishIdentifying:(CloudSightQuery *)CloudSightquery {
     
-    if (query.skipReason != nil) {
-        NSLog(@"Skipped: %@", query.skipReason);
+    if (CloudSightquery.skipReason != nil) {
+        NSLog(@"Skipped: %@", CloudSightquery.skipReason);
     }
     else {
         //NSLog(@"Identified title: %@", query.title);
-         NSLog(@"Identified name: %@", query.name);
-         NSLog(@"Query token: %@", query.token);
-        queryToken = query.token;
-        Name = query.name;
+         NSLog(@"Identified name: %@", CloudSightquery.name);
+         NSLog(@"Query token: %@", CloudSightquery.token);
+        queryToken = CloudSightquery.token;
+        Name = CloudSightquery.name;
         _isImageAvailable = NO;
         
        // [self saveImage];
         
-        [self performSegueWithIdentifier:@"showProductOptionsFromHome" sender:nil];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self performSegueWithIdentifier:@"showProductOptionsFromHome" sender:nil];
+        });
+        
     }
 }
 
@@ -429,17 +474,60 @@ NSString *const kAviBeachBallSpinner = @"AviBeachBallSpinner";
     NSLog(@"cloudSightQueryDidFinishUploading called");
 }
 
-- (void)cloudSightQueryDidFail:(CloudSightQuery *)query withError:(NSError *)error {
+- (void)cloudSightQueryDidFail:(CloudSightQuery *)Cloudquery withError:(NSError *)error {
     NSLog(@"cloudSightQueryDidFail Error: %@", error);
     
     
     //[self.locationManager startUpdatingLocation];
     
+    if (![error.localizedDescription isEqualToString: @"User cancelled request"])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:@"Unable to process Image"
+                                                       delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [circularSpinner stopAnimating];
+            [query stop];
+            _isImageAvailable = NO;
+            _openCameraBtnOutlet.hidden = NO;
+            _lblOpenCamera.hidden =NO;
+            VwImageCaptureContainer.hidden = NO;
+            imgViewCamera.hidden = NO;
+            _capturedImgVw.hidden =YES;
+            _lblProcessingImage.hidden = YES;
+            btnCancelOutlet.hidden = YES;
+            searchContainerView.hidden = NO;
+            
+        });
+    }
+    
+}
+
+-(void)cloudSightRequest:(CloudSightImageRequest *)sender didFailWithError:(NSError *)error
+{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                    message:@"Unable to process Image"
+                                                    message:error.localizedDescription
                                                    delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
     
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [circularSpinner stopAnimating];
+        [query stop];
+        _isImageAvailable = NO;
+        _openCameraBtnOutlet.hidden = NO;
+        _lblOpenCamera.hidden =NO;
+        VwImageCaptureContainer.hidden = NO;
+        imgViewCamera.hidden = NO;
+        _capturedImgVw.hidden =YES;
+        _lblProcessingImage.hidden = YES;
+        btnCancelOutlet.hidden = YES;
+        searchContainerView.hidden = NO;
+        
+    });
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -461,34 +549,29 @@ NSString *const kAviBeachBallSpinner = @"AviBeachBallSpinner";
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
         [circularSpinner stopAnimating];
-        
-    });
-    
-    if ([[segue identifier] isEqualToString:@"showProductOptionsFromHome"])
-    {
-        AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-        appDelegate.isFromLikePage = NO;
-        appDelegate.isFromHistoryPage = NO;
-        ProductOptionsViewController* productOptionsVC = [segue destinationViewController];
-        
-        if (isOpenCameraBtnTapped)
+        if ([[segue identifier] isEqualToString:@"showProductOptionsFromHome"])
         {
-            productOptionsVC.productImage = editedImage;
-            productOptionsVC.productImageUrl = imageURL;
-            productOptionsVC.queryTokenForSelectedProduct = queryToken;
-            productOptionsVC.productName = Name;
-            productOptionsVC.isTextSearch = NO;
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+            appDelegate.isFromLikePage = NO;
+            appDelegate.isFromHistoryPage = NO;
+            ProductOptionsViewController* productOptionsVC = [segue destinationViewController];
+            
+            if (isOpenCameraBtnTapped)
+            {
+                productOptionsVC.productImage = editedImage;
+                productOptionsVC.productImageUrl = imageURL;
+                productOptionsVC.queryTokenForSelectedProduct = queryToken;
+                productOptionsVC.productName = Name;
+                productOptionsVC.isTextSearch = NO;
+            }
+            
+            else
+            {
+                productOptionsVC.productName = txtSearch.text;
+                productOptionsVC.isTextSearch = YES;
+            }
         }
-        
-       else
-       {
-           productOptionsVC.productName = txtSearch.text;
-           productOptionsVC.isTextSearch = YES;
-       }
-    }
 }
 
 @end

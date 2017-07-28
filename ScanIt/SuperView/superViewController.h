@@ -16,7 +16,10 @@
 - (id)getUserDefaultValueForKey:(NSString *)key;
 - (void)RemoveUserDefaultValueForKey:(NSString *)key;
 
+-(NSString *)convertDateFormat:(NSString *)strDt;
+
 + (UIActivityIndicatorView *)startActivity:(UIView *)view;
 + (UIActivityIndicatorView *)stopActivity:(UIView *)view;
+- (BOOL)image:(UIImage *)image1 isEqualTo:(UIImage *)image2;
 
 @end

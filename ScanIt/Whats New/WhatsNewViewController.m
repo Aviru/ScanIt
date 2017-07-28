@@ -67,6 +67,8 @@
     
     cell.lblProductCategoryName.text = [[arrWhatsNew objectAtIndex:indexPath.row] objectForKey:@"product_keyword"];
     
+    cell.lblDate.text = [self convertDateFormat:[[arrWhatsNew objectAtIndex:indexPath.row] objectForKey:@"AddDate"]];
+    
     [cell.imgVwProduct setImage:[UIImage imageNamed:@"no_image_product.jpg"]];
     
     NSURL *url = [NSURL URLWithString:[[arrWhatsNew objectAtIndex:indexPath.row] objectForKey:@"ProductImage"]];
@@ -148,18 +150,18 @@
             {
                 arrWhatsNew = [[NSMutableArray alloc]init];
                 arrWhatsNew =  [jsonResponseDict [@"newproductlist"] mutableCopy];
-                lblMessage.hidden = NO;
+                lblMessage.hidden = YES;
                 [tableWhatsNew reloadData];
             }
             else
             {
-                lblMessage.hidden = YES;
+                lblMessage.hidden = NO;
             }
         }
         
         else
         {
-            lblMessage.hidden = YES;
+            lblMessage.hidden = NO;
         }
         
     }

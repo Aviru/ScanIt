@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WhatsNewViewController : UIViewController
+@interface WhatsNewViewController : superViewController
 
 @end

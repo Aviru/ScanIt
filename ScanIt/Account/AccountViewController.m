@@ -23,6 +23,9 @@
     NSString *lastName;
     NSString *shippingAddress;
     AppDelegate *appDel;
+    
+    IBOutlet UIImageView *imgVwCameraIcon;
+    
 }
 
 @end
@@ -36,6 +39,8 @@
     appDel = [[UIApplication sharedApplication]delegate];
     
     delBtnTapped=NO;
+    
+    /*
     _AcccountView.layer.cornerRadius = 4.0f;
     _AcccountView.layer.borderWidth = 1.0f;
     _AcccountView.layer.borderColor = [UIColor clearColor].CGColor;
@@ -49,9 +54,16 @@
     _AcccountView.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:_AcccountView.bounds cornerRadius:_AcccountView.layer.cornerRadius].CGPath;
     
     self.btnEditOutlet.layer.cornerRadius = 3.0f;
+     */
+    
+    _cancelBtnOutlet.layer.cornerRadius = 6.0;
+    
+    imgVwCameraIcon.layer.cornerRadius = imgVwCameraIcon.frame.size.width/2;
+    imgVwCameraIcon.clipsToBounds = YES;
     
     if ([[self getUserDefaultValueForKey:REGISTRATIONTYPE] isEqualToString:@"Demo"])
     {
+        imgVwCameraIcon.hidden = YES;
         _txtFirstName.userInteractionEnabled = NO;
         _txtLastName.userInteractionEnabled = NO;
         _txtEmail.userInteractionEnabled = NO;
@@ -63,6 +75,7 @@
     }
     else
     {
+         imgVwCameraIcon.hidden = NO;
         _txtFirstName.userInteractionEnabled = NO;
         _txtLastName.userInteractionEnabled = NO;
         _txtEmail.userInteractionEnabled = NO;
@@ -271,7 +284,7 @@
 
 - (IBAction)EditAction:(id)sender
 {
-    if ([_btnEditOutlet.titleLabel.text isEqualToString:@"Edit"])
+    if ([self image:[_btnEditOutlet backgroundImageForState:UIControlStateNormal] isEqualTo:[UIImage imageNamed:@"Update Button.png"]])
     {
         _txtFirstName.userInteractionEnabled = YES;
         _txtLastName.userInteractionEnabled = YES;
@@ -279,7 +292,7 @@
         _txtMobileNumber.userInteractionEnabled = YES;
          _editImageBtnOutlet.userInteractionEnabled = YES;
         _txtShippingAddress.userInteractionEnabled = YES;
-        [_btnEditOutlet setTitle:@"Save" forState:UIControlStateNormal] ;
+        [_btnEditOutlet setBackgroundImage:[UIImage imageNamed:@"Done Button.png"] forState:UIControlStateNormal];
         _cancelBtnOutlet.hidden = NO;
         
         if (![_txtFirstName.text isEqualToString:@""])
@@ -339,15 +352,15 @@
        else
        {
            [superViewController startActivity:self.view];
-           [_btnEditOutlet setTitle:@"Edit" forState:UIControlStateNormal] ;
-            NSMutableDictionary *EditUserInfoDict = [NSMutableDictionary dictionary];
+           [_btnEditOutlet setBackgroundImage:[UIImage imageNamed:@"Update Button.png"] forState:UIControlStateNormal];
+           NSMutableDictionary *EditUserInfoDict = [NSMutableDictionary dictionary];
            if(delBtnTapped==NO)
            {
-              [EditUserInfoDict setObject:@"N" forKey:@"delete_image"];
+               [EditUserInfoDict setObject:@"N" forKey:@"delete_image"];
            }
            else if (delBtnTapped==YES)
            {
-              [EditUserInfoDict setObject:@"Y" forKey:@"delete_image"];
+               [EditUserInfoDict setObject:@"Y" forKey:@"delete_image"];
            }
            
            [EditUserInfoDict setObject:[self getUserDefaultValueForKey:USERID] forKey:USERID];
@@ -358,7 +371,7 @@
            [EditUserInfoDict setObject:shippingAddress forKey:ADDRESS];
            
            
-               [self editUserInfoDetails:EditUserInfoDict];
+           [self editUserInfoDetails:EditUserInfoDict];
            
        }
   
@@ -406,7 +419,7 @@
     _editImageBtnOutlet.userInteractionEnabled = NO;
     _txtShippingAddress.userInteractionEnabled = NO;
     _cancelBtnOutlet.hidden = YES;
-    [_btnEditOutlet setTitle:@"Edit" forState:UIControlStateNormal];
+    [_btnEditOutlet setBackgroundImage:[UIImage imageNamed:@"Update Button.png"] forState:UIControlStateNormal];
     
     if ([[self getUserDefaultValueForKey:PROFILEIMAGE] length] != 0)
     {

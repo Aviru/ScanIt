@@ -144,7 +144,9 @@
 {
     static NSString *cellIdentifier = @"Historycell";
     
-        cell = (HistoryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    cell = (HistoryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    cell.lblDate.text = [self convertDateFormat:[[arrProductDetails objectAtIndex:indexPath.row] objectForKey:@"AddDate"]];
     
     cell.lblProductName.text = [[arrProductDetails objectAtIndex:indexPath.row] objectForKey:@"product_keywords"];
     
@@ -158,10 +160,10 @@
         
         NSURL *url = [NSURL URLWithString:[[arrProductDetails objectAtIndex:indexPath.row] objectForKey:@"ProductImage"]];
         [cell.productImgVw sd_setImageWithURL:url
-                     placeholderImage:[UIImage imageNamed:@"no_image_product.jpg"]
-                              options:SDWebImageRefreshCached];
+                             placeholderImage:[UIImage imageNamed:@"no_image_product.jpg"]
+                                      options:SDWebImageRefreshCached];
     }
-
+    
     return cell;
     
 }

@@ -54,6 +54,18 @@
     return [emailTest evaluateWithObject:tempMail];
 }
 
+#pragma mark
+#pragma mark - Check Image equality
+#pragma mark
+
+- (BOOL)image:(UIImage *)image1 isEqualTo:(UIImage *)image2
+{
+    NSData *data1 = UIImagePNGRepresentation(image1);
+    NSData *data2 = UIImagePNGRepresentation(image2);
+    
+    return [data1 isEqual:data2];
+}
+
 #pragma mark - Activity Indicator
 
 + (UIActivityIndicatorView *)startActivity:(UIView *)view
@@ -95,6 +107,19 @@
     }
     
     return activity;
+}
+
+-(NSString *)convertDateFormat:(NSString *)strDt
+{
+    NSDateFormatter *df1 = [[NSDateFormatter alloc] init];
+    [df1 setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *newDate = [df1 dateFromString:strDt];
+    NSDateFormatter *df2 = [[NSDateFormatter alloc] init];
+    [df2 setDateFormat:@"MMMM dd, yyyy"];
+    NSString *dateString = [df2 stringFromDate:newDate];
+    NSLog(@"date is %@",dateString);
+    
+    return dateString;
 }
 
 

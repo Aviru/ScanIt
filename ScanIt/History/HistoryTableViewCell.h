@@ -14,4 +14,9 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *productImgVw;
 
+@property (strong, nonatomic) IBOutlet UIView *VwBg;
+
+@property (strong, nonatomic) IBOutlet UILabel *lblDate;
+
+
 @end

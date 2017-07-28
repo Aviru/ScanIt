@@ -22,4 +22,7 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *offersImgVwIcon;
 
+@property (strong, nonatomic) IBOutlet UIImageView *imgViewPremiumIcon;
+
+
 @end

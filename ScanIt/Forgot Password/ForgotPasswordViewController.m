@@ -10,7 +10,7 @@
 
 @interface ForgotPasswordViewController ()
 {
-    BOOL isValidEmail;
+    BOOL isValidEmail,isViewUp;
 }
 
 @end
@@ -45,8 +45,59 @@
 
 #pragma mark - TextField Delegate
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    isViewUp = YES;
+    
+    if (IS_IPHONE_4)
+    {
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDuration:0.4];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y - 120), self.view.frame.size.width, self.view.frame.size.height);
+        [UIView commitAnimations];
+    }
+    else
+    {
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDuration:0.4];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y - 100), self.view.frame.size.width, self.view.frame.size.height);
+        [UIView commitAnimations];
+    }
+    
+    
+}
+
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    if (isViewUp)
+    {
+        isViewUp = NO;
+        
+        if (IS_IPHONE_4)
+        {
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDelegate:self];
+            [UIView setAnimationDuration:0.4];
+            [UIView setAnimationBeginsFromCurrentState:YES];
+            self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y + 120), self.view.frame.size.width, self.view.frame.size.height);
+            [UIView commitAnimations];
+        }
+        else
+        {
+            [UIView beginAnimations:nil context:NULL];
+            [UIView setAnimationDelegate:self];
+            [UIView setAnimationDuration:0.4];
+            [UIView setAnimationBeginsFromCurrentState:YES];
+            self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y + 100), self.view.frame.size.width, self.view.frame.size.height);
+            [UIView commitAnimations];
+        }
+    }
+    
     [textField resignFirstResponder];
     return YES;
 }
@@ -86,11 +137,35 @@
 {
     if (!isValidEmail)
     {
+        if (isViewUp)
+        {
+            isViewUp = NO;
+            
+            if (IS_IPHONE_4)
+            {
+                [UIView beginAnimations:nil context:NULL];
+                [UIView setAnimationDelegate:self];
+                [UIView setAnimationDuration:0.4];
+                [UIView setAnimationBeginsFromCurrentState:YES];
+                self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y + 120), self.view.frame.size.width, self.view.frame.size.height);
+                [UIView commitAnimations];
+            }
+            else
+            {
+                [UIView beginAnimations:nil context:NULL];
+                [UIView setAnimationDelegate:self];
+                [UIView setAnimationDuration:0.4];
+                [UIView setAnimationBeginsFromCurrentState:YES];
+                self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y + 100), self.view.frame.size.width, self.view.frame.size.height);
+                [UIView commitAnimations];
+            }
+
+        }
+        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                         message:@"Please Ensure that you have entered valid Email"
                                                        delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
-        
         
     }
     else

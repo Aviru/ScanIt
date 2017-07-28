@@ -23,6 +23,7 @@
     
     IBOutlet UICollectionView *currentOffersCollectionView;
     
+    IBOutlet UIImageView *imgViewPremiumIcon;
 }
 
 @end
@@ -70,6 +71,13 @@
     }
     else
         lblOffer.text = @"No Offer available currently";
+    
+    if ( [[[_arrSuggestedRetailerDetails objectAtIndex:0] objectForKey:@"shop_type"] isEqualToString:@"Premium"])
+    {
+        imgViewPremiumIcon.hidden = NO;
+    }
+    else
+      imgViewPremiumIcon.hidden = YES;
     
     if ([[[_arrSuggestedRetailerDetails objectAtIndex:0] objectForKey:@"shop_images"] count] > 0) {
         

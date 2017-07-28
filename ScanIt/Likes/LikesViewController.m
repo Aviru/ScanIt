@@ -151,6 +151,8 @@
     
     cell.lblLikedProductName.text = [[arrProductDetails objectAtIndex:indexPath.row] objectForKey:@"product_keywords"];
     
+     cell.lblDate.text = [self convertDateFormat:[[arrProductDetails objectAtIndex:indexPath.row] objectForKey:@"AddDate"]];
+    
     if ([[[arrProductDetails objectAtIndex:indexPath.row] objectForKey:@"ProductImage"] isEqualToString:@""])
     {
         [cell.likedProductImgVw setImage:[UIImage imageNamed:@"no_image_product.jpg"]];

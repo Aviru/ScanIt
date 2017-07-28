@@ -19,14 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.purchaseBtnOutlet.layer.cornerRadius = 3.0f;
-    
-    NSArray *arrkeys;
-    
-    for (NSDictionary *currentDictionary in _arrSelectedProductDetails)
-    {
-        arrkeys = [currentDictionary allKeys];
-    }
+   // self.purchaseBtnOutlet.layer.cornerRadius = 3.0f;
     
     _lblSelectedProductName.text = [[_arrSelectedProductDetails objectAtIndex:0] objectForKey:@"title"];
     
@@ -37,6 +30,21 @@
     _lblPrice.text = [[[[_arrSelectedProductDetails objectAtIndex:0] objectForKey:@"currency"] stringByAppendingString:@" "] stringByAppendingString:[NSString stringWithFormat:@"%@",[[_arrSelectedProductDetails objectAtIndex:0] objectForKey:@"amount"]]];
     
     _lblBrandName.text = [[_arrSelectedProductDetails objectAtIndex:0] objectForKey:@"productBrand"];
+    
+    
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSArray *arrkeys;
+    
+    for (NSDictionary *currentDictionary in _arrSelectedProductDetails)
+    {
+        arrkeys = [currentDictionary allKeys];
+    }
+    
     
     if ([arrkeys containsObject:@"productDescription"])
     {
@@ -50,16 +58,22 @@
             
             _lblPrice.center = CGPointMake(_lblPrice.frame.origin.x+(_lblPrice.frame.size.width/2),textSize.height + (_lblPrice.frame.size.height/2) + _lblProductDesc.frame.origin.y); //_lblProductDesc.frame.origin.x  +(_lblPrice.frame.size.height/2) 40 +
             
-            _lblNamePrice.center =CGPointMake(_lblNamePrice.frame.origin.x+(_lblNamePrice.frame.size.width/2), textSize.height +  (_lblNamePrice.frame.size.height/2) +_lblProductDesc.frame.origin.y);//_lblProductDesc.frame.origin.x+textSize.height + 40 +
+            //_lblNamePrice.center =CGPointMake(_lblNamePrice.frame.origin.x+(_lblNamePrice.frame.size.width/2), textSize.height +  (_lblNamePrice.frame.size.height/2) +_lblProductDesc.frame.origin.y);//_lblProductDesc.frame.origin.x+textSize.height + 40 +
             
-            _purchaseBtnOutlet.center=CGPointMake(_purchaseBtnOutlet.frame.origin.x+(_purchaseBtnOutlet.frame.size.width/2),  _lblNamePrice.frame.origin.y + 40);//_lblProductDesc.frame.origin.x  +(_purchaseBtnOutlet.frame.size.height/2) 40 +
+            _purchaseBtnOutlet.center=CGPointMake(_purchaseBtnOutlet.frame.origin.x+(_purchaseBtnOutlet.frame.size.width/2),  _lblPrice.frame.origin.y + _lblPrice.frame.size.height + 50);//_lblProductDesc.frame.origin.x  +(_purchaseBtnOutlet.frame.size.height/2) 40 +
             
+        }
+        else
+        {
+            _lblPrice.center = CGPointMake(_lblPrice.frame.origin.x+(_lblPrice.frame.size.width/2),_lblBrandName.frame.size.height + (_lblPrice.frame.size.height/2) + _lblProductDesc.frame.origin.y);
+            _purchaseBtnOutlet.center=CGPointMake(_purchaseBtnOutlet.frame.origin.x+(_purchaseBtnOutlet.frame.size.width/2),  _lblPrice.frame.origin.y + _lblPrice.frame.size.height + 50);
         }
         
     }
     else
     {
         _lblPrice.hidden = YES;
+        
     }
     
     CGRect contentRect = CGRectZero;
@@ -67,7 +81,6 @@
         contentRect = CGRectUnion(contentRect, view.frame);
     }
     self.scrollVw.contentSize = contentRect.size;
-    
 }
 
 #pragma mark - Text Size

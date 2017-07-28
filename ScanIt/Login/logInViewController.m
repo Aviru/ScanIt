@@ -40,7 +40,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    /*
     _firstView.layer.cornerRadius = 4.0f;
     _firstView.layer.borderWidth = 1.0f;
     _firstView.layer.borderColor = [UIColor clearColor].CGColor;
@@ -64,7 +64,7 @@
     _secondView.layer.shadowOpacity = 0.5f;
     _secondView.layer.masksToBounds = NO;
     _secondView.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:_secondView.bounds cornerRadius:_secondView.layer.cornerRadius].CGPath;
-    
+    */
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -89,6 +89,7 @@
 
 - (void)textFieldDidChange:(UITextField *)textField
 {
+    
     if (textField==_txtSignInEmail) //***Email
     {
         if(textField.text.length > 0)

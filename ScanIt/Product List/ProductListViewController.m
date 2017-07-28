@@ -14,7 +14,7 @@
 
 @interface ProductListViewController ()
 {
-    NSMutableArray *arrProductDetails;
+    NSMutableArray *arrProductDetails, *arrImages;
     NSMutableDictionary *dictProductDetails;
     int selectedRow;
 }
@@ -29,6 +29,7 @@
     // Do any additional setup after loading the view.
     
     arrProductDetails = [[NSMutableArray alloc]init];
+    arrImages = [NSMutableArray new];
     
     [NSThread detachNewThreadSelector:@selector(myThread:) toTarget:self withObject:nil];
     
@@ -45,9 +46,9 @@
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     
-    [flowLayout setItemSize:CGSizeMake(95*screenRatio, 182*screenRatio)];
+    [flowLayout setItemSize:CGSizeMake(150*screenRatio, 200*screenRatio)];
     
-    flowLayout.sectionInset = UIEdgeInsetsMake(5*screenRatio, 10*screenRatio, 0, 10*screenRatio);
+    flowLayout.sectionInset = UIEdgeInsetsMake(5*screenRatio, 5*screenRatio, 0, 5*screenRatio);
     flowLayout.minimumInteritemSpacing = 5*screenRatio;
     flowLayout.minimumLineSpacing = 10*screenRatio;
     
@@ -74,7 +75,18 @@
         
         [dictProductDetails setObject:[[[[_arrFlipkartProductList objectAtIndex:i] objectForKey:@"productBaseInfo"] objectForKey:@"productAttributes"] objectForKey:@"productDescription"] forKey:@"productDescription"];
         
-        [dictProductDetails setObject:[[[[[_arrFlipkartProductList objectAtIndex:i] objectForKey:@"productBaseInfo"] objectForKey:@"productAttributes"] objectForKey:@"imageUrls"] objectForKey:IMAGE_SIZE] forKey:@"ImageURL"];
+        if ([[[[[_arrFlipkartProductList objectAtIndex:i] objectForKey:@"productBaseInfo"] objectForKey:@"productAttributes"] objectForKey:@"imageUrls"] objectForKey:IMAGE_SIZE])
+        {
+             [dictProductDetails setObject:[[[[[_arrFlipkartProductList objectAtIndex:i] objectForKey:@"productBaseInfo"] objectForKey:@"productAttributes"] objectForKey:@"imageUrls"] objectForKey:IMAGE_SIZE] forKey:@"ImageURL"];
+        }
+        else
+        {
+           NSString *imageKey = [[[[[[_arrFlipkartProductList objectAtIndex:i] objectForKey:@"productBaseInfo"] objectForKey:@"productAttributes"] objectForKey:@"imageUrls"] allKeys] objectAtIndex:0];
+            
+            [dictProductDetails setObject:[[[[[_arrFlipkartProductList objectAtIndex:i] objectForKey:@"productBaseInfo"] objectForKey:@"productAttributes"] objectForKey:@"imageUrls"] objectForKey:imageKey] forKey:@"ImageURL"];
+        }
+        
+       
         
         [dictProductDetails setObject:[[[[[_arrFlipkartProductList objectAtIndex:i] objectForKey:@"productBaseInfo"] objectForKey:@"productAttributes"] objectForKey:@"sellingPrice"] objectForKey:@"currency"] forKey:@"currency"];
         
@@ -102,7 +114,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if (_arrFlipkartProductList.count > 0)
+    if (arrProductDetails.count > 0)
     {
         _productListCollectionVw.hidden = NO;
         _lblMessage.hidden = YES;
@@ -112,7 +124,7 @@
         _productListCollectionVw.hidden = YES;
         _lblMessage.hidden = NO;
     }
-    return _arrFlipkartProductList.count;
+    return arrProductDetails.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -121,39 +133,71 @@
                                     dequeueReusableCellWithReuseIdentifier:@"productListCell"
                                     forIndexPath:indexPath];
 
-    myCell.contentView.layer.cornerRadius = 2.0f;
+    myCell.contentView.layer.cornerRadius = 6.0f;
     myCell.contentView.layer.borderWidth = 1.0f;
     myCell.contentView.layer.borderColor = [UIColor clearColor].CGColor;
     myCell.contentView.layer.masksToBounds = YES;
     
     myCell.layer.shadowColor = [UIColor darkGrayColor].CGColor;
-    myCell.layer.shadowOffset = CGSizeMake(0, 1.0f);
+    myCell.layer.shadowOffset = CGSizeMake(0.5, 0.5f);
     myCell.layer.shadowRadius = 0.8f;
-    myCell.layer.shadowOpacity = 0.5f;
+    myCell.layer.shadowOpacity = 0.8f;
+    myCell.layer.cornerRadius = 6.0f;
     myCell.layer.masksToBounds = NO;
     myCell.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:myCell.bounds cornerRadius:myCell.contentView.layer.cornerRadius].CGPath;
     
-    myCell.lblProductName.text = [[[[_arrFlipkartProductList objectAtIndex:indexPath.row] objectForKey:@"productBaseInfo"] objectForKey:@"productAttributes"] objectForKey:@"title"];
+    myCell.lblProductName.text = arrProductDetails[indexPath.row][@"title"]; //[[[[_arrFlipkartProductList objectAtIndex:indexPath.row] objectForKey:@"productBaseInfo"] objectForKey:@"productAttributes"] objectForKey:@"title"];
     
-    myCell.productImgVw.image = nil; // or cell.poster.image = [UIImage imageNamed:@"placeholder.png"];
+     myCell.lblProductPrice.text = [NSString stringWithFormat:@"Rs. %@",arrProductDetails[indexPath.row][@"amount"]] ;
     
-    NSURL *url = [NSURL URLWithString:[[[[[_arrFlipkartProductList objectAtIndex:indexPath.row] objectForKey:@"productBaseInfo"] objectForKey:@"productAttributes"] objectForKey:@"imageUrls"] objectForKey:IMAGE_SIZE]];
+   // myCell.productImgVw.image = nil; // or cell.poster.image = [UIImage imageNamed:@"placeholder.png"];
     
-    NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if (data) {
-            UIImage *image = [UIImage imageWithData:data scale:0.5];
-            if (image) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    ProductListCollectionViewCell *myCell = (id)[collectionView cellForItemAtIndexPath:indexPath];
-                    if (myCell)
-                    {
-                       myCell.productImgVw.image = image;
-                    }
-                });
-            }
-        }
-    }];
-    [task resume];
+    NSURL *url = [NSURL URLWithString: arrProductDetails[indexPath.row][@"ImageURL"]];
+    
+    [myCell.productImgVw sd_setImageWithURL:url
+                           placeholderImage:[UIImage imageNamed:@"placeholder.png"]
+                                    options:SDWebImageHighPriority
+                                   progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                                       
+                                   }
+                                  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                                  }];
+    /*
+    if (arrImages.count <= indexPath.row)
+    {
+        [myCell.productImgVw sd_setImageWithURL:url
+                                 placeholderImage:[UIImage imageNamed:@"placeholder.png"]
+                                          options:SDWebImageHighPriority
+                                         progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                                             
+                                         }
+                                        completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                                             [arrImages addObject:myCell.productImgVw.image];
+                                        }];
+     
+        //NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+       //     if (data) {
+        //        UIImage *image = [UIImage imageWithData:data scale:0.5];
+       //         if (image) {
+          //          dispatch_async(dispatch_get_main_queue(), ^{
+         //               ProductListCollectionViewCell *myCell = (id)[collectionView cellForItemAtIndexPath:indexPath];
+           //             if (myCell)
+           //             {
+            //                myCell.productImgVw.image = image;
+                   //         [arrImages addObject:image];
+            //            }
+           //         });
+              //  }
+          //  }
+       // }];
+       // [task resume];
+     
+    }
+    else
+        myCell.productImgVw.image = arrImages[indexPath.row];
+    */
+    
+    
     
     return myCell;
     
@@ -163,7 +207,7 @@
 {
     if (arrProductDetails.count > 0)
     {
-         selectedRow = (int)indexPath.row;
+         selectedRow = (int)indexPath.item;
         
         [self performSegueWithIdentifier:@"showProductDetailsFromProductList" sender:nil];
     }

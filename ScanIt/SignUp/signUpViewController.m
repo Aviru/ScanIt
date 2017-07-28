@@ -7,14 +7,23 @@
 //
 
 #import "signUpViewController.h"
+#import "SignUpTableViewCell.h"
 
-@interface signUpViewController ()
+@interface signUpViewController ()<UITextFieldDelegate>
 {
     NSString *firstName;
     NSString *lastName;
     NSString *password;
-    BOOL isValidfirstName,isValidLastName,isValidPassword,isValidEmail,isValidConfirmPassword,whiteSpaceChracter,isValidPhoneNumber;
+    NSString *strEmail, *strPhone;
+    BOOL isValidfirstName,isValidLastName,isValidPassword,isValidEmail,isValidConfirmPassword,whiteSpaceChracter,isValidPhoneNumber,isViewUp;
     CGFloat prevYAxisValue;
+    UIToolbar *toolBar,*toolbarText;
+    UITextField *globalTextField;
+    
+    NSMutableArray *arrPlaceHolderValues, *arrCellIcon;
+    
+    IBOutlet UITableView *tblSignUp;
+    
 }
 
 @end
@@ -26,12 +35,29 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    arrPlaceHolderValues = [[NSMutableArray alloc] initWithObjects:@"First Name",@"Last Name",@"Email",@"Phone",@"Password",@"Confirm Password", nil];
+    
+    arrCellIcon = [[NSMutableArray alloc]initWithObjects:@"user_gray_icon.png",@"user_gray_icon.png",@"email_gray_icon.png",@"phone_gray_icon.png",@"Key Icon.png",@"Key Icon.png", nil];
+    
+    toolBar = [[UIToolbar alloc] init];
+    [toolBar sizeToFit];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                                   style:UIBarButtonItemStylePlain target:self
+                                                                  action:@selector(doneClicked:)];
+    [toolBar setItems:[NSArray arrayWithObjects:doneButton, nil]];
+    
+    firstName = @"";
+    lastName = @"";
+    password = @"";
+    strEmail = @"";
+    strPhone = @"";
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
+    /*
     _firstVw.layer.cornerRadius = 4.0f;
     _firstVw.layer.borderWidth = 1.0f;
     _firstVw.layer.borderColor = [UIColor clearColor].CGColor;
@@ -62,6 +88,7 @@
     [_txtMobileNumber addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [_txtPassword addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [_txtConfirmPassword addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+     */
 
 }
 
@@ -70,108 +97,170 @@
     [super viewWillDisappear:animated];
     
     [self.view endEditing:YES];
+    
+    if (isViewUp)
+    {
+        [self viewDown];
+    }
+}
+
+#pragma mark - Table view data source And Delegates
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return arrPlaceHolderValues.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"signUpCell";
+    
+    SignUpTableViewCell *cell = (SignUpTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    cell.txtSignup.placeholder = arrPlaceHolderValues[indexPath.row];
+    cell.txtSignup.tag = indexPath.row;
+    cell.imgViewIcon.image = [UIImage imageNamed:arrCellIcon[indexPath.row]];
+    
+    if (indexPath.row == 0 || indexPath.row == 1)
+    {
+        cell.txtSignup.autocapitalizationType = UITextAutocapitalizationTypeWords;
+    }
+    else
+      cell.txtSignup.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    
+    if (indexPath.row == 2)
+    {
+        cell.txtSignup.keyboardType = UIKeyboardTypeEmailAddress;
+    }
+    else
+        cell.txtSignup.keyboardType = UIKeyboardTypeDefault;
+    
+    if (indexPath.row == 3)
+    {
+        cell.txtSignup.keyboardType = UIKeyboardTypePhonePad;
+        cell.txtSignup.inputAccessoryView = toolBar;
+    }
+    
+    if (indexPath.row == 4 || indexPath.row == 5)
+    {
+        cell.txtSignup.secureTextEntry = YES;
+    }
+    else
+      cell.txtSignup.secureTextEntry = NO;
+    
+    cell.txtSignup.delegate = self;
+    [cell.txtSignup addTarget:self
+                             action:@selector(textFieldDidChange:)
+                   forControlEvents:UIControlEventEditingChanged];
+    
+    return cell;
+    
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
 }
 
 #pragma mark - TextField Delegate
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    if (isViewUp)
+    {
+        [self viewDown];
+    }
+    
     [textField resignFirstResponder];
     return YES;
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    if (textField==_txtPassword) //***Confirm Password
-    {
-        if (self.view.frame.origin.y == prevYAxisValue)
-        {
-            NSLog(@"previous text field y axis value same as now");
-            
-            [UIView beginAnimations:nil context:NULL];
-            [UIView setAnimationDelegate:self];
-            [UIView setAnimationDuration:0.4];
-            [UIView setAnimationBeginsFromCurrentState:YES];
-            prevYAxisValue = (self.view.frame.origin.y - 70);
-            self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y - 70), self.view.frame.size.width, self.view.frame.size.height);
-            [UIView commitAnimations];
-           
-        }
-       
-    }
-    if (textField==_txtConfirmPassword) //***Confirm Password
-    {
-        if (self.view.frame.origin.y == prevYAxisValue)
-        {
-            NSLog(@"previous text field y axis value same as now");
-            [UIView beginAnimations:nil context:NULL];
-            [UIView setAnimationDelegate:self];
-            [UIView setAnimationDuration:0.4];
-            [UIView setAnimationBeginsFromCurrentState:YES];
-            prevYAxisValue = (self.view.frame.origin.y - 60);
-            self.view.frame = CGRectMake(self.view.frame.origin.x, (self.view.frame.origin.y - 60), self.view.frame.size.width, self.view.frame.size.height);
-            [UIView commitAnimations];
+    globalTextField = textField;
+    
+    if (textField.tag == 3 || textField.tag == 4 || textField.tag == 5) {
+        
+        if (isViewUp) {
             
         }
-       
+        else
+            [self viewUp];
     }
+    
 }
 
 - (void)textFieldDidChange:(UITextField *)textField
 {
-    if (textField==_txtFirstName)
+    if (textField.tag == 0)
     {
-        NSString *rawString = [_txtFirstName text];
+        NSString *rawString = [textField text];
         NSCharacterSet *whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
         firstName = [rawString stringByTrimmingCharactersInSet:whitespace];
         
         if (firstName.length>0)
         {
             isValidfirstName=YES;
+            [arrPlaceHolderValues removeObjectAtIndex:textField.tag];
+            [arrPlaceHolderValues insertObject:firstName atIndex:textField.tag];
         }
         else
         {
             isValidfirstName=NO;
-            
+            [arrPlaceHolderValues removeObjectAtIndex:textField.tag];
+            [arrPlaceHolderValues insertObject:@"First Name" atIndex:textField.tag];
         }
         
     }
     
-    if (textField==_txtLastName)
+    if (textField.tag == 1)
     {
-        NSString *rawString = [_txtLastName text];
+        NSString *rawString = [textField text];
         NSCharacterSet *whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
         lastName = [rawString stringByTrimmingCharactersInSet:whitespace];
         
         if (lastName.length>0)
         {
             isValidLastName=YES;
+            [arrPlaceHolderValues removeObjectAtIndex:textField.tag];
+            [arrPlaceHolderValues insertObject:lastName atIndex:textField.tag];
         }
         else
         {
             isValidLastName=NO;
-            
+            [arrPlaceHolderValues removeObjectAtIndex:textField.tag];
+            [arrPlaceHolderValues insertObject:@"Last Name" atIndex:textField.tag];
         }
         
     }
     
-    if (textField==_txtEmailAddress) //***Email
+    if (textField.tag == 2) //***Email
     {
-        if(textField.text.length > 0)
+        strEmail=[textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        
+        if(strEmail.length > 0)
         {
             isValidEmail = [self validateEmail:textField.text];
+            [arrPlaceHolderValues removeObjectAtIndex:textField.tag];
+            [arrPlaceHolderValues insertObject:strEmail atIndex:textField.tag];
         }
         
         else
         {
             isValidEmail = NO;
+            [arrPlaceHolderValues removeObjectAtIndex:textField.tag];
+            [arrPlaceHolderValues insertObject:@"Email" atIndex:textField.tag];
         }
     }
     
-    if (textField== _txtMobileNumber)
+    if (textField.tag == 3)
     {
-        if ([textField.text length]>0)
+        strPhone=[textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        
+        if ([strPhone length]>0)
         {
+            
+            [arrPlaceHolderValues removeObjectAtIndex:textField.tag];
+            [arrPlaceHolderValues insertObject:strPhone atIndex:textField.tag];
+            
 //            if([textField.text length] == 10)
 //            {
 //                isValidPhoneNumber = YES;
@@ -181,11 +270,14 @@
             
         }
         else
-            _txtMobileNumber.text = @"";
+        {
+            [arrPlaceHolderValues removeObjectAtIndex:textField.tag];
+            [arrPlaceHolderValues insertObject:@"Phone" atIndex:textField.tag];
+        }
            // isValidPhoneNumber = NO;
     }
     
-    if (textField==_txtPassword) //***Password
+    if (textField.tag == 4) //***Password
     {
         NSCharacterSet *whitespace = [NSCharacterSet whitespaceCharacterSet];
         
@@ -196,9 +288,9 @@
             {
                 whiteSpaceChracter = NO;
                 
-                for (int i = 0; i < [_txtPassword.text length]; i++)
+                for (int i = 0; i < [textField.text length]; i++)
                 {
-                    unichar c = [_txtPassword.text characterAtIndex:i];
+                    unichar c = [textField.text characterAtIndex:i];
                     if(!whiteSpaceChracter)
                     {
                         whiteSpaceChracter = [whitespace characterIsMember:c];
@@ -208,46 +300,63 @@
                 if (whiteSpaceChracter)
                 {
                     isValidPassword = NO;
-                    
                 }
                 
                 else
                 {
-                    password = _txtPassword.text;
+                    password = textField.text;
                     isValidPassword = YES;
                 }
                 
             }
             else
+            {
                 isValidPassword = NO;
-        }
-        else
-            isValidPassword=NO;
-    }
-    
-    if ([textField.text length]>0)
-    {
-        
-        if ([password isEqualToString: _txtConfirmPassword.text])
-        {
-            isValidConfirmPassword = YES;
+            }
+            
+            [arrPlaceHolderValues removeObjectAtIndex:textField.tag];
+            [arrPlaceHolderValues insertObject:textField.text atIndex:textField.tag];
             
         }
-        
         else
         {
-            isValidConfirmPassword = NO;
+            isValidPassword=NO;
+            [arrPlaceHolderValues removeObjectAtIndex:textField.tag];
+            [arrPlaceHolderValues insertObject:@"Password" atIndex:textField.tag];
         }
         
     }
-
     
+    if (textField.tag == 5) //***Confirm Password
+    {
+        if ([textField.text length]>0)
+        {
+            if ([password isEqualToString: textField.text])
+            {
+                isValidConfirmPassword = YES;
+                [arrPlaceHolderValues removeObjectAtIndex:textField.tag];
+                [arrPlaceHolderValues insertObject:textField.text atIndex:textField.tag];
+            }
+            
+            else
+            {
+                isValidConfirmPassword = NO;
+                [arrPlaceHolderValues removeObjectAtIndex:textField.tag];
+                [arrPlaceHolderValues insertObject:@"Confirm Password" atIndex:textField.tag];
+            }
+            
+        }
+    }
+    
+      NSLog(@"PlaceHolder Array:%@",arrPlaceHolderValues);
+
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
     
-    if (textField==_txtPassword) //***Password
+    /*
+    if (textField==_txtPassword)
     {
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDelegate:self];
@@ -260,7 +369,7 @@
 
     }
     
-    if (textField==_txtConfirmPassword) //***Confirm Password
+    if (textField==_txtConfirmPassword)
     {
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDelegate:self];
@@ -286,30 +395,62 @@
         else
           isValidPhoneNumber = NO;  
     }
+    */
     
 }
 
+-(void)viewUp
+{
+    if (IS_IPHONE_4) {
+        
+        [UIView animateWithDuration:0.5 animations:^{
+            self.view.frame=CGRectMake(self.view.frame.origin.x,-130, self.view.frame.size.width, self.view.frame.size.height);
+            isViewUp=YES;
+        }];
+    }
+    else
+        [UIView animateWithDuration:0.5 animations:^{
+            self.view.frame=CGRectMake(self.view.frame.origin.x,-110, self.view.frame.size.width, self.view.frame.size.height);
+            isViewUp=YES;
+        }];
+    
+}
+
+-(void)viewDown
+{
+    [UIView animateWithDuration:0.5 animations:^{
+        self.view.frame=CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    } completion:^(BOOL finished) {
+        isViewUp=NO;
+    }];
+}
+
 #pragma mark
+
+#pragma mark - Touches Event
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark
 
-/*
-#pragma mark - Navigation
+#pragma mark
+#pragma mark - Toolbar Done Button Action
+#pragma mark
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)doneClicked:(id)sender
+{
+    NSLog(@"Done Clicked.");
+    
+    if (isViewUp)
+    {
+        [self viewDown];
+    }
+    
+    [self.view endEditing:YES];
 }
-*/
 
 #pragma mark - Button Action
 
@@ -375,11 +516,11 @@
         {
             NSMutableDictionary *regDict = [[NSMutableDictionary alloc]init];
             
-            [regDict setObject:_txtFirstName.text forKey:FIRSTNAME];
-            [regDict setObject:_txtLastName.text forKey:LASTNAME];
-            [regDict setObject:_txtPassword.text forKey:PASSWORD];
-            [regDict setObject:_txtEmailAddress.text forKey:EMAIL];
-            [regDict setObject:_txtMobileNumber.text forKey:PHONENUMBER];
+            [regDict setObject:firstName forKey:FIRSTNAME];
+            [regDict setObject:lastName forKey:LASTNAME];
+            [regDict setObject:password forKey:PASSWORD];
+            [regDict setObject:strEmail forKey:EMAIL];
+            [regDict setObject:strPhone forKey:PHONENUMBER];
             
             [superViewController startActivity:self.view];
             
@@ -532,6 +673,23 @@
         [superViewController stopActivity:self.view];
     }];
 }
+
+#pragma mark
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 
 

@@ -78,6 +78,13 @@
 ////*********************////
 
 
+////*******GET PRODUCT SEARCH OPTION FROM SERVER********////
+
+#define PRODUCT_SEARCH_OPTION @"searchKeyword"
+
+////*********************////
+
+
 ////*******GET HISTORY OR LIKE DETAILS FROM SERVER********////
 
 #define GET_HISTORY_OR_LIKE @"historylist"

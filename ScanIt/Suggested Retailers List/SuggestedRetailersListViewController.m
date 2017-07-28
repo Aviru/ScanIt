@@ -228,31 +228,43 @@
 {
     static NSString *cellIdentifier = @"retailersCell";
     
-        cell = (SuggestedRetailersTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    cell = (SuggestedRetailersTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    cell.lblShopName.text = [[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_name"];
+    cell.lblShopAddress.text = [[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_address"];
+    
+    if ([[[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_type"] isEqualToString:@"Premium"] )
+    {
         
-        cell.lblShopName.text = [[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_name"];
-        cell.lblShopAddress.text = [[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_address"];
+        // cell.lblShopType.text = [[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_type"];
         
-        if ([[[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_type"] isEqualToString:@"Premium"] || [[[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_type"] isEqualToString:@"Classic"]) {
-            
-            cell.lblShopType.text = [[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_type"];
-        }
-        else
-            cell.lblShopType.text = @"";
+        cell.imgViewPremiumIcon.hidden = NO;
+    }
+    else if ([[[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_type"] isEqualToString:@"Classic"])
+    {
+        cell.imgViewPremiumIcon.hidden = YES;
+    }
+    
+    else
+    {
+        cell.imgViewPremiumIcon.hidden = YES;
+    }
+    
+    cell.lblShopType.text = @"";
+    
+    if ([[[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_offer"]length] > 0) {
         
-        if ([[[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_offer"]length] > 0) {
-            
-            cell.offersImgVwIcon.hidden = NO;
-        }
-        else
-            cell.offersImgVwIcon.hidden = YES;
-        
-        cell.lblPhoneNumber.text = [@"Call: " stringByAppendingString:[[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_phone_number"]];
-        
-        [cell.callUsBtnOutlet addTarget:self action:@selector(callUsBtnTap:)  forControlEvents:UIControlEventTouchUpInside];
-        
-        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-  
+        cell.offersImgVwIcon.hidden = NO;
+    }
+    else
+        cell.offersImgVwIcon.hidden = YES;
+    
+    cell.lblPhoneNumber.text = [@"Call: " stringByAppendingString:[[arrRetailersList objectAtIndex:indexPath.row] objectForKey:@"shop_phone_number"]];
+    
+    [cell.callUsBtnOutlet addTarget:self action:@selector(callUsBtnTap:)  forControlEvents:UIControlEventTouchUpInside];
+    
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
     
     return cell;
 }

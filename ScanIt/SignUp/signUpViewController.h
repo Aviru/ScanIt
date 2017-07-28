@@ -31,5 +31,7 @@
 
 - (IBAction)backToHomeAction:(id)sender;
 
+-(void) keyboardWillHide:(NSNotification *)note;
+-(void) keyboardWillShow:(NSNotification *)note;
 
 @end

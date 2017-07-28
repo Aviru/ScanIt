@@ -14,5 +14,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *lblLikedProductName;
 
+@property (strong, nonatomic) IBOutlet UIView *VwBg;
+
+@property (strong, nonatomic) IBOutlet UILabel *lblDate;
 
 @end
