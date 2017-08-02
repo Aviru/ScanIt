@@ -9,13 +9,13 @@
 #ifndef ScanIt_Constant_h
 #define ScanIt_Constant_h
 
-#define BASEURL @"http://scanit.in/wslogincontroller/"
+//#define BASEURL @"http://scanit.in/wslogincontroller/"
 
-//#define BASEURL @"http://thelolstories.com/scanit/wslogincontroller/"
+#define BASEURL @"http://thelolstories.com/scanit/wslogincontroller/"
 
-#define BASEURL_FOR_SUGGESTEDRETAIL_AND_PURCHASELIST @"http://scanit.in/wscontroller/"
+//#define BASEURL_FOR_SUGGESTEDRETAIL_AND_PURCHASELIST @"http://scanit.in/wscontroller/"
 
-//#define BASEURL_FOR_SUGGESTEDRETAIL_AND_PURCHASELIST @"http://thelolstories.com/scanit/wscontroller/"
+#define BASEURL_FOR_SUGGESTEDRETAIL_AND_PURCHASELIST @"http://thelolstories.com/scanit/wscontroller/"
 
 #define FLIPKART_AFFILIATE_LINK @"https://affiliate-api.flipkart.net/affiliate/search/json?"
 

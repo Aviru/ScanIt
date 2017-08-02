@@ -136,8 +136,16 @@
         
         if ([[jsonResponseDict objectForKey:@"status"] integerValue]==1)
         {
-            NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
-            [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+            //NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+           // [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+            
+            [self RemoveUserDefaultValueForKey:REGISTRATIONTYPE];
+            [self RemoveUserDefaultValueForKey:FIRSTNAME];
+            [self RemoveUserDefaultValueForKey:LASTNAME];
+            [self RemoveUserDefaultValueForKey:EMAIL];
+            [self RemoveUserDefaultValueForKey:USERID];
+            [self RemoveUserDefaultValueForKey:PHONENUMBER];
+            [self RemoveUserDefaultValueForKey:PROFILEIMAGE];
             
              [self setUserDefaultValue:@"NO" ForKey:ISLOGGEDIN];
             

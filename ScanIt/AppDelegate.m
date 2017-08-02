@@ -137,7 +137,6 @@
         NSLog(@"a push notification when the app is running.");
     }
     
-    
 }
 
 

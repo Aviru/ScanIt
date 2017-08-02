@@ -105,22 +105,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ScanIt/AppDelegate.m"
-            timestampString = "503767123.450658"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "-application:didReceiveRemoteNotification:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "ScanIt/Suggested Retailer Details/SuggestedRetailerDetailsViewController.m"
             timestampString = "517769964.825034"
             startingColumnNumber = "9223372036854775807"
@@ -186,7 +170,7 @@
                   moduleName = "ScanIt"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/avirubhattacharjee/Desktop/DOCUMENTS/Files/My%20Projects%20and%20programs/Completed%20Projects/SCAN%20IT/SCAN%20IT%20New%20Design/2017-05-27/ScanIt/Suggested%20Retailer%20Details/SuggestedRetailerDetailsViewController.m"
-                  timestampString = "520635237.111025"
+                  timestampString = "523392977.589703"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "117"
@@ -201,7 +185,7 @@
                   moduleName = "ScanIt"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/avirubhattacharjee/Desktop/DOCUMENTS/Files/My%20Projects%20and%20programs/Completed%20Projects/SCAN%20IT/SCAN%20IT%20New%20Design/2017-05-27/ScanIt/Suggested%20Retailer%20Details/SuggestedRetailerDetailsViewController.m"
-                  timestampString = "520635237.112959"
+                  timestampString = "523392977.591015"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "119"

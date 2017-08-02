@@ -82,14 +82,12 @@
                                     {
                                         // Process error
                                         [self RemoveUserDefaultValueForKey:USERID];
-                                        [self setUserDefaultValue:@"Yes" ForKey:@"AnimStop"];
                                         [superViewController stopActivity:self.view];
                                     }
                                     else if (result.isCancelled)
                                     {
                                         // Handle cancellations
                                         [self RemoveUserDefaultValueForKey:USERID];
-                                        [self setUserDefaultValue:@"Yes" ForKey:@"AnimStop"];
                                         [superViewController stopActivity:self.view];
                                     }
                                     else
@@ -101,7 +99,6 @@
                                             // Do work
                                             
                                         }
-                                        [self setUserDefaultValue:@"Yes" ForKey:@"AnimStop"];
                                     }
                                 }];
     }
@@ -368,7 +365,7 @@
 {
     NSMutableDictionary *devideTokenDict = [[NSMutableDictionary alloc] init];
     
-    NSLog(@"crash in addDeviceToken in login:%@",USERID);
+   // NSLog(@"crash in addDeviceToken in login:%@",USERID);
     
     
     [devideTokenDict setObject:[self getUserDefaultValueForKey:USERID] forKey:USERID];
