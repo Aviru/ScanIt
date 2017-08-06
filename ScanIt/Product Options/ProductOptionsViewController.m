@@ -881,7 +881,10 @@
 {
     for (txtVwSearchField in txtVwSearchFieldCollection) {
         
-        txtVwSearchField.text = @"";
+        if ([txtVwSearchField.text isEqualToString:@"Enter Keywords"]) {
+            
+            txtVwSearchField.text = @"";
+        }
     }
     
     return YES;
@@ -926,7 +929,7 @@
 -(void) textViewDidChange:(UITextView *)textView
 {
     for (txtVwSearchField in txtVwSearchFieldCollection) {
-        
+    
         if(txtVwSearchField.text.length == 0)
         {
             txtVwSearchField.text = @"Enter Keywords";
@@ -966,6 +969,7 @@
                 }
             }
         }
+        
     }
 }
 
@@ -1045,6 +1049,7 @@
         }
     }
 }
+
 
 #pragma mark - Button Action
 

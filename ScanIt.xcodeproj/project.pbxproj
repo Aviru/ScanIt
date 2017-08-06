@@ -1394,8 +1394,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Vishrut Jhawar (87X5LZZ779)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vishrut Jhawar (87X5LZZ779)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vishrut Jhawar (TXW46GXS4T)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vishrut Jhawar (TXW46GXS4T)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 87X5LZZ779;
@@ -1421,7 +1421,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "40eb3c50-4b49-4f6b-baf7-c00a62590c8c";
+				PROVISIONING_PROFILE = "a1dd8a7a-84ab-401e-9f76-372038bb9e01";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1444,8 +1444,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Vishrut Jhawar (87X5LZZ779)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vishrut Jhawar (87X5LZZ779)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vishrut Jhawar (TXW46GXS4T)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vishrut Jhawar (TXW46GXS4T)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 87X5LZZ779;
@@ -1464,7 +1464,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "40eb3c50-4b49-4f6b-baf7-c00a62590c8c";
+				PROVISIONING_PROFILE = "a1dd8a7a-84ab-401e-9f76-372038bb9e01";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1477,8 +1477,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ScanIt/ScanIt.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Vishrut Jhawar (87X5LZZ779)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vishrut Jhawar (87X5LZZ779)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vishrut Jhawar (TXW46GXS4T)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vishrut Jhawar (TXW46GXS4T)";
 				DEVELOPMENT_TEAM = 87X5LZZ779;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1492,8 +1492,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ScanItApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "40eb3c50-4b49-4f6b-baf7-c00a62590c8c";
-				PROVISIONING_PROFILE_SPECIFIER = ScanIt_Dist_Prov;
+				PROVISIONING_PROFILE = "a1dd8a7a-84ab-401e-9f76-372038bb9e01";
+				PROVISIONING_PROFILE_SPECIFIER = ScanIt_Dev_Prov;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1504,9 +1504,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ScanIt/ScanIt.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Vishrut Jhawar (87X5LZZ779)";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Vishrut Jhawar (87X5LZZ779)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vishrut Jhawar (87X5LZZ779)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vishrut Jhawar (TXW46GXS4T)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Vishrut Jhawar (TXW46GXS4T)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vishrut Jhawar (TXW46GXS4T)";
 				DEVELOPMENT_TEAM = 87X5LZZ779;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1520,8 +1520,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ScanItApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "40eb3c50-4b49-4f6b-baf7-c00a62590c8c";
-				PROVISIONING_PROFILE_SPECIFIER = ScanIt_Dist_Prov;
+				PROVISIONING_PROFILE = "a1dd8a7a-84ab-401e-9f76-372038bb9e01";
+				PROVISIONING_PROFILE_SPECIFIER = ScanIt_Dev_Prov;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -367,7 +367,6 @@
     
    // NSLog(@"crash in addDeviceToken in login:%@",USERID);
     
-    
     [devideTokenDict setObject:[self getUserDefaultValueForKey:USERID] forKey:USERID];
     [devideTokenDict setObject:@"Iphone" forKey:@"deviceType"];
     [devideTokenDict setObject:[self getUserDefaultValueForKey:IMEI] forKey:IMEI]; //2847D1F5-5BEF-4A0C-8274-4CAE75B52B1D
