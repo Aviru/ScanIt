@@ -128,6 +128,14 @@
 
 
 
+////*******Track URL********////
+
+#define TRACK_URL @"trackUrl"
+
+////*********************////
+
+
+
 #pragma mark- Screen And Version ➡️ ➡️
 
 #define hRatio [UIScreen mainScreen].bounds.size.height / 568

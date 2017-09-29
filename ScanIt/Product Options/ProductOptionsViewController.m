@@ -435,7 +435,7 @@
     
 }
 
-#pragma mark - Imform Sever for History Or Like
+#pragma mark - Inform Sever for History Or Like
 
 -(void)callInformServerForHistoryOrLikeListing:(BOOL)isLikeOrHistory
 {
@@ -532,8 +532,9 @@
 }
 
 #pragma mark
-#pragma mark New Product Serach Option Web Service
+#pragma mark New Product Search Option Web Service
 #pragma mark
+
 -(void)getProductSearchOptions
 {
     NSError *error=nil;
@@ -739,24 +740,14 @@
         else
         {
             NSString *strSearch = arrProductSearchOptions[indexPath.row][@"website"];
-            NSString *str;
-            if ([strSearch rangeOfString:@"q=#1234567#"
-                                 options:NSCaseInsensitiveSearch].location != NSNotFound)
-            {
-                NSLog(@"found the q=#1234567#");
-                NSString *strReplace = [NSString stringWithFormat:@"q=%@",_productName];
-                str = [strSearch stringByReplacingOccurrencesOfString:@"q=#1234567#"
-                                                           withString:strReplace];
-            }
-            else
-                str = strSearch;
             
-            SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:[str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-            [self.navigationController pushViewController:webViewController animated:YES];
-        }       
+            [superViewController startActivity:self.view];
+            
+            [self callTrackUrlWebService:arrProductSearchOptions[indexPath.row][@"UrlID"] searchStr:strSearch];
+            
+        }
         
     }
-    
     
 }
 
@@ -874,6 +865,79 @@
 }
 
  */
+
+#pragma mark
+#pragma mark Track Url Web Service
+#pragma mark
+
+-(void)callTrackUrlWebService : (NSString *)urlId searchStr : (NSString *)strSearch
+{
+    NSError *error=nil;
+    
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
+    [dict setObject:[self getUserDefaultValueForKey:USERID] forKey:@"UserID"];
+    [dict setObject:urlId forKey:@"UrlID"];
+    
+    NSData *jsonRequestDict= [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&error];
+    
+    NSString *URL=[BASEURL_FOR_SUGGESTEDRETAIL_AND_PURCHASELIST stringByAppendingString:TRACK_URL];
+    NSLog(@"TRACK_URL:%@",URL);
+    
+    NSString *jsonCommand=[[NSString alloc] initWithData:jsonRequestDict encoding:NSUTF8StringEncoding];
+    NSLog(@"***jsonCommand***%@",jsonCommand);
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:jsonCommand,@"requestParam", nil];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    [manager POST:URL parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error=nil;
+        NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSLog(@"Request Successful, response '%@'", responseStr);
+        NSMutableDictionary *jsonResponseDict= [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+        NSLog(@"Response Dictionary:: %@",jsonResponseDict);
+        
+        [superViewController stopActivity:self.view];
+        if ([[jsonResponseDict objectForKey:@"status"] integerValue]==1)
+        {
+            
+            NSString *str;
+            if ([strSearch rangeOfString:@"q=#1234567#"
+                                 options:NSCaseInsensitiveSearch].location != NSNotFound)
+            {
+                NSLog(@"found the q=#1234567#");
+                NSString *strReplace = [NSString stringWithFormat:@"q=%@",_productName];
+                str = [strSearch stringByReplacingOccurrencesOfString:@"q=#1234567#"
+                                                           withString:strReplace];
+            }
+            else
+                str = strSearch;
+            
+            SVWebViewController *webViewController = [[SVWebViewController alloc] initWithAddress:[str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+            [self.navigationController pushViewController:webViewController animated:YES];
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:[jsonResponseDict objectForKey:@"message"]
+                                                           delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            NSLog(@"Error: %@", error);
+        }
+    }
+          failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         [superViewController stopActivity:self.view];
+         
+         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"please check your network connection"
+                                                        delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+         [alert show];
+         NSLog(@"Error: %@", error);
+     }];
+}
+
  
 #pragma mark - Text View Delegate
 

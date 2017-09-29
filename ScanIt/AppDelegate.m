@@ -26,14 +26,14 @@
     
     if([[[NSUserDefaults standardUserDefaults] objectForKey:ISLOGGEDIN] isEqualToString:@"YES"])
     {
-            _storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            UIViewController *initViewController = [_storyboard instantiateViewControllerWithIdentifier:@"SWRevealViewController"];
-            self.nav = [[UINavigationController alloc]initWithRootViewController:initViewController];
+        _storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *initViewController = [_storyboard instantiateViewControllerWithIdentifier:@"SWRevealViewController"];
+        self.nav = [[UINavigationController alloc]initWithRootViewController:initViewController];
         
-           //  self.nav.navigationItem.hidesBackButton = YES;
+        //  self.nav.navigationItem.hidesBackButton = YES;
         self.nav.navigationBar.hidden = YES;
         
-           [self.window setRootViewController:self.nav];
+        [self.window setRootViewController:self.nav];
     }
     
     
